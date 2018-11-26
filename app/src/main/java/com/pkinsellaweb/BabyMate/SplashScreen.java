@@ -20,7 +20,7 @@ public class SplashScreen extends AppCompatActivity {
                  .withFullScreen()
                  .withTargetActivity(MainActivity.class)
                  .withSplashTimeOut(5000)
-                 .withBackgroundColor(Color.parseColor("#5f93e8"))
+                 .withBackgroundColor(Color.parseColor("#F88012"))
                  .withLogo(R.drawable.splashlogo)
                  .withHeaderText("Baby Mate")
                  .withFooterText("Copyright pkinsellaweb.com 2018")

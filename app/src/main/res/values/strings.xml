@@ -7,5 +7,7 @@
     <string name="system_settings">System-Settings</string>
     <string name="user_profile">User-Profile</string>
     <string name="todo">TODO</string>
+    <string name="fan_on_off">Fan On/Off</string>
+    <string name="current_temp_22c">Current Temp: 22c</string>
 
 </resources>

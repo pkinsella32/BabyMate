@@ -24,7 +24,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void stratOnClick(View v){
-        Intent myIntent = new Intent(getBaseContext(),   Strat.class);
+        Intent myIntent = new Intent(getBaseContext(),   ViewTemp.class);
         startActivity(myIntent);
     }
 
