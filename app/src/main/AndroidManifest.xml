@@ -22,7 +22,8 @@
         <activity android:name=".Strat" />
         <activity android:name=".MMD" />
         <activity android:name=".MainActivity" />
-        <activity android:name=".VideoScreen"></activity>
+        <activity android:name=".VideoScreen" />
+        <activity android:name=".ViewTemp"></activity>
     </application>
 
 </manifest>
