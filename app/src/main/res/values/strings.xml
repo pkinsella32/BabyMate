@@ -1,0 +1,11 @@
+<resources>
+    <string name="app_name">Subjects</string>
+    <string name="view_live_video_feed">View/Live Video Feed</string>
+    <string name="view_adjust_temperature">View/Adjust Temperature</string>
+    <string name="system_notifications">System Notifications</string>
+    <string name="play_melodys_voice">Play Melodys/Voice</string>
+    <string name="system_settings">System-Settings</string>
+    <string name="user_profile">User-Profile</string>
+    <string name="todo">TODO</string>
+
+</resources>

@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    package="com.pkinsellaweb.BabyMate">
+
+    <application
+        android:allowBackup="true"
+        android:icon="@drawable/launchlogo"
+        android:label="BabyMate"
+        android:roundIcon="@mipmap/ic_launcher_round"
+        android:supportsRtl="true"
+        android:theme="@style/AppTheme"
+        tools:replace="android:label">
+        <activity android:name=".SplashScreen">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity android:name=".AI" />
+        <activity android:name=".Strat" />
+        <activity android:name=".MMD" />
+        <activity android:name=".MainActivity" />
+        <activity android:name=".VideoScreen"></activity>
+    </application>
+
+</manifest>
