@@ -9,5 +9,7 @@
     <string name="todo">TODO</string>
     <string name="fan_on_off">Fan On/Off</string>
     <string name="current_temp_22c">Current Temp: 22c</string>
+    <string name="warmer">Warmer</string>
+    <string name="colder">Colder</string>
 
 </resources>

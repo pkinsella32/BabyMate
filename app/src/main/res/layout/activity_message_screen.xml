@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:weightSum="8"
+    tools:context=".MainActivity"
+    android:background="@drawable/orangebackground">
+
+    <LinearLayout
+        android:orientation="vertical"
+        android:weightSum="12"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <ImageView
+            android:layout_width="350dp"
+            android:layout_height="250dp"
+            android:layout_gravity="center_horizontal"
+            android:src="@drawable/logo"
+            android:contentDescription="@string/todo"
+            />
+
+        <TextView
+            android:id="@+id/text1"
+            android:layout_marginStart="15dp"
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:text="Room Temperature above 20c"
+            android:gravity="start"
+            android:textAlignment="gravity"
+            android:textSize="18sp"
+            android:textStyle="bold"
+            />
+
+
+        <TextView
+            android:id="@+id/text2"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginStart="15dp"
+            android:fontFamily="sans-serif"
+            android:gravity="start"
+            android:text="Noise Levels are High"
+            android:textAlignment="gravity"
+            android:textSize="18sp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/text3"
+            android:layout_marginStart="15dp"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:text="Baby is Moving"
+            android:gravity="start"
+            android:textAlignment="gravity"
+            android:textSize="22sp"
+            android:textStyle="bold"
+            />
+
+        <TextView
+            android:id="@+id/text4"
+            android:layout_marginStart="15dp"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:text="Baby is Crying"
+            android:gravity="start"
+            android:textAlignment="gravity"
+            android:textSize="22sp"
+            android:textStyle="bold"
+            />
+
+        <TextView
+            android:id="@+id/text5"
+            android:layout_marginStart="15dp"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:text="System Message 5"
+            android:gravity="start"
+            android:textAlignment="gravity"
+            android:textSize="22sp"
+            android:textStyle="bold"
+            />
+
+        <TextView
+            android:id="@+id/text6"
+            android:layout_marginStart="15dp"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:text="Light Levels Increased"
+            android:gravity="start"
+            android:textAlignment="gravity"
+            android:textSize="22sp"
+            android:textStyle="bold"
+            />
+
+
+
+
+
+
+    </LinearLayout>
+
+
+
+
+</ScrollView>

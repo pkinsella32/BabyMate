@@ -29,7 +29,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void mmdOnClick(View v){
-        Intent myIntent = new Intent(getBaseContext(),   MMD.class);
+        Intent myIntent = new Intent(getBaseContext(),   MessageScreen.class);
         startActivity(myIntent);
     }
 }

@@ -29,32 +29,33 @@
     android:layout_width="match_parent"
     android:layout_height="120dp"
     android:text="@string/current_temp_22c"
-    android:gravity="left"
+    android:gravity="start"
     android:textAlignment="gravity"
     android:textSize="34sp"
     android:textStyle="bold"
     android:drawableEnd="@drawable/weather"/>
 
 
-    <TextView
-        android:id="@+id/text2"
-        android:layout_marginStart="15dp"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:text="@string/fan_on_off"
-        android:gravity="left"
-        android:textAlignment="gravity"
-        android:textSize="34sp"
-        android:textStyle="bold"
-        android:drawableEnd="@drawable/on"/>
+        <TextView
+            android:id="@+id/text2"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginStart="15dp"
+            android:drawableEnd="@drawable/on"
+            android:fontFamily="sans-serif"
+            android:gravity="start"
+            android:text="@string/fan_on_off"
+            android:textAlignment="gravity"
+            android:textSize="34sp"
+            android:textStyle="bold" />
 
     <TextView
         android:id="@+id/text3"
         android:layout_marginStart="15dp"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:text="Warmer"
-        android:gravity="left"
+        android:text="@string/warmer"
+        android:gravity="start"
         android:textAlignment="gravity"
         android:textSize="34sp"
         android:textStyle="bold"
@@ -65,8 +66,8 @@
             android:layout_marginStart="15dp"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:text="Colder"
-            android:gravity="left"
+            android:text="@string/colder"
+            android:gravity="start"
             android:textAlignment="gravity"
             android:textSize="34sp"
             android:textStyle="bold"
