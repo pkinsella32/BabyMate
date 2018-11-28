@@ -33,9 +33,25 @@ public class Temp extends AppCompatActivity {
         DatabaseReference myRefTemp = database.getReference("Temp");
         DatabaseReference myRefHumid = database.getReference("Humid");
 
-       myRefTemp.setValue("22");
-       myRefHumid.setValue("30");
+       //myRefTemp.setValue("20");
+       //myRefHumid.setValue("30");
         // Read from the database
+
+        myRefHumid.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(DataSnapshot dataSnapshot) {
+                String value2 = dataSnapshot.getValue(String.class);
+                mTemp.add("Room Humidity is: " + value2);
+                arrayAdapter.notifyDataSetChanged();
+                Log.d("TAG", "Value is: " + value2);
+            }
+
+            @Override
+            public void onCancelled(DatabaseError error) {
+                // Failed to read value
+                Log.w("TAG", "Failed to read value.", error.toException());
+            }
+        });
         myRefTemp.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
@@ -43,7 +59,20 @@ public class Temp extends AppCompatActivity {
                 mTemp.add("Room Temperature is: " +value+"c");
                 arrayAdapter.notifyDataSetChanged();
                 Log.d("TAG", "Value is: " + value);
-                
+
+                if(Integer.parseInt(value) < 15){
+                    mTemp.add("The room is currently very cold " +value+"c"+ " Consider turning up the heat.");
+                }
+                else if(Integer.parseInt(value) < 18){
+                    mTemp.add("The room is currently chilly " +value+"c");
+                }
+
+                else if(Integer.parseInt(value) > 22){
+                    mTemp.add("The room is currently to warm " +value+"c"+" Turn on the fan!");
+                }
+                else{
+                    mTemp.add("The room is at a comfortable temperature");
+                }
             }
 
             @Override
@@ -53,20 +82,6 @@ public class Temp extends AppCompatActivity {
             }
         });
 
-        myRefHumid.addValueEventListener(new ValueEventListener() {
-            @Override
-            public void onDataChange(DataSnapshot dataSnapshot) {
-                 String value2 = dataSnapshot.getValue(String.class);
-                 mTemp.add("Room Humidity is: " + value2);
-                 arrayAdapter.notifyDataSetChanged();
-                 Log.d("TAG", "Value is: " + value2);
-            }
 
-            @Override
-            public void onCancelled(DatabaseError error) {
-                // Failed to read value
-                Log.w("TAG", "Failed to read value.", error.toException());
-            }
-        });
     }
 }
