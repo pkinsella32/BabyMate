@@ -15,7 +15,7 @@ public class VideoScreen extends AppCompatActivity {
 
         VideoView video = (VideoView) findViewById(R.id.videoView);
 
-        Uri videoPath = Uri.parse("android.resource://" + getPackageName() + "/" + R.raw.test);
+        Uri videoPath = Uri.parse("android.resource://" + getPackageName() + "/" + R.raw.baby);
         video.setVideoURI(videoPath);
 
         MediaController mediaController = new

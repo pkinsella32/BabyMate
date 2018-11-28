@@ -40,10 +40,10 @@ public class Temp extends AppCompatActivity {
         myRefHumid.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
-                String value2 = dataSnapshot.getValue(String.class);
-                mTemp.add("Room Humidity is: " + value2);
+                String value1 = dataSnapshot.getValue(String.class);
+                mTemp.add("Room Humidity is: " + value1);
                 arrayAdapter.notifyDataSetChanged();
-                Log.d("TAG", "Value is: " + value2);
+                Log.d("TAG", "Value is: " + value1);
             }
 
             @Override
@@ -55,20 +55,20 @@ public class Temp extends AppCompatActivity {
         myRefTemp.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
-                String value = dataSnapshot.getValue(String.class);
-                mTemp.add("Room Temperature is: " +value+"c");
+                String value2 = dataSnapshot.getValue(String.class);
+                mTemp.add("Room Temperature is: " +value2+"c");
                 arrayAdapter.notifyDataSetChanged();
-                Log.d("TAG", "Value is: " + value);
+                Log.d("TAG", "Value is: " + value2);
 
-                if(Integer.parseInt(value) < 15){
-                    mTemp.add("The room is currently very cold " +value+"c"+ " Consider turning up the heat.");
+                if(Integer.parseInt(value2) < 15){
+                    mTemp.add("The room is currently very cold " +value2+"c"+ " Consider turning up the heat.");
                 }
-                else if(Integer.parseInt(value) < 18){
-                    mTemp.add("The room is currently chilly " +value+"c");
+                else if(Integer.parseInt(value2) < 18){
+                    mTemp.add("The room is currently chilly " +value2+"c");
                 }
 
-                else if(Integer.parseInt(value) > 22){
-                    mTemp.add("The room is currently to warm " +value+"c"+" Turn on the fan!");
+                else if(Integer.parseInt(value2) > 22){
+                    mTemp.add("The room is currently to warm " +value2+"c"+" Turn on the fan!");
                 }
                 else{
                     mTemp.add("The room is at a comfortable temperature");
