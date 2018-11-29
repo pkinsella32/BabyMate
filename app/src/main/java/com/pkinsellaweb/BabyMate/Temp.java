@@ -25,6 +25,7 @@ public class Temp extends AppCompatActivity {
 
         mListView = (ListView) findViewById(R.id.tempList);
 
+
         final ArrayAdapter<String> arrayAdapter = new ArrayAdapter<String>(this,android.R.layout.simple_list_item_1,mTemp);
         mListView.setAdapter(arrayAdapter);
 
