@@ -25,7 +25,8 @@
         <activity android:name=".VideoScreen" />
         <activity android:name=".ViewTemp" />
         <activity android:name=".MessageScreen" />
-        <activity android:name=".Temp"></activity>
+        <activity android:name=".Temp" />
+        <activity android:name=".Message"></activity>
     </application>
 
 </manifest>
