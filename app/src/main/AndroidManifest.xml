@@ -25,8 +25,14 @@
         <activity android:name=".VideoScreen" />
         <activity android:name=".ViewTemp" />
         <activity android:name=".MessageScreen" />
-        <activity android:name=".Temp" />
-        <activity android:name=".Message"></activity>
+        <activity android:name=".Temp"
+                  android:parentActivityName=".MainActivity"
+                  android:label="Temperature"/>
+        <activity android:name=".Message"
+                  android:parentActivityName=".MainActivity"
+                  android:label="System Messages">
+
+        </activity>
     </application>
 
 </manifest>
