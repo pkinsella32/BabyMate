@@ -1,5 +1,6 @@
 package com.pkinsellaweb.BabyMate;
 
+import android.support.v4.widget.SwipeRefreshLayout;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
@@ -23,6 +24,8 @@ public class Temp extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_temp);
 
+
+
         mListView = (ListView) findViewById(R.id.tempList);
 
 
@@ -34,8 +37,8 @@ public class Temp extends AppCompatActivity {
         DatabaseReference myRefTemp = database.getReference("Temp");
         DatabaseReference myRefHumid = database.getReference("Humid");
 
-       //myRefTemp.setValue("20");
-       //myRefHumid.setValue("30");
+       myRefTemp.setValue("25");
+       myRefHumid.setValue("36");
         // Read from the database
 
         myRefHumid.addValueEventListener(new ValueEventListener() {

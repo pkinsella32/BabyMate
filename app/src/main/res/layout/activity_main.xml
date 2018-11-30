@@ -26,9 +26,9 @@
             android:layout_width="400dp"
             android:layout_height="250dp"
             android:layout_gravity="center_horizontal"
-            android:src="@drawable/logo"
             android:contentDescription="@string/todo"
-            />
+            android:paddingTop="5dp"
+            android:src="@drawable/logo" />
 
     </RelativeLayout>
 

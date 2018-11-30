@@ -22,7 +22,8 @@
         <activity android:name=".Strat" />
         <activity android:name=".MMD" />
         <activity android:name=".MainActivity" />
-        <activity android:name=".VideoScreen" />
+        <activity android:name=".VideoScreen"
+                  android:screenOrientation="landscape"/>
         <activity android:name=".ViewTemp" />
         <activity android:name=".MessageScreen" />
         <activity android:name=".Temp"
