@@ -1,5 +1,6 @@
 package com.pkinsellaweb.BabyMate;
 
+import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
@@ -12,7 +13,11 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
+import java.sql.Time;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Calendar;
+import java.util.Date;
 
 public class Message extends AppCompatActivity {
     private ArrayList<String> mMessage = new ArrayList<>();
@@ -23,6 +28,8 @@ public class Message extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_message);
 
+
+
         messageListView = (ListView) findViewById(R.id.messageList);
         final ArrayAdapter<String> arrayAdapter = new ArrayAdapter<String>(this,android.R.layout.simple_list_item_1,mMessage);
         messageListView.setAdapter(arrayAdapter);
@@ -32,15 +39,36 @@ public class Message extends AppCompatActivity {
         DatabaseReference myRefHumid = database.getReference("Humid");
         DatabaseReference myRefSound = database.getReference("Sound");
         DatabaseReference myRefLight = database.getReference("Light");
+        DatabaseReference myRefMovement = database.getReference("Movement");
 
         myRefSound.setValue("225");
         myRefLight.setValue("450");
+        myRefMovement.setValue("25");
+
+        myRefMovement.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+
+                String mydate = java.text.DateFormat.getDateTimeInstance().format(Calendar.getInstance().getTime());
+                String movementValue  = dataSnapshot.getValue(String.class);
+                arrayAdapter.notifyDataSetChanged();
+                if(Integer.parseInt(movementValue) > 20){
+                    mMessage.add("The Baby is Moving:  " + " - "+mydate);
+                }
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError databaseError) {
+                Log.w("TAG", "Failed to read value");
+            }
+        });
 
       myRefHumid.addValueEventListener(new ValueEventListener() {
           @Override
           public void onDataChange(DataSnapshot dataSnapshot) {
+              String mydate = java.text.DateFormat.getDateTimeInstance().format(Calendar.getInstance().getTime());
               String humidValue = dataSnapshot.getValue(String.class);
-              mMessage.add("Room Humidity is:" + humidValue);
+              mMessage.add("Room Humidity is: " + humidValue  + " - "+mydate);
               arrayAdapter.notifyDataSetChanged();
           }
 
@@ -53,8 +81,9 @@ public class Message extends AppCompatActivity {
       myRefTemp.addValueEventListener(new ValueEventListener() {
           @Override
           public void onDataChange(DataSnapshot dataSnapshot) {
+              String mydate = java.text.DateFormat.getDateTimeInstance().format(Calendar.getInstance().getTime());
               String tempValue = dataSnapshot.getValue(String.class);
-              mMessage.add("Room Temperature is:" + tempValue+"c");
+              mMessage.add("Room Temp is: " + tempValue+"c" +  " - "+mydate);
               arrayAdapter.notifyDataSetChanged();
               if(Integer.parseInt(tempValue) >= 20){
                   mMessage.add("The Room is to Warm");
@@ -70,8 +99,10 @@ public class Message extends AppCompatActivity {
       myRefLight.addValueEventListener(new ValueEventListener() {
           @Override
           public void onDataChange(DataSnapshot dataSnapshot) {
+              String mydate = java.text.DateFormat.getDateTimeInstance().format(Calendar.getInstance().getTime());
+
               String lightValue = dataSnapshot.getValue(String.class);
-              mMessage.add("The Room Light Levels are:" + lightValue);
+              mMessage.add("The Room Light Levels are:" + lightValue  +  " - "+mydate);
               arrayAdapter.notifyDataSetChanged();
 
               if(Integer.parseInt(lightValue) > 200){
@@ -89,8 +120,9 @@ public class Message extends AppCompatActivity {
       myRefSound.addValueEventListener(new ValueEventListener() {
           @Override
           public void onDataChange(DataSnapshot dataSnapshot) {
+              String mydate = java.text.DateFormat.getDateTimeInstance().format(Calendar.getInstance().getTime());
               String soundValue = dataSnapshot.getValue(String.class);
-              mMessage.add("The Room Sound Levels are:" + soundValue);
+              mMessage.add("The Room Sound Levels are:" + soundValue +  " - "+mydate);
               arrayAdapter.notifyDataSetChanged();
           }
 
