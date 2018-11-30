@@ -53,7 +53,7 @@ public class Message extends AppCompatActivity {
                 String movementValue  = dataSnapshot.getValue(String.class);
                 arrayAdapter.notifyDataSetChanged();
                 if(Integer.parseInt(movementValue) > 20){
-                    mMessage.add("The Baby is Moving:  " + " - "+mydate);
+                    mMessage.add("The Baby is Moving:  " + " - " + " \n" +mydate);
                 }
             }
 
@@ -68,7 +68,7 @@ public class Message extends AppCompatActivity {
           public void onDataChange(DataSnapshot dataSnapshot) {
               String mydate = java.text.DateFormat.getDateTimeInstance().format(Calendar.getInstance().getTime());
               String humidValue = dataSnapshot.getValue(String.class);
-              mMessage.add("Room Humidity is: " + humidValue  + " - "+mydate);
+              mMessage.add("Room Humidity is: " + humidValue  + " - " + " \n" +mydate);
               arrayAdapter.notifyDataSetChanged();
           }
 
@@ -83,7 +83,7 @@ public class Message extends AppCompatActivity {
           public void onDataChange(DataSnapshot dataSnapshot) {
               String mydate = java.text.DateFormat.getDateTimeInstance().format(Calendar.getInstance().getTime());
               String tempValue = dataSnapshot.getValue(String.class);
-              mMessage.add("Room Temp is: " + tempValue+"c" +  " - "+mydate);
+              mMessage.add("Room Temp is: " + tempValue+"c" +  " - " + " \n" +mydate);
               arrayAdapter.notifyDataSetChanged();
               if(Integer.parseInt(tempValue) >= 20){
                   mMessage.add("The Room is to Warm");
@@ -102,7 +102,7 @@ public class Message extends AppCompatActivity {
               String mydate = java.text.DateFormat.getDateTimeInstance().format(Calendar.getInstance().getTime());
 
               String lightValue = dataSnapshot.getValue(String.class);
-              mMessage.add("The Room Light Levels are:" + lightValue  +  " - "+mydate);
+              mMessage.add("The Room Light Levels are:" + lightValue  + " \n" + " - "+mydate);
               arrayAdapter.notifyDataSetChanged();
 
               if(Integer.parseInt(lightValue) > 200){
