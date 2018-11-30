@@ -1,0 +1,55 @@
+{
+  "project_info": {
+    "project_number": "891714926032",
+    "firebase_url": "https://raspberrypi-c9c99.firebaseio.com",
+    "project_id": "raspberrypi-c9c99",
+    "storage_bucket": "raspberrypi-c9c99.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:891714926032:android:c216d4699235d165",
+        "android_client_info": {
+          "package_name": "com.pkinsellaweb.babyMate"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "891714926032-paj7kfulirl09o41lpgan3a9vr1vt603.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.pkinsellaweb.babyMate",
+            "certificate_hash": "43084ab19356f525742c7989edf4eadc14ae5e8d"
+          }
+        },
+        {
+          "client_id": "891714926032-233c5us7ndtlna7lpdefrbr8iqcqt1s4.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDF2wGfgp3vr154irbIRuQZb0oHiamKtKs"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "891714926032-233c5us7ndtlna7lpdefrbr8iqcqt1s4.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
