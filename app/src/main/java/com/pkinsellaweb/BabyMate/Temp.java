@@ -37,8 +37,8 @@ public class Temp extends AppCompatActivity {
         DatabaseReference myRefTemp = database.getReference("Temp");
         DatabaseReference myRefHumid = database.getReference("Humid");
 
-       myRefTemp.setValue("25");
-       myRefHumid.setValue("36");
+//       myRefTemp.setValue("20");
+//       myRefHumid.setValue("27");
         // Read from the database
 
         myRefHumid.addValueEventListener(new ValueEventListener() {

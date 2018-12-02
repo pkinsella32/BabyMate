@@ -22,18 +22,21 @@
         <activity android:name=".Strat" />
         <activity android:name=".MMD" />
         <activity android:name=".MainActivity" />
-        <activity android:name=".VideoScreen"
-                  android:screenOrientation="landscape"/>
+        <activity
+            android:name=".VideoScreen"
+            android:theme="@style/Theme.AppCompat.Light.NoActionBar"
+            android:screenOrientation="landscape" />
         <activity android:name=".ViewTemp" />
         <activity android:name=".MessageScreen" />
-        <activity android:name=".Temp"
-                  android:parentActivityName=".MainActivity"
-                  android:label="Temperature"/>
-        <activity android:name=".Message"
-                  android:parentActivityName=".MainActivity"
-                  android:label="System Messages">
-
-        </activity>
+        <activity
+            android:name=".Temp"
+            android:label="Temperature"
+            android:parentActivityName=".MainActivity" />
+        <activity
+            android:name=".Message"
+            android:label="System Messages"
+            android:parentActivityName=".MainActivity"></activity>
+        <activity android:name=".UserProfile"></activity>
     </application>
 
 </manifest>
