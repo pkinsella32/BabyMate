@@ -52,8 +52,8 @@
          app:cardCornerRadius="14dp"
          app:cardElevation="14dp"
          android:layout_marginBottom="15dp"
-         android:layout_marginLeft="15dp"
-         android:layout_marginRight="5dp"
+         android:layout_marginStart="15dp"
+         android:layout_marginEnd="5dp"
          android:layout_marginTop="15dp">
 
 
@@ -98,8 +98,8 @@
             android:layout_columnWeight="1"
             android:layout_rowWeight="1"
             android:layout_marginBottom="15dp"
-            android:layout_marginLeft="5dp"
-            android:layout_marginRight="15dp"
+            android:layout_marginStart="5dp"
+            android:layout_marginEnd="15dp"
             android:layout_marginTop="15dp"
             app:cardElevation="14dp"
             app:cardCornerRadius="14dp"
@@ -143,8 +143,8 @@
             android:layout_columnWeight="1"
             android:layout_rowWeight="1"
             android:layout_marginBottom="15dp"
-            android:layout_marginLeft="15dp"
-            android:layout_marginRight="5dp"
+            android:layout_marginStart="15dp"
+            android:layout_marginEnd="5dp"
             android:layout_marginTop="15dp"
             app:cardElevation="14dp"
             app:cardCornerRadius="14dp"
@@ -169,7 +169,7 @@
 
                 <TextView
                     android:fontFamily="sans-serif-medium"
-                    android:text="System Notifications"
+                    android:text="@string/system_notifications"
                     android:textAlignment="center"
                     android:textColor="@android:color/white"
                     android:textSize="14sp"
@@ -189,8 +189,8 @@
             android:layout_columnWeight="1"
             android:layout_rowWeight="1"
             android:layout_marginBottom="15dp"
-            android:layout_marginLeft="5dp"
-            android:layout_marginRight="15dp"
+            android:layout_marginStart="5dp"
+            android:layout_marginEnd="15dp"
             android:layout_marginTop="15dp"
             app:cardElevation="14dp"
             app:cardCornerRadius="14dp"
@@ -235,8 +235,8 @@
             android:layout_columnWeight="1"
             android:layout_rowWeight="1"
             android:layout_marginBottom="15dp"
-            android:layout_marginLeft="15dp"
-            android:layout_marginRight="5dp"
+            android:layout_marginStart="15dp"
+            android:layout_marginEnd="5dp"
             android:layout_marginTop="15dp"
             app:cardElevation="14dp"
             app:cardCornerRadius="14dp">
@@ -258,7 +258,7 @@
                     android:contentDescription="@string/todo" />
 
                 <TextView
-                    android:text="System Dashboard"
+                    android:text="@string/system_dashboard"
                     android:textAlignment="center"
                     android:textColor="@android:color/white"
                     android:textSize="14sp"
@@ -281,8 +281,8 @@
             android:layout_columnWeight="1"
             android:layout_rowWeight="1"
             android:layout_marginBottom="15dp"
-            android:layout_marginLeft="5dp"
-            android:layout_marginRight="15dp"
+            android:layout_marginStart="5dp"
+            android:layout_marginEnd="15dp"
             android:layout_marginTop="15dp"
             app:cardElevation="14dp"
             app:cardCornerRadius="14dp"

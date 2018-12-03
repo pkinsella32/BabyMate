@@ -18,5 +18,7 @@
     <string name="enter_a_name">Enter a name!</string>
     <string name="please_enter_a_name_for_baby">Please Enter a Name For Baby</string>
     <string name="the_baby_s_name_has_been_set_to">The Baby\'s name has been set to</string>
+    <string name="system_dashboard">System Dashboard</string>
+
 
 </resources>
