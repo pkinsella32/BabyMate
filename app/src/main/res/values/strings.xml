@@ -14,5 +14,7 @@
     <string name="baby_monitoring_system">Baby Monitoring System</string>
     <string name="todo2">TODO2</string>
     <string name="set_name">Set Name</string>
+    <string name="please_enter_baby_s_name">Please enter baby\'s name!</string>
+    <string name="enter_a_name">Enter a name!</string>
 
 </resources>
