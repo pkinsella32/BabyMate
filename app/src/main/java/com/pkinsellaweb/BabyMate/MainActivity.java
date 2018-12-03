@@ -48,12 +48,12 @@ public class MainActivity extends AppCompatActivity {
         startActivity(myIntent);
     }
 
-    public void stratOnClick(View v){
+    public void tempOnClick(View v){
         Intent myIntent = new Intent(getBaseContext(),   Temp.class);
         startActivity(myIntent);
     }
 
-    public void mmdOnClick(View v){
+    public void messOnClick(View v){
         Intent myIntent = new Intent(getBaseContext(),   Message.class);
         startActivity(myIntent);
     }
@@ -62,4 +62,15 @@ public class MainActivity extends AppCompatActivity {
         Intent myIntent = new Intent(getBaseContext(),   UserProfile.class);
         startActivity(myIntent);
     }
+
+    public void musicOnClick(View v){
+        Intent myIntent = new Intent(getBaseContext(),   Music.class);
+        startActivity(myIntent);
+    }
+
+    public void dashOnClick(View v){
+        Intent myIntent = new Intent(getBaseContext(),   Dashboard.class);
+        startActivity(myIntent);
+    }
+
 }

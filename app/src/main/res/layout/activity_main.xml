@@ -114,7 +114,7 @@
                 android:layout_margin="16dp">
 
                  <ImageView
-                      android:onClick="stratOnClick"
+                      android:onClick="tempOnClick"
                       android:src="@drawable/temp"
                       android:layout_gravity="center_horizontal"
                       android:layout_width="wrap_content"
@@ -160,7 +160,7 @@
                 android:layout_margin="16dp">
 
                 <ImageView
-                    android:onClick="mmdOnClick"
+                    android:onClick="messOnClick"
                     android:src="@drawable/messages"
                     android:layout_gravity="center_horizontal"
                     android:layout_width="wrap_content"
@@ -207,6 +207,7 @@
                 android:layout_margin="16dp">
 
                  <ImageView
+                     android:onClick="musicOnClick"
                      android:src="@drawable/music"
                      android:layout_gravity="center_horizontal"
                      android:layout_width="wrap_content"
@@ -249,14 +250,15 @@
                 android:layout_margin="16dp">
 
                 <ImageView
+                    android:onClick="dashOnClick"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center_horizontal"
-                    android:src="@drawable/settings"
+                    android:src="@drawable/dash"
                     android:contentDescription="@string/todo" />
 
                 <TextView
-                    android:text="@string/system_settings"
+                    android:text="System Dashboard"
                     android:textAlignment="center"
                     android:textColor="@android:color/white"
                     android:textSize="14sp"

@@ -24,8 +24,8 @@
         <activity android:name=".MainActivity" />
         <activity
             android:name=".VideoScreen"
-            android:theme="@style/Theme.AppCompat.Light.NoActionBar"
-            android:screenOrientation="landscape" />
+            android:screenOrientation="landscape"
+            android:theme="@style/Theme.AppCompat.Light.NoActionBar" />
         <activity android:name=".ViewTemp" />
         <activity android:name=".MessageScreen" />
         <activity
@@ -35,8 +35,10 @@
         <activity
             android:name=".Message"
             android:label="System Messages"
-            android:parentActivityName=".MainActivity"></activity>
-        <activity android:name=".UserProfile"></activity>
+            android:parentActivityName=".MainActivity" />
+        <activity android:name=".UserProfile" />
+        <activity android:name=".Dashboard" />
+        <activity android:name=".Music"></activity>
     </application>
 
 </manifest>
