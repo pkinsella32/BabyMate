@@ -33,8 +33,10 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         mFirebaseAnalytics = FirebaseAnalytics.getInstance(this);
-        FirebaseDatabase database = FirebaseDatabase.getInstance();
+        //FirebaseDatabase database = FirebaseDatabase.getInstance();
 
+        FirebaseDatabase database = FirebaseDatabase.getInstance();
+        DatabaseReference myRefTemp = database.getReference("Name");
 
 
 }

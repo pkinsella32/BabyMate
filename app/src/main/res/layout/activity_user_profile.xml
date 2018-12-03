@@ -12,7 +12,9 @@
         android:layout_width="400dp"
         android:layout_height="250dp"
         android:layout_gravity="center_horizontal"
+        android:layout_margin="5dp"
         android:contentDescription="@string/todo"
+        android:padding="25dp"
         android:paddingTop="5dp"
         android:src="@drawable/logo" />
 
@@ -21,7 +23,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center_horizontal"
-        android:text="Please Enter a Name For Baby"
+        android:text="@string/please_enter_a_name_for_baby"
         android:textAlignment="center"
         android:textSize="25sp"
         android:textStyle="bold"
@@ -36,7 +38,8 @@
         app:layout_constraintTop_toTopOf="parent"
         android:hint="@string/enter_a_name"
         android:layout_gravity="center_horizontal"
-        android:inputType="" />
+        android:inputType=""
+        android:autofillHints="" />
 
     <Button
         android:id="@+id/nameButton"
@@ -55,15 +58,15 @@
         <TextView
             android:layout_width="250dp"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="15dp"
+            android:layout_marginStart="15dp"
             android:orientation="horizontal"
-            android:text=" The Baby's name has been set to " />
+            android:text="@string/the_baby_s_name_has_been_set_to" />
 
         <TextView
             android:id="@+id/nameView"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="15dp"
+            android:layout_marginStart="15dp"
             android:orientation="horizontal"
             android:text=""
             android:textSize="24sp"
