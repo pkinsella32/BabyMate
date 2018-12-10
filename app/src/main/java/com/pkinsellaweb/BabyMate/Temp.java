@@ -26,19 +26,21 @@ public class Temp extends AppCompatActivity {
 
 
 
+
         mListView = (ListView) findViewById(R.id.tempList);
 
 
         final ArrayAdapter<String> arrayAdapter = new ArrayAdapter<String>(this,android.R.layout.simple_list_item_1,mTemp);
         mListView.setAdapter(arrayAdapter);
 
+
         // Write a message to the database
         FirebaseDatabase database = FirebaseDatabase.getInstance();
         DatabaseReference myRefTemp = database.getReference("Temp");
         DatabaseReference myRefHumid = database.getReference("Humid");
 
-//       myRefTemp.setValue("20");
-//       myRefHumid.setValue("27");
+       myRefTemp.setValue("20");
+      myRefHumid.setValue("27");
         // Read from the database
 
         myRefHumid.addValueEventListener(new ValueEventListener() {

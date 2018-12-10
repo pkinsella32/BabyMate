@@ -26,7 +26,7 @@ public class MainActivity extends AppCompatActivity {
     private FirebaseAnalytics mFirebaseAnalytics;
 
 
-
+    public MainActivity(){}
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

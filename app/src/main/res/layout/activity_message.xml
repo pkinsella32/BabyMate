@@ -5,14 +5,15 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@drawable/orangebackground"
-    tools:context="com.pkinsellaweb.BabyMate.Temp"
-    android:label="Messages" >
+    android:label="Messages"
+    tools:context="com.pkinsellaweb.BabyMate.Temp">
 
     <ImageView
         android:id="@+id/messageImage"
-        android:layout_width="365dp"
+        android:layout_width="379dp"
         android:layout_height="98dp"
         android:layout_gravity="center_horizontal"
+        android:layout_marginStart="4dp"
         android:contentDescription="@string/todo"
         android:padding="5dp"
         android:src="@drawable/logo"
@@ -21,15 +22,30 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.0" />
 
+    <Button
+        android:id="@+id/clearButton"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="83dp"
+        android:layout_marginBottom="4dp"
+        android:text="Clear List"
+        app:layout_constraintBottom_toTopOf="@+id/messageList"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:backgroundTint="@color/colorPrimary"
+        tools:textColor="@color/cardview_light_background" />
+
     <ListView
         android:id="@+id/messageList"
         android:layout_width="0dp"
         android:layout_height="0dp"
+        android:layout_marginBottom="4dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/messageImage">
+        app:layout_constraintTop_toBottomOf="@+id/clearButton">
 
 
     </ListView>

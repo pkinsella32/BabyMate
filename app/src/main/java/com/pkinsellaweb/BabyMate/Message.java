@@ -2,6 +2,8 @@ package com.pkinsellaweb.BabyMate;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.preference.PreferenceManager;
+import android.view.View;
+import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ListAdapter;
 import android.support.annotation.NonNull;
@@ -24,20 +26,41 @@ import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Date;
+import java.util.HashMap;
+import java.util.Map;
 
-public class Message extends AppCompatActivity {
+public class Message extends AppCompatActivity  {
     private ArrayList<String> mMessage = new ArrayList<>();
     private ListView messageListView;
     private String babyName;
+    private Button button;
+
+
+
+    public Message(){}
 
   @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_message);
 
+        button = findViewById(R.id.clearButton);
+
+
+
+
         final ListAdapter myAdapter = new CustomAdapter(this,mMessage);
         ListView myListView = (ListView) findViewById(R.id.messageList);
         myListView.setAdapter(myAdapter);
+
+        button.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                mMessage.clear();
+                ((CustomAdapter) myAdapter).notifyDataSetChanged();
+
+            }
+        });
 
 
         FirebaseDatabase database = FirebaseDatabase.getInstance();
@@ -47,6 +70,7 @@ public class Message extends AppCompatActivity {
         DatabaseReference myRefLight = database.getReference("Light");
         DatabaseReference myRefMovement = database.getReference("Movement");
         DatabaseReference myRefName = database.getReference("Name");
+        DatabaseReference myRefBestTemp = database.getReference("BestTemp");
 
         myRefName.addValueEventListener(new ValueEventListener() {
             @Override
@@ -62,8 +86,9 @@ public class Message extends AppCompatActivity {
         });
 
 //        myRefSound.setValue("50");
-//        myRefLight.setValue("50");
+       // myRefLight.setValue("50");
 //        myRefMovement.setValue("50");
+
 
         myRefMovement.addValueEventListener(new ValueEventListener() {
             @Override
@@ -103,12 +128,12 @@ public class Message extends AppCompatActivity {
           @Override
           public void onDataChange(DataSnapshot dataSnapshot) {
               String mydate = java.text.DateFormat.getDateTimeInstance().format(Calendar.getInstance().getTime());
-              String tempValue = dataSnapshot.getValue(String.class);
+              Integer tempValue = dataSnapshot.getValue(Integer.class);
               mMessage.add(babyName+"s" +" room Temp is: " + tempValue+"c" +  " \n" +mydate);
               ((CustomAdapter) myAdapter).notifyDataSetChanged();
-              if(Integer.parseInt(tempValue) >= 20){
+              if((tempValue) > 20){
                   mMessage.add(babyName+"s" +" room is to Warm," +"\n" +"Take Action!");
-              } else if(Integer.parseInt(tempValue) < 15){
+              } else if((tempValue) < 20){
                   mMessage.add(babyName+"s" +" room is to Cold," +"\n" +"Take Action!");
               }
           }
@@ -124,13 +149,16 @@ public class Message extends AppCompatActivity {
           public void onDataChange(DataSnapshot dataSnapshot) {
               String mydate = java.text.DateFormat.getDateTimeInstance().format(Calendar.getInstance().getTime());
 
-              String lightValue = dataSnapshot.getValue(String.class);
-              mMessage.add("The Room Light Levels are: " + lightValue  + " \n" +mydate);
-              ((CustomAdapter) myAdapter).notifyDataSetChanged();
 
-              if(Integer.parseInt(lightValue) > 40){
-                  mMessage.add("The Room is to Bright for " + babyName + " To sleep");
-              }
+
+
+             String lightValue = dataSnapshot.getValue(String.class);
+             mMessage.add("The Room Light Levels are: " + lightValue  + " \n" +mydate);
+             ((CustomAdapter) myAdapter).notifyDataSetChanged();
+
+             if(Integer.parseInt(lightValue) > 40){
+                 mMessage.add("The Room is to Bright for " + babyName + " To sleep");
+             }
 
           }
 
@@ -161,4 +189,7 @@ public class Message extends AppCompatActivity {
           }
       });
     }
+
+
+
 }
