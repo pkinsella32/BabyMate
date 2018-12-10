@@ -129,11 +129,12 @@ public class Message extends AppCompatActivity  {
           public void onDataChange(DataSnapshot dataSnapshot) {
               String mydate = java.text.DateFormat.getDateTimeInstance().format(Calendar.getInstance().getTime());
               Integer tempValue = dataSnapshot.getValue(Integer.class);
+              Integer bestTemp = 20;
               mMessage.add(babyName+"s" +" room Temp is: " + tempValue+"c" +  " \n" +mydate);
               ((CustomAdapter) myAdapter).notifyDataSetChanged();
-              if((tempValue) > 20){
+              if((tempValue) > bestTemp){
                   mMessage.add(babyName+"s" +" room is to Warm," +"\n" +"Take Action!");
-              } else if((tempValue) < 20){
+              } else if((tempValue) < bestTemp){
                   mMessage.add(babyName+"s" +" room is to Cold," +"\n" +"Take Action!");
               }
           }
