@@ -1,6 +1,5 @@
 package com.pkinsellaweb.BabyMate;
 
-import android.support.v4.widget.SwipeRefreshLayout;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
@@ -16,36 +15,27 @@ import com.google.firebase.database.ValueEventListener;
 
 import java.util.ArrayList;
 
-public class Temp extends AppCompatActivity {
-
+public class TempScreen extends AppCompatActivity {
     private ArrayList<String> mTemp = new ArrayList<>();
     private ListView mListView;
     private TextView htextView;
     private TextView tTextView;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_temp);
-
-
-
+        setContentView(R.layout.activity_temp_screen);
 
         mListView = (ListView) findViewById(R.id.tempList);
-       // htextView = (TextView) findViewById(R.id.humidView);
-       // tTextView = (TextView) findViewById(R.id.tempScreenView);
-
+         htextView = (TextView) findViewById(R.id.humidView);
+         tTextView = (TextView) findViewById(R.id.tempScreenView);
 
         final ArrayAdapter<String> arrayAdapter = new ArrayAdapter<String>(this,android.R.layout.simple_list_item_1,mTemp);
         mListView.setAdapter(arrayAdapter);
 
-
-        // Write a message to the database
         FirebaseDatabase database = FirebaseDatabase.getInstance();
         DatabaseReference myRefTemp = database.getReference("Temp");
         DatabaseReference myRefHumid = database.getReference("Humid");
-
-
-        // Read from the database
 
         myRefHumid.addValueEventListener(new ValueEventListener() {
             @Override
@@ -53,7 +43,8 @@ public class Temp extends AppCompatActivity {
                 Integer humidValue = dataSnapshot.getValue(Integer.class);
                 mTemp.add("Room Humidity is: " + humidValue);
                 arrayAdapter.notifyDataSetChanged();
-                //htextView.setText(humidValue);
+                String humidString = Integer.toString(humidValue);
+                htextView.setText(humidString);
 
                 Log.d("TAG", "Value is: " + humidValue);
             }
@@ -69,7 +60,8 @@ public class Temp extends AppCompatActivity {
             public void onDataChange(DataSnapshot dataSnapshot) {
                 Integer tempValue = dataSnapshot.getValue(Integer.class);
                 mTemp.add("Room Temperature is: " +tempValue+"c");
-               // tTextView.setText(tempValue);
+                String tempString = Integer.toString(tempValue);
+                tTextView.setText(tempString);
                 arrayAdapter.notifyDataSetChanged();
                 Log.d("TAG", "Value is: " + tempValue);
 
@@ -94,7 +86,5 @@ public class Temp extends AppCompatActivity {
                 Log.w("TAG", "Failed to read value.", error.toException());
             }
         });
-
-
     }
 }

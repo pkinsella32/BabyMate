@@ -38,7 +38,8 @@
             android:parentActivityName=".MainActivity" />
         <activity android:name=".UserProfile" />
         <activity android:name=".Dashboard" />
-        <activity android:name=".Music"></activity>
+        <activity android:name=".Music" />
+        <activity android:name=".TempScreen"></activity>
     </application>
 
 </manifest>

@@ -49,7 +49,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void tempOnClick(View v){
-        Intent myIntent = new Intent(getBaseContext(),   Temp.class);
+        Intent myIntent = new Intent(getBaseContext(),   TempScreen.class);
         startActivity(myIntent);
     }
 

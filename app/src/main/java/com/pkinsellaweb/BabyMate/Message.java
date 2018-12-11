@@ -113,7 +113,7 @@ public class Message extends AppCompatActivity  {
           @Override
           public void onDataChange(DataSnapshot dataSnapshot) {
               String mydate = java.text.DateFormat.getDateTimeInstance().format(Calendar.getInstance().getTime());
-              String humidValue = dataSnapshot.getValue(String.class);
+              Integer humidValue = dataSnapshot.getValue(Integer.class);
               mMessage.add(babyName+"s" + " Room Humidity is: " + humidValue  + " \n" +mydate);
               ((CustomAdapter) myAdapter).notifyDataSetChanged();
           }
