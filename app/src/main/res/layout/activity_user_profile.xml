@@ -200,49 +200,6 @@
         </android.support.v7.widget.CardView>
 
 
-    <!--<LinearLayout-->
-        <!--android:layout_width="wrap_content"-->
-        <!--android:layout_height="wrap_content"-->
-        <!--android:orientation="vertical">-->
-
-        <!--<TextView-->
-            <!--android:layout_width="250dp"-->
-            <!--android:layout_height="wrap_content"-->
-            <!--android:layout_marginStart="15dp"-->
-            <!--android:orientation="horizontal"-->
-            <!--android:text="@string/the_baby_s_name_has_been_set_to" />-->
-
-        <!--<TextView-->
-            <!--android:id="@+id/nameView"-->
-            <!--android:layout_width="match_parent"-->
-            <!--android:layout_height="wrap_content"-->
-            <!--android:layout_marginStart="15dp"-->
-            <!--android:orientation="horizontal"-->
-            <!--android:text=""-->
-            <!--android:textSize="24sp"-->
-            <!--android:textStyle="bold"-->
-            <!--tools:textColor="@color/colorPrimaryDark" />-->
-        <!---->
-        <!--<TextView-->
-            <!--android:layout_width="250dp"-->
-            <!--android:layout_height="wrap_content"-->
-            <!--android:layout_marginStart="15dp"-->
-            <!--android:orientation="horizontal"-->
-            <!--android:text="The temp has been set " />-->
-
-        <!--<TextView-->
-            <!--android:id="@+id/tempView"-->
-            <!--android:layout_width="match_parent"-->
-            <!--android:layout_height="wrap_content"-->
-            <!--android:layout_marginStart="15dp"-->
-            <!--android:orientation="horizontal"-->
-            <!--android:text=""-->
-            <!--android:textSize="24sp"-->
-            <!--android:textStyle="bold"-->
-            <!--tools:textColor="@color/colorPrimaryDark" />-->
-
-        <!---->
-    <!--</LinearLayout>-->
     </GridLayout>
 </LinearLayout>
 </ScrollView>
