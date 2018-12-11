@@ -24,17 +24,20 @@
 
     <Button
         android:id="@+id/clearButton"
-        android:layout_width="0dp"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="83dp"
         android:layout_marginBottom="4dp"
-        android:text="Clear List"
+        android:background="@drawable/custom_button"
+        android:text="Clear Messages"
         app:layout_constraintBottom_toTopOf="@+id/messageList"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        tools:backgroundTint="@color/colorPrimary"
-        tools:textColor="@color/cardview_light_background" />
+
+        />
+
+
 
     <ListView
         android:id="@+id/messageList"

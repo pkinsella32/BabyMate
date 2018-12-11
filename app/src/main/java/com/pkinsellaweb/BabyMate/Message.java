@@ -77,9 +77,7 @@ public class Message extends AppCompatActivity  {
             }
         });
 
-//        myRefSound.setValue("50");
-       // myRefLight.setValue("50");
-//        myRefMovement.setValue("50");
+
 
 
         myRefMovement.addValueEventListener(new ValueEventListener() {
@@ -149,7 +147,7 @@ public class Message extends AppCompatActivity  {
              mMessage.add("The Room Light Levels are: " + lightValue  + " \n" +mydate);
              ((CustomAdapter) myAdapter).notifyDataSetChanged();
 
-             if((lightValue) > 40){
+             if((lightValue) > 150){
                  mMessage.add("The Room is to Bright for " + babyName + " To sleep");
              }
 
@@ -169,10 +167,10 @@ public class Message extends AppCompatActivity  {
               mMessage.add("The Room Sound Levels are: " + soundValue + " \n" +mydate);
               ((CustomAdapter) myAdapter).notifyDataSetChanged();
 
-              if((soundValue) >50){
+              if((soundValue) >300){
                   mMessage.add(babyName + " is crying");
               }else{
-                  mMessage.add(babyName + " is sleeping");
+                  mMessage.add(babyName + " is quite, possibly sleeping");
               }
           }
 

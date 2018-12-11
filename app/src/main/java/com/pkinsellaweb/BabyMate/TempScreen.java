@@ -14,6 +14,7 @@ import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
 import java.util.ArrayList;
+import java.util.Date;
 
 public class TempScreen extends AppCompatActivity {
     private ArrayList<String> mTemp = new ArrayList<>();
@@ -26,7 +27,7 @@ public class TempScreen extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_temp_screen);
 
-        mListView = (ListView) findViewById(R.id.tempList);
+         mListView = (ListView) findViewById(R.id.tempList);
          htextView = (TextView) findViewById(R.id.humidView);
          tTextView = (TextView) findViewById(R.id.tempScreenView);
 
@@ -65,15 +66,15 @@ public class TempScreen extends AppCompatActivity {
                 arrayAdapter.notifyDataSetChanged();
                 Log.d("TAG", "Value is: " + tempValue);
 
-                if((tempValue) < 15){
+                if((tempValue) <= 15){
                     mTemp.add("The room is currently very cold " +tempValue+"c"+ " Consider turning up the heat.");
                 }
-                else if((tempValue) < 18){
+                else if((tempValue) <= 18){
                     mTemp.add("The room is currently chilly " +tempValue+"c");
                 }
 
-                else if((tempValue) > 22){
-                    mTemp.add("The room is currently to warm " +tempValue+"c"+" Turn on the fan!");
+                else if((tempValue) >= 22){
+                    mTemp.add("The room is currently very warm " +tempValue+"c"+" turn down the heat!");
                 }
                 else{
                     mTemp.add("The room is at a comfortable temperature");
