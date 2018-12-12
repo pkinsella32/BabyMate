@@ -46,8 +46,6 @@ public class TempScreen extends AppCompatActivity {
                 arrayAdapter.notifyDataSetChanged();
                 String humidString = Integer.toString(humidValue);
                 htextView.setText("Humidity:" + " \n"+ humidString+"%");
-
-                Log.d("TAG", "Value is: " + humidValue);
             }
 
             @Override

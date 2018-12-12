@@ -39,7 +39,7 @@
         android:layout_gravity="center_horizontal"
         android:text="@string/please_select_name_and_optimal_temperature_below"
         android:textAlignment="center"
-        android:textSize="30sp"
+        android:textSize="25sp"
         android:layout_marginBottom="15dp"
         android:textStyle="bold"
 
@@ -180,11 +180,10 @@
                     android:layout_height="wrap_content"
                     android:layout_gravity="center_horizontal"
                     android:contentDescription="@string/todo"
-                    android:src="@drawable/name" />
+                    android:src="@drawable/abc" />
 
 
                 <TextView
-
                     android:id="@+id/nameView"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"

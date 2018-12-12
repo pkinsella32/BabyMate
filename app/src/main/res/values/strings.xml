@@ -20,6 +20,6 @@
     <string name="the_baby_s_name_has_been_set_to">The Baby\'s name has been set to</string>
     <string name="system_dashboard">System Dashboard</string>
     <string name="please_select_name_and_optimal_temperature_below">Please select name and optimal temperature below!</string>
-
+    <string name="humidity">Humidity</string>
 
 </resources>
