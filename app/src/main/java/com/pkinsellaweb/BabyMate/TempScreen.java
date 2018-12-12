@@ -45,7 +45,7 @@ public class TempScreen extends AppCompatActivity {
                 mTemp.add("Room Humidity is: " + humidValue);
                 arrayAdapter.notifyDataSetChanged();
                 String humidString = Integer.toString(humidValue);
-                htextView.setText("Humidity:" + " \n"+ humidString);
+                htextView.setText("Humidity:" + " \n"+ humidString+"%");
 
                 Log.d("TAG", "Value is: " + humidValue);
             }
@@ -62,7 +62,7 @@ public class TempScreen extends AppCompatActivity {
                 Integer tempValue = dataSnapshot.getValue(Integer.class);
                 mTemp.add("Room Temperature is: " +tempValue+"c");
                 String tempString = Integer.toString(tempValue);
-                tTextView.setText("Temp:" + " \n" +tempString);
+                tTextView.setText("Temperature:" + " \n" +tempString+"c");
                 arrayAdapter.notifyDataSetChanged();
                 Log.d("TAG", "Value is: " + tempValue);
 
