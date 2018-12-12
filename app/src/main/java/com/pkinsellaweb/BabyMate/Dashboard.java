@@ -31,17 +31,17 @@ public class Dashboard extends AppCompatActivity {
 
         barChart = (BarChart) findViewById(R.id.barChart1);
         ArrayList<BarEntry> barEntries = new ArrayList<>();
-        barEntries.add(new BarEntry(44f,0));
-        barEntries.add(new BarEntry(88f,1));
-        barEntries.add(new BarEntry(66f,2));
-        barEntries.add(new BarEntry(12f,3));
-        barEntries.add(new BarEntry(19f,4));
+        barEntries.add(new BarEntry(18f,0));
+        barEntries.add(new BarEntry(38f,1));
+        barEntries.add(new BarEntry(303f,2));
+        barEntries.add(new BarEntry(74f,3));
+        barEntries.add(new BarEntry(11f,4));
         barEntries.add(new BarEntry(91f,5));
         BarDataSet barDataSet = new BarDataSet(barEntries,"BabyMate System Data");
 
         ArrayList<String> theDates = new ArrayList<>();
         theDates.add("Temp");
-        theDates.add("Humodity");
+        theDates.add("Humid");
         theDates.add("Light");
         theDates.add("Sound");
         theDates.add("Movement");

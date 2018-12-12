@@ -21,5 +21,7 @@
     <string name="system_dashboard">System Dashboard</string>
     <string name="please_select_name_and_optimal_temperature_below">Please select name and optimal temperature below!</string>
     <string name="humidity">Humidity</string>
+    <string name="data_from_all_sensors">Data from all sensors</string>
+    <string name="this_is_the_section_where_there_will_be_multiple_graphs_displaying_all_the_data_gathered_from_the_various_sensors">This is the section where there will be multiple graphs displaying all the data gathered from the various sensors</string>
 
 </resources>
