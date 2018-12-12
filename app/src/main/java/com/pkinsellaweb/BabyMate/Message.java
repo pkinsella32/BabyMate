@@ -38,9 +38,6 @@ public class Message extends AppCompatActivity  {
 
         button = findViewById(R.id.clearButton);
 
-
-
-
         final ListAdapter myAdapter = new CustomAdapter(this,mMessage);
         ListView myListView = (ListView) findViewById(R.id.messageList);
         myListView.setAdapter(myAdapter);
@@ -53,7 +50,6 @@ public class Message extends AppCompatActivity  {
 
             }
         });
-
 
         FirebaseDatabase database = FirebaseDatabase.getInstance();
         DatabaseReference myRefTemp = database.getReference("Temp");

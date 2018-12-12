@@ -26,14 +26,9 @@ public class UserProfile extends AppCompatActivity {
     private Button tempButton;
     private TextView temptextView;
 
-    public static final String SHARED_PREFS = "sharedPrefs";
-    public static final String TEXT = "text";
     FirebaseDatabase database = FirebaseDatabase.getInstance();
     DatabaseReference myRefName = database.getReference("Name");
-    DatabaseReference myRefTemp = database.getReference("Temp");
     DatabaseReference myRefBestTemp = database.getReference("BestTemp");
-
-    private String text;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -45,7 +40,6 @@ public class UserProfile extends AppCompatActivity {
         tempEdititext = (EditText) findViewById(R.id.tempTxt);
         tempButton = (Button) findViewById(R.id.setTempButton);
         temptextView = (TextView) findViewById(R.id.tempView);
-
 
         tempButton.setOnClickListener(new View.OnClickListener() {
             @Override
