@@ -53,3 +53,7 @@ dependencies {
 }
 
 apply plugin: 'com.google.gms.google-services'
+
+//dependencies {
+//    implementation 'com.google.firebase:firebase-auth:16.0.1'
+//}

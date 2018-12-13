@@ -1,5 +1,6 @@
 package com.pkinsellaweb.BabyMate;
 
+import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
@@ -22,6 +23,8 @@ import java.util.Calendar;
 public class Dashboard extends AppCompatActivity {
 
     BarChart barChart;
+    private ArrayList<String> mMessage = new ArrayList<>();
+    private ListView messageListView;
 
 
     @Override
@@ -29,30 +32,59 @@ public class Dashboard extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_dashboard);
 
-        barChart = (BarChart) findViewById(R.id.barChart1);
-        ArrayList<BarEntry> barEntries = new ArrayList<>();
-        barEntries.add(new BarEntry(18f,0));
-        barEntries.add(new BarEntry(38f,1));
-        barEntries.add(new BarEntry(303f,2));
-        barEntries.add(new BarEntry(74f,3));
-        barEntries.add(new BarEntry(11f,4));
-        barEntries.add(new BarEntry(91f,5));
-        BarDataSet barDataSet = new BarDataSet(barEntries,"BabyMate System Data");
+//        final ListAdapter myAdapter = new CustomAdapter(this,mMessage);
+//        ListView myListView = (ListView) findViewById(R.id.messageList);
+//        myListView.setAdapter(myAdapter);
 
-        ArrayList<String> theDates = new ArrayList<>();
-        theDates.add("Temp");
-        theDates.add("Humid");
-        theDates.add("Light");
-        theDates.add("Sound");
-        theDates.add("Movement");
-        theDates.add("Co2");
 
-        BarData theData = new BarData(theDates,barDataSet);
-        barChart.setData(theData);
 
-        barChart.setTouchEnabled(true);
-        barChart.setDragEnabled(true);
-        barChart.setScaleEnabled(true);
+        FirebaseDatabase database = FirebaseDatabase.getInstance();
+        DatabaseReference myRef = database.getReference();
+        myRef.addValueEventListener(new ValueEventListener() {
+
+            @Override
+            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                final Integer barTemp = dataSnapshot.child("Temp").getValue(Integer.class);
+                final Integer barHumid = dataSnapshot.child("Humid").getValue(Integer.class);
+                final Integer barLight = dataSnapshot.child("Light").getValue(Integer.class);
+                final Integer barSound = dataSnapshot.child("Sound").getValue(Integer.class);
+                final Integer barMovement = dataSnapshot.child("Temp").getValue(Integer.class);
+
+                barChart = (BarChart) findViewById(R.id.barChart1);
+                ArrayList<BarEntry> barEntries = new ArrayList<>();
+                barEntries.add(new BarEntry(barTemp,0));
+                barEntries.add(new BarEntry(barHumid,1));
+                barEntries.add(new BarEntry(barLight,2));
+                barEntries.add(new BarEntry(barSound,3));
+                barEntries.add(new BarEntry(barMovement,4));
+                BarDataSet barDataSet = new BarDataSet(barEntries,"BabyMate System Data");
+
+                ArrayList<String> theDates = new ArrayList<>();
+                theDates.add("Temp");
+                theDates.add("Humid");
+                theDates.add("Light");
+                theDates.add("Sound");
+                theDates.add("Movement");
+
+
+                BarData theData = new BarData(theDates,barDataSet);
+                barChart.setData(theData);
+
+                barChart.setTouchEnabled(true);
+                barChart.setDragEnabled(true);
+                barChart.setScaleEnabled(true);
+
+
+
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError databaseError) {
+
+            }
+        });
+
+
 
 
     }
