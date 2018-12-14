@@ -90,7 +90,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void messOnClick(View v){
-        Intent myIntent = new Intent(getBaseContext(),   Message.class);
+        Intent myIntent = new Intent(getBaseContext(),   MessageOptions.class);
         startActivity(myIntent);
     }
 

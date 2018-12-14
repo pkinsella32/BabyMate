@@ -21,8 +21,9 @@
         <activity android:name=".AI" />
         <activity android:name=".Strat" />
         <activity android:name=".MMD" />
-        <activity android:name=".MainActivity"
-            android:label="Home"/>
+        <activity
+            android:name=".MainActivity"
+            android:label="Home" />
         <activity
             android:name=".VideoScreen"
             android:screenOrientation="landscape"
@@ -36,15 +37,19 @@
         <activity
             android:name=".Message"
             android:label="System Messages"
-            android:parentActivityName=".MainActivity"
-            />
-        <activity android:name=".UserProfile"
-            android:label="Profile"/>
-        <activity android:name=".Dashboard"
-            android:label="Dashboard"/>
+            android:parentActivityName=".MainActivity" />
+        <activity
+            android:name=".UserProfile"
+            android:label="Profile" />
+        <activity
+            android:name=".Dashboard"
+            android:label="Dashboard" />
         <activity android:name=".Music" />
-        <activity android:name=".TempScreen"
-            android:label="Temperature"></activity>
+        <activity
+            android:name=".TempScreen"
+            android:label="Temperature" />
+        <activity android:name=".MessageOptions" />
+        <activity android:name=".Notifications"></activity>
     </application>
 
 </manifest>

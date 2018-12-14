@@ -1,5 +1,7 @@
 package com.pkinsellaweb.BabyMate;
 
+import android.content.Intent;
+import android.provider.MediaStore;
 import android.view.View;
 import android.widget.Button;
 
@@ -8,7 +10,7 @@ import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
-
+import android.view.View;
 import android.widget.ListView;
 
 import com.google.firebase.database.DataSnapshot;
@@ -23,7 +25,6 @@ import java.util.Calendar;
 
 public class Message extends AppCompatActivity  {
     private ArrayList<String> mMessage = new ArrayList<>();
-    private ListView messageListView;
     private String babyName;
     private Button button;
 
@@ -41,6 +42,10 @@ public class Message extends AppCompatActivity  {
         final ListAdapter myAdapter = new CustomAdapter(this,mMessage);
         ListView myListView = (ListView) findViewById(R.id.messageList);
         myListView.setAdapter(myAdapter);
+
+//      final ListAdapter myAdapter2 = new CustomAdapter2(this,mMessage);
+//      ListView myListView2 = (ListView) findViewById(R.id.messageList2);
+//      myListView2.setAdapter(myAdapter2);
 
         button.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -82,10 +87,13 @@ public class Message extends AppCompatActivity  {
 
                 String mydate = java.text.DateFormat.getDateTimeInstance().format(Calendar.getInstance().getTime());
                 Integer movementValue  = dataSnapshot.getValue(Integer.class);
-
                 ((CustomAdapter) myAdapter).notifyDataSetChanged();
+
+
                 if((movementValue) > 20){
+
                     mMessage.add( babyName +  " is Moving:  " +  " \n" +mydate);
+
                 }
             }
 
@@ -116,12 +124,11 @@ public class Message extends AppCompatActivity  {
               String mydate = java.text.DateFormat.getDateTimeInstance().format(Calendar.getInstance().getTime());
               Integer tempValue = dataSnapshot.getValue(Integer.class);
               Integer bestTemp = 20;
-              mMessage.add(babyName+"s" +" room Temp is: " + tempValue+"c" +  " \n" +mydate);
-              ((CustomAdapter) myAdapter).notifyDataSetChanged();
-              if((tempValue) > bestTemp){
-                  mMessage.add(babyName+"s" +" room is to Warm," +"\n" +"Take Action!");
-              } else if((tempValue) < bestTemp){
-                  mMessage.add(babyName+"s" +" room is to Cold," +"\n" +"Take Action!");
+
+              if((tempValue) != bestTemp) {
+                  mMessage.add(babyName+"s" +" room is not comfortable," +"\n" +"Take Action!");
+                  mMessage.add(babyName+"s" +" room Temp is: " + tempValue+"c" +  " \n" +mydate);
+                  ((CustomAdapter) myAdapter).notifyDataSetChanged();
               }
           }
 
@@ -135,16 +142,13 @@ public class Message extends AppCompatActivity  {
           @Override
           public void onDataChange(DataSnapshot dataSnapshot) {
               String mydate = java.text.DateFormat.getDateTimeInstance().format(Calendar.getInstance().getTime());
-
-
-
-
-             Integer lightValue = dataSnapshot.getValue(Integer.class);
+              Integer lightValue = dataSnapshot.getValue(Integer.class);
              mMessage.add("The Room Light Levels are: " + lightValue  + " \n" +mydate);
              ((CustomAdapter) myAdapter).notifyDataSetChanged();
-
-             if((lightValue) > 150){
+            if((lightValue) > 10){
                  mMessage.add("The Room is to Bright for " + babyName + " To sleep");
+                 mMessage.add("The Room Light Levels are: " + lightValue  + " \n" +mydate);
+                 ((CustomAdapter) myAdapter).notifyDataSetChanged();
              }
 
           }
@@ -160,13 +164,10 @@ public class Message extends AppCompatActivity  {
           public void onDataChange(DataSnapshot dataSnapshot) {
               String mydate = java.text.DateFormat.getDateTimeInstance().format(Calendar.getInstance().getTime());
               Integer soundValue = dataSnapshot.getValue(Integer.class);
-              mMessage.add("The Room Sound Levels are: " + soundValue + " \n" +mydate);
-              ((CustomAdapter) myAdapter).notifyDataSetChanged();
-
-              if((soundValue) >300){
+              if((soundValue) >30){
                   mMessage.add(babyName + " is crying");
-              }else{
-                  mMessage.add(babyName + " is quite, possibly sleeping");
+                  mMessage.add("The Room Sound Levels are: " + soundValue + " \n" +mydate);
+                  ((CustomAdapter) myAdapter).notifyDataSetChanged();
               }
           }
 
