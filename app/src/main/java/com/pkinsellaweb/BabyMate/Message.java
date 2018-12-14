@@ -1,7 +1,5 @@
 package com.pkinsellaweb.BabyMate;
 
-import android.content.Intent;
-import android.provider.MediaStore;
 import android.view.View;
 import android.widget.Button;
 
@@ -10,7 +8,7 @@ import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
-import android.view.View;
+
 import android.widget.ListView;
 
 import com.google.firebase.database.DataSnapshot;
@@ -25,6 +23,7 @@ import java.util.Calendar;
 
 public class Message extends AppCompatActivity  {
     private ArrayList<String> mMessage = new ArrayList<>();
+    private ListView messageListView;
     private String babyName;
     private Button button;
 
@@ -87,9 +86,8 @@ public class Message extends AppCompatActivity  {
 
                 String mydate = java.text.DateFormat.getDateTimeInstance().format(Calendar.getInstance().getTime());
                 Integer movementValue  = dataSnapshot.getValue(Integer.class);
+
                 ((CustomAdapter) myAdapter).notifyDataSetChanged();
-
-
                 if((movementValue) > 20){
 
                     mMessage.add( babyName +  " is Moving:  " +  " \n" +mydate);
@@ -143,8 +141,7 @@ public class Message extends AppCompatActivity  {
           public void onDataChange(DataSnapshot dataSnapshot) {
               String mydate = java.text.DateFormat.getDateTimeInstance().format(Calendar.getInstance().getTime());
               Integer lightValue = dataSnapshot.getValue(Integer.class);
-             mMessage.add("The Room Light Levels are: " + lightValue  + " \n" +mydate);
-             ((CustomAdapter) myAdapter).notifyDataSetChanged();
+
             if((lightValue) > 10){
                  mMessage.add("The Room is to Bright for " + babyName + " To sleep");
                  mMessage.add("The Room Light Levels are: " + lightValue  + " \n" +mydate);
