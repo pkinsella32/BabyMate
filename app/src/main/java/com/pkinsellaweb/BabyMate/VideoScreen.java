@@ -11,10 +11,17 @@ public class VideoScreen extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_video_screen);
+
+
+            setContentView(R.layout.activity_video_screen);
+
+
 
         VideoView video = (VideoView) findViewById(R.id.videoView);
 
+
+//        String vidAdd = "http://192.168.43.66:8160/";
+//        Uri videoPath = Uri.parse(vidAdd);
         Uri videoPath = Uri.parse("android.resource://" + getPackageName() + "/" + R.raw.baby);
         video.setVideoURI(videoPath);
 

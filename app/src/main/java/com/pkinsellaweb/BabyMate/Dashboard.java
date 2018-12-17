@@ -32,9 +32,7 @@ public class Dashboard extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_dashboard);
 
-//        final ListAdapter myAdapter = new CustomAdapter(this,mMessage);
-//        ListView myListView = (ListView) findViewById(R.id.messageList);
-//        myListView.setAdapter(myAdapter);
+
 
 
 

@@ -2,8 +2,9 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     package="com.pkinsellaweb.BabyMate">
-
+    <uses-permission android:name="android.permission.INTERNET" />
     <application
+        android:hardwareAccelerated="true"
         android:allowBackup="true"
         android:icon="@drawable/launchlogo"
         android:label="BabyMate"
@@ -24,10 +25,12 @@
         <activity
             android:name=".MainActivity"
             android:label="Home" />
+
         <activity
             android:name=".VideoScreen"
             android:screenOrientation="landscape"
-            android:theme="@style/Theme.AppCompat.Light.NoActionBar" />
+            android:theme="@style/Theme.AppCompat.Light.NoActionBar"
+            />
         <activity android:name=".ViewTemp" />
         <activity android:name=".MessageScreen" />
         <activity
