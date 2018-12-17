@@ -28,7 +28,7 @@
 
         <activity
             android:name=".VideoScreen"
-            android:screenOrientation="landscape"
+            android:screenOrientation="portrait"
             android:theme="@style/Theme.AppCompat.Light.NoActionBar"
             />
         <activity android:name=".ViewTemp" />

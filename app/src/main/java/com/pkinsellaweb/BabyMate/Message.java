@@ -1,6 +1,8 @@
 package com.pkinsellaweb.BabyMate;
 
+import android.content.Intent;
 import android.view.View;
+import android.widget.AdapterView;
 import android.widget.Button;
 
 import android.widget.ListAdapter;
@@ -38,9 +40,22 @@ public class Message extends AppCompatActivity  {
 
         button = findViewById(R.id.clearButton);
 
+
+
         final ListAdapter myAdapter = new CustomAdapter(this,mMessage);
         ListView myListView = (ListView) findViewById(R.id.messageList);
         myListView.setAdapter(myAdapter);
+
+      myListView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+          @Override
+          public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
+              Intent intent = new Intent(getApplicationContext(),VideoScreen.class);
+              intent.putExtra("name",mMessage);
+              startActivity(intent);
+
+
+          }
+      });
 
 //      final ListAdapter myAdapter2 = new CustomAdapter2(this,mMessage);
 //      ListView myListView2 = (ListView) findViewById(R.id.messageList2);

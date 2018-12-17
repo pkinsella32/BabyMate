@@ -2,6 +2,7 @@ package com.pkinsellaweb.BabyMate;
 
 import android.content.Intent;
 import android.view.View;
+import android.widget.AdapterView;
 import android.widget.Button;
 
 import android.widget.ListAdapter;
@@ -47,6 +48,16 @@ public class Notifications extends AppCompatActivity  {
       ListView myListView2 = (ListView) findViewById(R.id.messageList2);
       myListView2.setAdapter(myAdapter2);
 
+        myListView2.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
+                Intent intent = new Intent(getApplicationContext(),Message.class);
+                intent.putExtra("name",mMessage);
+                startActivity(intent);
+
+
+            }
+        });
         button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -55,6 +66,7 @@ public class Notifications extends AppCompatActivity  {
 
             }
         });
+
 
         FirebaseDatabase database = FirebaseDatabase.getInstance();
         DatabaseReference myRefTemp = database.getReference("Temp");
