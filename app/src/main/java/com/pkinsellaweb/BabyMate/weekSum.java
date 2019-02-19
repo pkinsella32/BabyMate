@@ -35,15 +35,7 @@ public class weekSum extends AppCompatActivity {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
                 final Integer barTemp = dataSnapshot.child("Temp").getValue(Integer.class);
-                final Integer barHumid = dataSnapshot.child("Humid").getValue(Integer.class);
-                final Integer barLight = dataSnapshot.child("Light").getValue(Integer.class);
-                final Integer barSound = dataSnapshot.child("Sound").getValue(Integer.class);
-                final Integer barMovement = dataSnapshot.child("Temp").getValue(Integer.class);
-
-
                 barchart = (BarChart) findViewById(R.id.barChart2);
-
-
                 ArrayList<BarEntry> barEntries = new ArrayList<>();
                 barEntries.add(new BarEntry(barTemp,0));
                 barEntries.add(new BarEntry(barTemp,1));

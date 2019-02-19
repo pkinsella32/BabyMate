@@ -1,16 +1,21 @@
 package com.pkinsellaweb.BabyMate;
 
+import android.content.Intent;
 import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.View;
+import android.widget.Button;
 import android.widget.ListAdapter;
 import android.widget.ListView;
 
 import com.github.mikephil.charting.charts.BarChart;
+import com.github.mikephil.charting.charts.PieChart;
 import com.github.mikephil.charting.data.BarData;
 import com.github.mikephil.charting.data.BarDataSet;
 import com.github.mikephil.charting.data.BarEntry;
+import com.github.mikephil.charting.data.PieData;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
@@ -22,17 +27,18 @@ import java.util.Calendar;
 
 public class Dashboard extends AppCompatActivity {
 
+
     BarChart barChart;
     private ArrayList<String> mMessage = new ArrayList<>();
     private ListView messageListView;
+    PieChart pieChart;
+    Button button;
 
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_dashboard);
-
-
 
 
 
@@ -49,6 +55,18 @@ public class Dashboard extends AppCompatActivity {
                 final Integer barMovement = dataSnapshot.child("Temp").getValue(Integer.class);
 
                 barChart = (BarChart) findViewById(R.id.barChart1);
+                button = (Button) findViewById(R.id.sumButton);
+
+                button.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View view) {
+                        Intent intent = new Intent(getApplicationContext(),weekSum.class);
+                        //intent.putExtra("name",mMessage);
+                        startActivity(intent);
+
+                    }
+                });
+
                 ArrayList<BarEntry> barEntries = new ArrayList<>();
                 barEntries.add(new BarEntry(barTemp,0));
                 barEntries.add(new BarEntry(barHumid,1));
@@ -74,12 +92,20 @@ public class Dashboard extends AppCompatActivity {
 
 
 
+
+
+
+
             }
+
+
 
             @Override
             public void onCancelled(@NonNull DatabaseError databaseError) {
 
             }
+
+
         });
 
 
