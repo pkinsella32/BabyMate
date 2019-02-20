@@ -71,12 +71,12 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_gravity="center_horizontal"
-                        android:src="@drawable/music"
+                        android:src="@drawable/babyshark"
                         android:contentDescription="@string/todo" />
 
                     <TextView
                         android:fontFamily="sans-serif-medium"
-                        android:text="Song 1"
+                        android:text="Baby Shark"
                         android:textAlignment="center"
                         android:textColor="#fdf8f8"
                         android:textSize="14sp"
@@ -115,8 +115,8 @@
 
                     <ImageView
                         android:id="@+id/song2"
-                        android:onClick="tempOnClick"
-                        android:src="@drawable/music"
+                        android:onClick="song2OnClick"
+                        android:src="@drawable/star"
                         android:layout_gravity="center_horizontal"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
@@ -126,7 +126,7 @@
                         android:fontFamily="sans-serif-medium"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="Song 2"
+                        android:text="Twinkle Twinkle Little Star"
                         android:textAlignment="center"
                         android:textColor="@android:color/white"
                         android:textSize="14sp"
@@ -162,8 +162,8 @@
 
                     <ImageView
                         android:id="@+id/song3"
-                        android:onClick="messOnClick"
-                        android:src="@drawable/music"
+                        android:onClick="spiderOnClick"
+                        android:src="@drawable/spider"
                         android:layout_gravity="center_horizontal"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
@@ -171,7 +171,7 @@
 
                     <TextView
                         android:fontFamily="sans-serif-medium"
-                        android:text="Song 3"
+                        android:text="Incy Wincy Spider"
                         android:textAlignment="center"
                         android:textColor="@android:color/white"
                         android:textSize="14sp"

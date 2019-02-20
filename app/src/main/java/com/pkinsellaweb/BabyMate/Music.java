@@ -19,12 +19,30 @@ public class Music extends AppCompatActivity {
         FirebaseDatabase database = FirebaseDatabase.getInstance();
         DatabaseReference myRefSong1 = database.getReference("SongOne");
         myRefSong1.setValue(0);
+        DatabaseReference myRefBabyShark = database.getReference("SongTwo");
+        myRefBabyShark.setValue(0);
+        DatabaseReference myRefSpider = database.getReference("SongThree");
+        myRefSpider.setValue(0);
+    }
+
+    public void song2OnClick(View v){
+        FirebaseDatabase database = FirebaseDatabase.getInstance();
+        DatabaseReference myRefBabyShark = database.getReference("SongTwo");
+        myRefBabyShark.setValue(1);
+        Toast.makeText(getBaseContext(), "Twinkle Twinkle Little Star Selected" , Toast.LENGTH_SHORT ).show();
     }
 
     public void onClick(View v){
         FirebaseDatabase database = FirebaseDatabase.getInstance();
-        DatabaseReference myRefSong1 = database.getReference("SongOne");
-        myRefSong1.setValue(1);
-        Toast.makeText(getBaseContext(), "Son1 Selected" , Toast.LENGTH_SHORT ).show();
+        DatabaseReference myRefTwinkle = database.getReference("SongOne");
+        myRefTwinkle.setValue(1);
+        Toast.makeText(getBaseContext(), "Baby Shark  Selected" , Toast.LENGTH_SHORT ).show();
+    }
+
+    public void spiderOnClick(View v){
+        FirebaseDatabase database = FirebaseDatabase.getInstance();
+        DatabaseReference myRefSpider = database.getReference("SongThree");
+        myRefSpider.setValue(1);
+        Toast.makeText(getBaseContext(), "Incy Winy Spider Selected" , Toast.LENGTH_SHORT ).show();
     }
 }
