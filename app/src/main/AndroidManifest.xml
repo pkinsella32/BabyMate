@@ -53,7 +53,8 @@
             android:label="Temperature" />
         <activity android:name=".MessageOptions" />
         <activity android:name=".Notifications" />
-        <activity android:name=".weekSum"></activity>
+        <activity android:name=".weekSum" />
+        <activity android:name=".NewDash"></activity>
     </application>
 
 </manifest>

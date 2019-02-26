@@ -9,6 +9,8 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.ListAdapter;
 import android.widget.ListView;
+import android.widget.TextView;
+import android.widget.Toast;
 
 import com.github.mikephil.charting.charts.BarChart;
 import com.github.mikephil.charting.charts.PieChart;
@@ -22,17 +24,24 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
+import java.io.BufferedReader;
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.io.InputStreamReader;
 import java.util.ArrayList;
 import java.util.Calendar;
 
 public class Dashboard extends AppCompatActivity {
-
-
+    Calendar calendar = Calendar.getInstance();
+    private static final String FILE_NAME = "Sensor Data.txt";
     BarChart barChart;
     private ArrayList<String> mMessage = new ArrayList<>();
     private ListView messageListView;
     PieChart pieChart;
     Button button;
+    private TextView myView;
 
 
     @Override
@@ -40,7 +49,7 @@ public class Dashboard extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_dashboard);
 
-
+        myView = (TextView) findViewById(R.id.newText);
 
         FirebaseDatabase database = FirebaseDatabase.getInstance();
         DatabaseReference myRef = database.getReference();
@@ -54,8 +63,59 @@ public class Dashboard extends AppCompatActivity {
                 final Integer barSound = dataSnapshot.child("Sound").getValue(Integer.class);
                 final Integer barMovement = dataSnapshot.child("Temp").getValue(Integer.class);
 
-                barChart = (BarChart) findViewById(R.id.barChart1);
-                button = (Button) findViewById(R.id.sumButton);
+                Integer tempSave = dataSnapshot.child("Temp").getValue(Integer.class);
+                Log.d("DebugTag","TempSave Value is " + Integer.toString(tempSave) + "saved in " +getFilesDir());
+                FileOutputStream fos = null;
+                try {
+                    fos = openFileOutput(FILE_NAME, MODE_PRIVATE);
+                    fos.write(tempSave.intValue());
+                    Toast.makeText(getBaseContext(), "Temp Number is " +tempSave, Toast.LENGTH_SHORT ).show();
+                } catch (FileNotFoundException e) {
+                    e.printStackTrace();
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }finally {
+                    {
+                       if(fos != null){
+                           try {
+                               fos.close();
+                           } catch (IOException e) {
+                               e.printStackTrace();
+                           }
+                       }
+                    }
+                }
+
+                FileInputStream fis = null;
+
+                try{
+                    fis = openFileInput(FILE_NAME);
+                    InputStreamReader isr = new InputStreamReader(fis);
+                    BufferedReader br = new BufferedReader(isr);
+                    StringBuilder sb = new StringBuilder();
+                    String readTempSave;
+                    while ((readTempSave = br.readLine()) != null){
+                        sb.append(tempSave).append("\n");
+                    }
+
+                    myView.setText(sb);
+                } catch (FileNotFoundException e) {
+                    e.printStackTrace();
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }finally{
+                    if(fis != null){
+                        try {
+                            fis.close();
+                        } catch (IOException e) {
+                            e.printStackTrace();
+                        }
+                    }
+                }
+
+
+                barChart = findViewById(R.id.barChart1);
+                button = findViewById(R.id.sumButton);
 
                 button.setOnClickListener(new View.OnClickListener() {
                     @Override
@@ -90,13 +150,7 @@ public class Dashboard extends AppCompatActivity {
                 barChart.setDragEnabled(true);
                 barChart.setScaleEnabled(true);
 
-
-
-
-
-
-
-            }
+ }
 
 
 
@@ -108,10 +162,40 @@ public class Dashboard extends AppCompatActivity {
 
         });
 
+}
+
+//public void load(View v){
+//    FileInputStream fis = null;
+//
+//    try{
+//        fis = openFileInput(FILE_NAME);
+//        InputStreamReader isr = new InputStreamReader(fis);
+//        BufferedReader br = new BufferedReader(isr);
+//        StringBuilder sb = new StringBuilder();
+//        String tempSave;
+//        while ((tempSave = br.readLine()) != null){
+//            sb.append(tempSave).append("\n");
+//        }
+//
+//        myView.setText(sb.toString());
+//    } catch (FileNotFoundException e) {
+//        e.printStackTrace();
+//    } catch (IOException e) {
+//        e.printStackTrace();
+//    }finally{
+//        if(fis != null){
+//            try {
+//                fis.close();
+//            } catch (IOException e) {
+//                e.printStackTrace();
+//            }
+//        }
+//    }
+//}
 
 
 
-    }
+
 
 
 }

@@ -11,7 +11,7 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:orientation="vertical"
-    tools:context="com.pkinsellaweb.BabyMate.UserProfile"
+    tools:context="com.pkinsellaweb.BabyMate.Dashboard"
     android:background="@drawable/orangebackground">
 
         <TextView
@@ -51,6 +51,19 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="Weekly Summary" />
+
+        <Button
+            android:onClick="loadOnClick"
+            android:id="@+id/button2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Load" />
+
+        <TextView
+            android:id="@+id/newText"
+            android:layout_width="match_parent"
+            android:layout_height="79dp"
+            android:text="testTextView" />
 
 
 </LinearLayout >
