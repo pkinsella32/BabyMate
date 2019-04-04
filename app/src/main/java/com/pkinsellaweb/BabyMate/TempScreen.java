@@ -21,6 +21,7 @@ public class TempScreen extends AppCompatActivity {
     private ListView mListView;
     private TextView htextView;
     private TextView tTextView;
+    private TextView airTextView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -30,6 +31,7 @@ public class TempScreen extends AppCompatActivity {
          mListView = (ListView) findViewById(R.id.tempList);
          htextView = (TextView) findViewById(R.id.humidView);
          tTextView = (TextView) findViewById(R.id.tempScreenView);
+         airTextView = (TextView) findViewById(R.id.airQualityView);
 
         final ArrayAdapter<String> arrayAdapter = new ArrayAdapter<String>(this,android.R.layout.simple_list_item_1,mTemp);
         mListView.setAdapter(arrayAdapter);
@@ -37,6 +39,32 @@ public class TempScreen extends AppCompatActivity {
         FirebaseDatabase database = FirebaseDatabase.getInstance();
         DatabaseReference myRefTemp = database.getReference("Temp");
         DatabaseReference myRefHumid = database.getReference("Humid");
+        DatabaseReference myRefAir = database.getReference("AirStatus");
+
+        myRefAir.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(DataSnapshot dataSnapshot) {
+                Integer airValue = dataSnapshot.getValue(Integer.class);
+                mTemp.add("Air Quality is: " + airValue);
+                arrayAdapter.notifyDataSetChanged();
+                String airString = Integer.toString(airValue);
+                if(airValue < 300){
+                    airTextView.setText("Air Quality is: Good");
+                }
+                if(airValue > 700){
+                    airTextView.setText("Air Quality is: Bad");
+                }
+
+            }
+
+            @Override
+            public void onCancelled(DatabaseError error) {
+                // Failed to read value
+                Log.w("TAG", "Failed to read value.", error.toException());
+            }
+        });
+
+
 
         myRefHumid.addValueEventListener(new ValueEventListener() {
             @Override

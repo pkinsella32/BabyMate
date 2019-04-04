@@ -105,7 +105,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void dashOnClick(View v){
-        Intent myIntent = new Intent(getBaseContext(),   NewDash.class);
+        Intent myIntent = new Intent(getBaseContext(),   Dashboard.class);
         startActivity(myIntent);
     }
 

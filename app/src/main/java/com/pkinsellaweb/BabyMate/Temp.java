@@ -43,6 +43,7 @@ public class Temp extends AppCompatActivity {
         FirebaseDatabase database = FirebaseDatabase.getInstance();
         DatabaseReference myRefTemp = database.getReference("Temp");
         DatabaseReference myRefHumid = database.getReference("Humid");
+        DatabaseReference myRefAirStatus = database.getReference("AirStatus");
 
 
         // Read from the database
