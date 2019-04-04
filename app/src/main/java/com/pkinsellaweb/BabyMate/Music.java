@@ -30,6 +30,7 @@ public class Music extends AppCompatActivity {
         DatabaseReference myRefBabyShark = database.getReference("SongTwo");
         myRefBabyShark.setValue(1);
         Toast.makeText(getBaseContext(), "Twinkle Twinkle Little Star Selected" , Toast.LENGTH_SHORT ).show();
+
     }
 
     public void onClick(View v){

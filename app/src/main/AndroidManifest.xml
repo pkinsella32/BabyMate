@@ -29,7 +29,7 @@
             android:label="Home" />
         <activity
             android:name=".VideoScreen"
-            android:screenOrientation="portrait"
+            android:screenOrientation="landscape"
             android:theme="@style/Theme.AppCompat.Light.NoActionBar" />
         <activity android:name=".ViewTemp" />
         <activity android:name=".MessageScreen" />

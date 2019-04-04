@@ -22,9 +22,9 @@ public class VideoScreen extends AppCompatActivity {
         VideoView video = (VideoView) findViewById(R.id.videoView);
        // TextView text = (TextView) findViewById(R.id.videoText);
 
-//        String vidAdd = "http://192.168.43.66:8160/";
-//        Uri videoPath = Uri.parse(vidAdd);
-        Uri videoPath = Uri.parse("android.resource://" + getPackageName() + "/" + R.raw.baby);
+        String vidAdd = "http://192.168.43.66:8160/";
+        Uri videoPath = Uri.parse(vidAdd);
+//        Uri videoPath = Uri.parse("android.resource://" + getPackageName() + "/" + R.raw.baby);
         video.setVideoURI(videoPath);
 
         MediaController mediaController = new
