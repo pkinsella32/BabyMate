@@ -64,12 +64,14 @@ public class Dashboard extends AppCompatActivity {
                 final Integer barMovement = dataSnapshot.child("Temp").getValue(Integer.class);
 
                 Integer tempSave = dataSnapshot.child("Temp").getValue(Integer.class);
+                Integer humidSave = dataSnapshot.child("Humid").getValue(Integer.class);
                 Log.d("DebugTag","TempSave Value is " + Integer.toString(tempSave) + "saved in " +getFilesDir());
                 FileOutputStream fos = null;
                 try {
                     fos = openFileOutput(FILE_NAME, MODE_PRIVATE);
                     fos.write(tempSave.intValue());
-                    Toast.makeText(getBaseContext(), "Temp Number is " +tempSave, Toast.LENGTH_SHORT ).show();
+                    fos.write(humidSave.intValue());
+                    Toast.makeText(getBaseContext(), "Temp Number is " +tempSave+ " Humid number is " +humidSave, Toast.LENGTH_SHORT ).show();
                 } catch (FileNotFoundException e) {
                     e.printStackTrace();
                 } catch (IOException e) {

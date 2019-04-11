@@ -7,11 +7,11 @@ android:layout_height="match_parent"
 tools:context="com.pkinsellaweb.BabyMate.VideoScreen"
     >
 
-<VideoView
-    android:id="@+id/videoView"
-    android:layout_width="0dp"
-    android:layout_height="wrap_content"
-    android:layout_weight="1" />
+<!--<VideoView-->
+    <!--android:id="@+id/videoView"-->
+    <!--android:layout_width="0dp"-->
+    <!--android:layout_height="wrap_content"-->
+    <!--android:layout_weight="1" />-->
 
     <!--<TextView-->
         <!--android:id="@+id/videoText"-->
@@ -24,13 +24,13 @@ tools:context="com.pkinsellaweb.BabyMate.VideoScreen"
         <!--android:layout_width="match_parent"-->
         <!--android:layout_height="match_parent" />-->
 
-    <!--<WebView-->
+    <WebView
 
-        <!--android:layout_width="match_parent"-->
-        <!--android:layout_height="match_parent"-->
-        <!--android:id="@+id/webView"-->
-        <!--android:layout_alignParentTop="true"-->
-        <!--android:layout_alignParentLeft="true"-->
-        <!--android:padding="10dp"-->
-        <!--android:layout_alignParentStart="true" />-->
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:id="@+id/webView"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentLeft="true"
+        android:padding="10dp"
+        android:layout_alignParentStart="true" />
 </LinearLayout>

@@ -1,5 +1,6 @@
 package com.pkinsellaweb.BabyMate;
 
+import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
@@ -22,31 +23,48 @@ public class TempScreen extends AppCompatActivity {
     private TextView htextView;
     private TextView tTextView;
     private TextView airTextView;
+    private TextView lightView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_temp_screen);
 
-         mListView = (ListView) findViewById(R.id.tempList);
+//         mListView = (ListView) findViewById(R.id.tempList);
          htextView = (TextView) findViewById(R.id.humidView);
          tTextView = (TextView) findViewById(R.id.tempScreenView);
          airTextView = (TextView) findViewById(R.id.airQualityView);
+        lightView = (TextView) findViewById(R.id.lightInfoView);
 
-        final ArrayAdapter<String> arrayAdapter = new ArrayAdapter<String>(this,android.R.layout.simple_list_item_1,mTemp);
-        mListView.setAdapter(arrayAdapter);
+//        final ArrayAdapter<String> arrayAdapter = new ArrayAdapter<String>(this,android.R.layout.simple_list_item_1,mTemp);
+//        mListView.setAdapter(arrayAdapter);
 
         FirebaseDatabase database = FirebaseDatabase.getInstance();
         DatabaseReference myRefTemp = database.getReference("Temp");
         DatabaseReference myRefHumid = database.getReference("Humid");
         DatabaseReference myRefAir = database.getReference("AirStatus");
+        DatabaseReference myRefLight = database.getReference("Light");
+
+        myRefLight.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                Integer lightValue = dataSnapshot.getValue(Integer.class);
+                String lightString = Integer.toString(lightValue);
+                lightView.setText("Light levels are:" + lightString);
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError databaseError) {
+
+            }
+        });
 
         myRefAir.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
                 Integer airValue = dataSnapshot.getValue(Integer.class);
-                mTemp.add("Air Quality is: " + airValue);
-                arrayAdapter.notifyDataSetChanged();
+//                mTemp.add("Air Quality is: " + airValue);
+//                arrayAdapter.notifyDataSetChanged();
                 String airString = Integer.toString(airValue);
                 if(airValue < 300){
                     airTextView.setText("Air Quality is: Good");
@@ -70,8 +88,8 @@ public class TempScreen extends AppCompatActivity {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
                 Integer humidValue = dataSnapshot.getValue(Integer.class);
-                mTemp.add("Room Humidity is: " + humidValue);
-                arrayAdapter.notifyDataSetChanged();
+//                mTemp.add("Room Humidity is: " + humidValue);
+//                arrayAdapter.notifyDataSetChanged();
                 String humidString = Integer.toString(humidValue);
                 htextView.setText("Humidity:" + " \n"+ humidString+"%");
             }
@@ -86,25 +104,25 @@ public class TempScreen extends AppCompatActivity {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
                 Integer tempValue = dataSnapshot.getValue(Integer.class);
-                mTemp.add("Room Temperature is: " +tempValue+"c");
+//                mTemp.add("Room Temperature is: " +tempValue+"c");
                 String tempString = Integer.toString(tempValue);
-                tTextView.setText("Temperature:" + " \n" +tempString+"c");
-                arrayAdapter.notifyDataSetChanged();
+                tTextView.setText("Temp:" + " \n" +tempString+"c");
+//                arrayAdapter.notifyDataSetChanged();
                 Log.d("TAG", "Value is: " + tempValue);
 
-                if((tempValue) <= 15){
-                    mTemp.add("The room is currently very cold " +tempValue+"c"+ " Consider turning up the heat.");
-                }
-                else if((tempValue) <= 18){
-                    mTemp.add("The room is currently chilly " +tempValue+"c");
-                }
-
-                else if((tempValue) >= 22){
-                    mTemp.add("The room is currently very warm " +tempValue+"c"+" turn down the heat!");
-                }
-                else{
-                    mTemp.add("The room is at a comfortable temperature");
-                }
+//                if((tempValue) <= 15){
+//                    mTemp.add("The room is currently very cold " +tempValue+"c"+ " Consider turning up the heat.");
+//                }
+//                else if((tempValue) <= 18){
+//                    mTemp.add("The room is currently chilly " +tempValue+"c");
+//                }
+//
+//                else if((tempValue) >= 22){
+//                    mTemp.add("The room is currently very warm " +tempValue+"c"+" turn down the heat!");
+//                }
+//                else{
+//                    mTemp.add("The room is at a comfortable temperature");
+//                }
             }
 
             @Override
