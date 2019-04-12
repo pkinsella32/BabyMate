@@ -114,8 +114,8 @@
                 android:layout_margin="16dp">
 
                  <ImageView
-                      android:onClick="tempOnClick"
-                      android:src="@drawable/temp"
+                      android:onClick="cribOnClick"
+                      android:src="@drawable/crib"
                       android:layout_gravity="center_horizontal"
                       android:layout_width="wrap_content"
                       android:layout_height="wrap_content"
@@ -125,7 +125,7 @@
                     android:fontFamily="sans-serif-medium"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="@string/view_adjust_temperature"
+                    android:text="Babys Room"
                     android:textAlignment="center"
                     android:textColor="@android:color/white"
                     android:textSize="14sp"

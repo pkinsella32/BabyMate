@@ -84,7 +84,7 @@ public class MainActivity extends AppCompatActivity {
         startActivity(myIntent);
     }
 
-    public void tempOnClick(View v){
+    public void cribOnClick(View v){
         Intent myIntent = new Intent(getBaseContext(),   TempScreen.class);
         startActivity(myIntent);
     }
