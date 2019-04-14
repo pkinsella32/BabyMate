@@ -22,7 +22,7 @@
 
         <ImageView
             android:layout_width="400dp"
-            android:layout_height="304dp"
+            android:layout_height="157dp"
             android:layout_gravity="center_horizontal"
             android:layout_margin="5dp"
             android:contentDescription="@string/todo"

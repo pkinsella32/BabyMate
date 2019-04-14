@@ -12,6 +12,7 @@ import android.os.Bundle;
 import android.util.Log;
 
 import android.widget.ListView;
+import android.widget.Toast;
 
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
@@ -28,10 +29,16 @@ public class Message extends AppCompatActivity  {
     private ListView messageListView;
     private String babyName;
     private Button button;
+    final int itemCount = 0;
 
 
 
-    public Message(){}
+    public Message(){
+//        // final int itemCount = 0;
+//        int itemCount = mMessage.size();
+//        Log.w("TAG", "final array value is" + itemCount);
+    }
+
 
   @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -78,6 +85,7 @@ public class Message extends AppCompatActivity  {
         DatabaseReference myRefMovement = database.getReference("Movement");
         DatabaseReference myRefName = database.getReference("Name");
         DatabaseReference myRefBestTemp = database.getReference("BestTemp");
+        DatabaseReference myRefWarning = database.getReference("Warning");
 
         myRefName.addValueEventListener(new ValueEventListener() {
             @Override
@@ -181,14 +189,26 @@ public class Message extends AppCompatActivity  {
                   mMessage.add("The Room Sound Levels are: " + soundValue + " \n" +mydate);
                   ((CustomAdapter) myAdapter).notifyDataSetChanged();
               }
+
+              int itemCount = mMessage.size();
+              ((CustomAdapter) myAdapter).notifyDataSetChanged();
+              Log.w("TAG", "1st array value is" + itemCount);
+              Toast.makeText(getBaseContext(), "Number of warnings is " +itemCount, Toast.LENGTH_SHORT ).show();
+
           }
+
+
 
           @Override
           public void onCancelled(DatabaseError databaseError) {
               Log.w("TAG", "Failed to read value");
           }
       });
-    }
+
+
+
+  }
+
 
 
 

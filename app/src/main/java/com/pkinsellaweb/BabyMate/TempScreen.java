@@ -190,7 +190,7 @@ public class TempScreen extends AppCompatActivity {
     }
 
     public void tempOnClick(View v){
-        Intent myIntent = new Intent(getBaseContext(),   VideoScreen.class);
+        Intent myIntent = new Intent(getBaseContext(),   Weather.class);
         startActivity(myIntent);
     }
 
