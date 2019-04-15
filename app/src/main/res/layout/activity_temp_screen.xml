@@ -6,7 +6,7 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     android:background="@drawable/newbackground"
-    android:weightSum="8"
+    android:weightSum="10"
     tools:context=".MainActivity">
 
     <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
@@ -63,7 +63,7 @@
             android:layout_marginEnd="15dp"
             android:layout_marginBottom="15dp"
             app:cardBackgroundColor="@color/colorPrimary"
-            app:cardCornerRadius="14dp"
+            app:cardCornerRadius="24dp"
             app:cardElevation="14dp">
 
 
@@ -81,7 +81,7 @@
                     android:layout_height="wrap_content"
                     android:layout_gravity="center_horizontal"
                     android:contentDescription="@string/todo"
-                    android:src="@drawable/humid" />
+                    android:src="@drawable/sun" />
 
 
                 <TextView
@@ -110,7 +110,7 @@
             android:layout_marginEnd="15dp"
             android:layout_marginBottom="15dp"
             app:cardBackgroundColor="@color/colorPrimary"
-            app:cardCornerRadius="14dp"
+            app:cardCornerRadius="24dp"
             app:cardElevation="14dp">
 
 
@@ -157,7 +157,7 @@
             android:layout_marginEnd="15dp"
             android:layout_marginBottom="15dp"
             app:cardBackgroundColor="@color/colorPrimary"
-            app:cardCornerRadius="14dp"
+            app:cardCornerRadius="24dp"
             app:cardElevation="14dp">
 
 
@@ -204,7 +204,7 @@
             android:layout_marginEnd="15dp"
             android:layout_marginBottom="15dp"
             app:cardBackgroundColor="@color/colorPrimary"
-            app:cardCornerRadius="14dp"
+            app:cardCornerRadius="24dp"
             app:cardElevation="14dp">
 
 
@@ -250,7 +250,7 @@
             android:layout_marginEnd="15dp"
             android:layout_marginBottom="15dp"
             app:cardBackgroundColor="@color/colorPrimary"
-            app:cardCornerRadius="14dp"
+            app:cardCornerRadius="24dp"
             app:cardElevation="14dp">
 
 
@@ -297,7 +297,7 @@
             android:layout_marginEnd="15dp"
             android:layout_marginBottom="15dp"
             app:cardBackgroundColor="@color/colorPrimary"
-            app:cardCornerRadius="14dp"
+            app:cardCornerRadius="24dp"
             app:cardElevation="14dp">
 
 

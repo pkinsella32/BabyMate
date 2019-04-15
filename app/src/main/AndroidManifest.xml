@@ -7,7 +7,6 @@
     <uses-permission android:name="android.permission.INTERNET" />
 
     <application
-        android:usesCleartextTraffic="true"
         android:allowBackup="true"
         android:hardwareAccelerated="true"
         android:icon="@drawable/launchlogo"
@@ -15,8 +14,9 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
+        android:usesCleartextTraffic="true"
         tools:replace="android:label">
-        <activity android:name=".Weather"></activity>
+        <activity android:name=".Weather" />
         <activity android:name=".SplashScreen">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -58,6 +58,7 @@
         <activity android:name=".Notifications" />
         <activity android:name=".weekSum" />
         <activity android:name=".NewDash" />
+        <activity android:name=".TempControl"></activity>
     </application>
 
 </manifest>
