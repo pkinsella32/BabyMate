@@ -2,117 +2,88 @@
 <ScrollView xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
     android:orientation="vertical">
 
-    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-        xmlns:app="http://schemas.android.com/apk/res-auto"
-        xmlns:tools="http://schemas.android.com/tools"
-        android:layout_width="match_parent"
+    <LinearLayout
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="vertical"
         tools:context="com.pkinsellaweb.BabyMate.UserProfile"
         android:background="@drawable/orangebackground"
         android:descendantFocusability="beforeDescendants"
-        android:focusableInTouchMode="true" >
+        android:focusableInTouchMode="true"
+        android:id="@+id/linearLayout">
 
         <ImageView
-            android:layout_width="265dp"
-            android:layout_height="99dp"
-            android:layout_gravity="center_horizontal"
-            android:layout_margin="5dp"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
             android:contentDescription="@string/todo"
             android:padding="25dp"
             android:paddingTop="5dp"
-            android:src="@drawable/logo" />
+            android:src="@drawable/logo"
+            tools:layout_conversion_absoluteHeight="99dp"
+            tools:layout_conversion_absoluteWidth="265dp"
+            tools:layout_editor_absoluteX="73dp"
+            tools:layout_editor_absoluteY="5dp" />
 
 
+        <TextView
+            android:layout_marginTop="5dp"
+            android:id="@+id/tcontrolView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical|center_horizontal"
+            android:text="@string/current_temp_info"
+            android:textColor="@color/cardview_light_background"
+            android:textSize="75sp"
+            android:textStyle="bold"
+            tools:layout_conversion_absoluteHeight="34dp"
+            tools:layout_conversion_absoluteWidth="206dp"
+            tools:layout_editor_absoluteX="103dp"
+            tools:layout_editor_absoluteY="109dp" />
+
+        <Switch
+            android:id="@+id/switch1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical|center_horizontal"
+            android:text="On/Off"
+            android:textColor="@color/cardview_light_background"
+            android:textSize="24sp"
+            android:textStyle="bold"
+            tools:layout_conversion_absoluteHeight="27dp"
+            tools:layout_conversion_absoluteWidth="82dp"
+            tools:layout_editor_absoluteX="0dp"
+            tools:layout_editor_absoluteY="158dp" />
+
+        <Button
+            android:id="@+id/upButton"
+            android:layout_width="120dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical|center_horizontal"
+            android:layout_marginTop="15dp"
+            android:layout_marginBottom="15dp"
+            android:background="@color/colorPrimary"
+            android:elevation="25dp"
+            android:text="@string/heating_up"
+            android:textColor="@color/cardview_light_background"
+            android:textSize="20sp" />
+
+        <Button
+            android:id="@+id/tempDown"
+            android:layout_width="120dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical|center_horizontal"
+            android:layout_marginTop="15dp"
+            android:layout_marginBottom="15dp"
+            android:background="@color/colorPrimary"
+            android:elevation="25dp"
+            android:text="@string/heating_down"
+            android:textColor="@color/cardview_light_background"
+            android:textSize="20sp" />
 
 
-
-
-
-
-
-
-
-        <GridLayout
-            android:layout_width="match_parent"
-            android:layout_height="0dp"
-            android:layout_weight="10"
-            android:alignmentMode="alignMargins"
-            android:columnCount="1"
-            android:columnOrderPreserved="false"
-            android:rowCount="1"
-
-            >
-
-
-
-
-            <android.support.v7.widget.CardView
-                android:layout_width="1dp"
-                android:layout_height="0dp"
-                android:layout_rowWeight="1"
-                android:layout_columnWeight="1"
-                android:layout_marginStart="15dp"
-                android:layout_marginTop="15dp"
-                android:layout_marginEnd="15dp"
-                android:layout_marginBottom="15dp"
-                app:cardBackgroundColor="@color/colorPrimary"
-                app:cardCornerRadius="14dp"
-                app:cardElevation="14dp">
-
-
-                <LinearLayout
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="center_horizontal|center_vertical"
-                    android:layout_margin="16dp"
-                    android:orientation="vertical"
-                    >
-
-                    <ImageView
-                        android:id="@+id/babyCard"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_gravity="center_horizontal"
-                        android:contentDescription="@string/todo"
-                        android:src="@drawable/abc" />
-
-
-                    <TextView
-                        android:id="@+id/nameView"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:fontFamily="sans-serif-medium"
-                        android:textAlignment="center"
-                        android:textColor="#fdf8f8"
-                        android:textSize="30sp"
-                        android:textStyle="bold" />
-
-
-                </LinearLayout>
-
-
-            </android.support.v7.widget.CardView>
-
-
-
-
-
-
-
-        </GridLayout>
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="match_parent">
-
-            <Button
-                android:layout_width="match_parent"
-                android:layout_height="match_parent" />
-
-        </LinearLayout>
     </LinearLayout>
 </ScrollView>

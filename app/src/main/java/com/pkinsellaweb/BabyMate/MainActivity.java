@@ -30,16 +30,16 @@ public class MainActivity extends AppCompatActivity {
     private FirebaseAnalytics mFirebaseAnalytics;
     private FirebaseAuth mAuth;
 
-    public MainActivity(){}
+//    public MainActivity(){}
 
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        mFirebaseAnalytics = FirebaseAnalytics.getInstance(this);
+//        mFirebaseAnalytics = FirebaseAnalytics.getInstance(this);
         //FirebaseDatabase database = FirebaseDatabase.getInstance();
-        mAuth = FirebaseAuth.getInstance();
+//        mAuth = FirebaseAuth.getInstance();
 
 
         FirebaseDatabase database = FirebaseDatabase.getInstance();
@@ -60,22 +60,22 @@ public class MainActivity extends AppCompatActivity {
 
 }
 
-    private void updateUI(FirebaseUser user) {
-
-        if (user != null) {
-            Toast.makeText(getBaseContext(), "Signed In" , Toast.LENGTH_SHORT ).show();
-        } else {
-            Toast.makeText(getBaseContext(), "Not signed in" , Toast.LENGTH_SHORT ).show();
-        }
-    }
-
-    @Override
-    public void onStart() {
-        super.onStart();
-        // Check if user is signed in (non-null) and update UI accordingly.
-        FirebaseUser currentUser = mAuth.getCurrentUser();
-        updateUI(currentUser);
-    }
+//    private void updateUI(FirebaseUser user) {
+//
+//        if (user != null) {
+//            Toast.makeText(getBaseContext(), "Signed In" , Toast.LENGTH_SHORT ).show();
+//        } else {
+//            Toast.makeText(getBaseContext(), "Not signed in" , Toast.LENGTH_SHORT ).show();
+//        }
+//    }
+//
+//    @Override
+//    public void onStart() {
+//        super.onStart();
+//        // Check if user is signed in (non-null) and update UI accordingly.
+//        FirebaseUser currentUser = mAuth.getCurrentUser();
+//        updateUI(currentUser);
+//    }
 
 
 

@@ -10,7 +10,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
+    android:layout_height="wrap_content"
     android:orientation="vertical"
     tools:context="com.pkinsellaweb.BabyMate.UserProfile"
     android:background="@drawable/orangebackground"
@@ -26,11 +26,6 @@
         android:padding="25dp"
         android:paddingTop="5dp"
         android:src="@drawable/logo" />
-
-
-
-
-
 
 
     <TextView
@@ -95,7 +90,7 @@
             android:layout_marginStart="15dp"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            android:hint="Set Temperature"
+            android:hint="@string/set_temperature"
             android:layout_gravity="center_horizontal"
             android:inputType=""
             android:autofillHints="" />
@@ -107,7 +102,7 @@
             android:layout_marginEnd="15dp"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Set Temperature"
+            android:text="@string/set_temperature"
             app:layout_constraintBaseline_toBaselineOf="@+id/tempTxt"
             app:layout_constraintStart_toEndOf="@+id/tempTxt"
             android:layout_gravity="center_horizontal"/>
