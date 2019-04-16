@@ -29,7 +29,7 @@ public class Message extends AppCompatActivity  {
     private ListView messageListView;
     private String babyName;
     private Button button;
-    final int itemCount = 0;
+    private int itemCount = 0;
 
 
 
@@ -64,18 +64,7 @@ public class Message extends AppCompatActivity  {
           }
       });
 
-//      final ListAdapter myAdapter2 = new CustomAdapter2(this,mMessage);
-//      ListView myListView2 = (ListView) findViewById(R.id.messageList2);
-//      myListView2.setAdapter(myAdapter2);
 
-        button.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                mMessage.clear();
-                ((CustomAdapter) myAdapter).notifyDataSetChanged();
-
-            }
-        });
 
         FirebaseDatabase database = FirebaseDatabase.getInstance();
         DatabaseReference myRefTemp = database.getReference("Temp");
@@ -113,7 +102,7 @@ public class Message extends AppCompatActivity  {
                 ((CustomAdapter) myAdapter).notifyDataSetChanged();
                 if((movementValue) > 20){
 
-                    mMessage.add( babyName +  " is Moving:  " +  " \n" +mydate);
+                    mMessage.add( "Movement Detected in " + babyName+"room " + mydate);
 
                 }
             }
@@ -139,15 +128,17 @@ public class Message extends AppCompatActivity  {
           }
       });
 
+
+
       myRefTemp.addValueEventListener(new ValueEventListener() {
+
           @Override
           public void onDataChange(DataSnapshot dataSnapshot) {
               String mydate = java.text.DateFormat.getDateTimeInstance().format(Calendar.getInstance().getTime());
               Integer tempValue = dataSnapshot.getValue(Integer.class);
-              Integer bestTemp = 20;
+              Integer bestTemp = 18;
 
               if((tempValue) != bestTemp) {
-                  mMessage.add(babyName+"s" +" room is not comfortable," +"\n" +"Take Action!");
                   mMessage.add(babyName+"s" +" room Temp is: " + tempValue+"c" +  " \n" +mydate);
                   ((CustomAdapter) myAdapter).notifyDataSetChanged();
               }
@@ -165,9 +156,9 @@ public class Message extends AppCompatActivity  {
               String mydate = java.text.DateFormat.getDateTimeInstance().format(Calendar.getInstance().getTime());
               Integer lightValue = dataSnapshot.getValue(Integer.class);
 
-            if((lightValue) > 10){
+            if((lightValue) > 900){
                  mMessage.add("The Room is to Bright for " + babyName + " To sleep");
-                 mMessage.add("The Room Light Levels are: " + lightValue  + " \n" +mydate);
+                 mMessage.add("The Room Light Levels are to High: " + lightValue  + " \n" +mydate);
                  ((CustomAdapter) myAdapter).notifyDataSetChanged();
              }
 
@@ -184,15 +175,15 @@ public class Message extends AppCompatActivity  {
           public void onDataChange(DataSnapshot dataSnapshot) {
               String mydate = java.text.DateFormat.getDateTimeInstance().format(Calendar.getInstance().getTime());
               Integer soundValue = dataSnapshot.getValue(Integer.class);
-              if((soundValue) >30){
-                  mMessage.add(babyName + " is crying");
+              if((soundValue) >300){
+                  mMessage.add("Sound Levels are High in " + babyName +" room");
                   mMessage.add("The Room Sound Levels are: " + soundValue + " \n" +mydate);
                   ((CustomAdapter) myAdapter).notifyDataSetChanged();
               }
 
-              int itemCount = mMessage.size();
+               itemCount = mMessage.size();
               ((CustomAdapter) myAdapter).notifyDataSetChanged();
-              Log.w("TAG", "1st array value is" + itemCount);
+              Log.w("TAG", "test2 " + itemCount);
               Toast.makeText(getBaseContext(), "Number of warnings is " +itemCount, Toast.LENGTH_SHORT ).show();
 
           }
@@ -203,13 +194,25 @@ public class Message extends AppCompatActivity  {
           public void onCancelled(DatabaseError databaseError) {
               Log.w("TAG", "Failed to read value");
           }
+
+
       });
 
+      button.setOnClickListener(new View.OnClickListener() {
+          @Override
+          public void onClick(View view) {
+              FirebaseDatabase database = FirebaseDatabase.getInstance();
+              DatabaseReference myRef = database.getReference("Warning");
 
+              myRef.setValue(itemCount);
+              mMessage.clear();
+              ((CustomAdapter) myAdapter).notifyDataSetChanged();
+
+              Log.w("TAG", "newTest" +itemCount);
+          }
+      });
 
   }
-
-
 
 
 }

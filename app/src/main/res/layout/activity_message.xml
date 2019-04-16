@@ -10,8 +10,8 @@
 
     <ImageView
         android:id="@+id/messageImage"
-        android:layout_width="379dp"
-        android:layout_height="98dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
         android:layout_gravity="center_horizontal"
         android:layout_marginStart="4dp"
         android:contentDescription="@string/todo"
@@ -29,7 +29,7 @@
         android:layout_marginTop="83dp"
         android:layout_marginBottom="4dp"
         android:background="@drawable/custom_button"
-        android:text="Clear Messages"
+        android:text="@string/clear_messages"
         app:layout_constraintBottom_toTopOf="@+id/messageList"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -38,10 +38,9 @@
         />
 
 
-
     <ListView
         android:id="@+id/messageList"
-        android:layout_width="0dp"
+        android:layout_width="wrap_content"
         android:layout_height="0dp"
         android:layout_marginBottom="4dp"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -52,5 +51,7 @@
 
 
     </ListView>
+
+
 
 </android.support.constraint.ConstraintLayout>

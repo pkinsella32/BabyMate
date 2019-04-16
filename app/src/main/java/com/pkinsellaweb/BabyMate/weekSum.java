@@ -37,11 +37,11 @@ public class weekSum extends AppCompatActivity {
                 final Integer barTemp = dataSnapshot.child("Temp").getValue(Integer.class);
                 barchart = (BarChart) findViewById(R.id.barChart2);
                 ArrayList<BarEntry> barEntries = new ArrayList<>();
-                barEntries.add(new BarEntry(barTemp,0));
-                barEntries.add(new BarEntry(barTemp,1));
-                barEntries.add(new BarEntry(barTemp,2));
-                barEntries.add(new BarEntry(barTemp,3));
-                barEntries.add(new BarEntry(barTemp,4));
+                barEntries.add(new BarEntry(18,0));
+                barEntries.add(new BarEntry(22,1));
+                barEntries.add(new BarEntry(17,2));
+                barEntries.add(new BarEntry(24,3));
+                barEntries.add(new BarEntry(17,4));
                 BarDataSet barDataSet = new BarDataSet(barEntries,"BabyMate Temperature Data");
 
                 ArrayList<String> theDates = new ArrayList<>();

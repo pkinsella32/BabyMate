@@ -30,6 +30,7 @@
     <string name="heating_down">Heating Down</string>
     <string name="heating_on_off">Heating On/Off</string>
     <string name="current_temp_info">Current Temp Info</string>
+    <string name="clear_messages">Clear Messages</string>
 
 
 </resources>
