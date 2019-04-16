@@ -23,11 +23,11 @@ public class TempControl extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_temp_control);
+        Toast.makeText(getBaseContext(), "Not Connected - Check Connection" , Toast.LENGTH_SHORT ).show();
         tempControl =  (TextView) findViewById(R.id.tcontrolView);
         tempButtonUp = (Button) findViewById(R.id.upButton);
         tempButtonDown = (Button) findViewById(R.id.tempDown);
-       // mCounter = 20;
-        tempControl.setText(mCounter +"c");
+
 
         FirebaseDatabase database = FirebaseDatabase.getInstance();
         DatabaseReference myRefTemp = database.getReference("Temp");

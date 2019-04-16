@@ -58,31 +58,7 @@
             tools:layout_editor_absoluteX="0dp"
             tools:layout_editor_absoluteY="158dp" />
 
-        <!--<Button-->
-            <!--android:id="@+id/upButton"-->
-            <!--android:layout_width="120dp"-->
-            <!--android:layout_height="wrap_content"-->
-            <!--android:layout_gravity="center_vertical|center_horizontal"-->
-            <!--android:layout_marginTop="15dp"-->
-            <!--android:layout_marginBottom="15dp"-->
-            <!--android:background="@color/colorPrimary"-->
-            <!--android:elevation="25dp"-->
-            <!--android:text="@string/heating_up"-->
-            <!--android:textColor="@color/cardview_light_background"-->
-            <!--android:textSize="20sp" />-->
 
-        <!--<Button-->
-            <!--android:id="@+id/tempDown"-->
-            <!--android:layout_width="120dp"-->
-            <!--android:layout_height="wrap_content"-->
-            <!--android:layout_gravity="center_vertical|center_horizontal"-->
-            <!--android:layout_marginTop="15dp"-->
-            <!--android:layout_marginBottom="15dp"-->
-            <!--android:background="@color/colorPrimary"-->
-            <!--android:elevation="25dp"-->
-            <!--android:text="@string/heating_down"-->
-            <!--android:textColor="@color/cardview_light_background"-->
-            <!--android:textSize="20sp" />-->
 
         <Button
             android:id="@+id/upButton"
@@ -99,7 +75,9 @@
             android:text="Heating Up!"
             android:textColor="@color/cardview_light_background"
             android:textSize="30sp"
-            android:textStyle="bold"></Button>
+            android:textStyle="bold">
+
+        </Button>
 
         <Button
             android:id="@+id/tempDown"
@@ -115,6 +93,8 @@
             android:text="Heating Down!"
             android:textColor="@color/cardview_light_background"
             android:textSize="30sp"
-            android:textStyle="bold"></Button>
+            android:textStyle="bold">
+
+        </Button>
     </LinearLayout>
 </ScrollView>
