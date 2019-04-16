@@ -16,7 +16,28 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
 
+<RelativeLayout
+    android:layout_width="match_parent"
+    android:layout_height="0dp"
+    android:layout_weight="1">
 
+    <ImageView
+        android:id="@+id/online"
+        android:layout_width="400dp"
+        android:layout_height="250dp"
+        android:layout_gravity="center_horizontal"
+        android:contentDescription="@string/todo"
+        android:paddingTop="5dp"
+        android:src="@drawable/online" />
+    <ImageView
+        android:id="@+id/offline"
+        android:layout_width="400dp"
+        android:layout_height="250dp"
+        android:layout_gravity="center_horizontal"
+        android:contentDescription="@string/todo"
+        android:paddingTop="5dp"
+        android:src="@drawable/offline" />
+</RelativeLayout>
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="0dp"
@@ -29,6 +50,8 @@
             android:contentDescription="@string/todo"
             android:paddingTop="5dp"
             android:src="@drawable/logo" />
+
+
 
     </RelativeLayout>
 

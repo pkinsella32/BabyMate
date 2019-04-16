@@ -6,6 +6,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
+import android.widget.ImageView;
 import android.widget.ListAdapter;
 import android.widget.ListView;
 import android.widget.Toast;
@@ -29,6 +30,8 @@ import java.util.Calendar;
 public class MainActivity extends AppCompatActivity {
     private FirebaseAnalytics mFirebaseAnalytics;
     private FirebaseAuth mAuth;
+    private ImageView online;
+    private ImageView offline;
 
 //    public MainActivity(){}
 
@@ -37,18 +40,28 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-//        mFirebaseAnalytics = FirebaseAnalytics.getInstance(this);
-        //FirebaseDatabase database = FirebaseDatabase.getInstance();
-//        mAuth = FirebaseAuth.getInstance();
-
-
         FirebaseDatabase database = FirebaseDatabase.getInstance();
-        DatabaseReference myRefTemp = database.getReference("Name");
+        DatabaseReference myRefTemp = database.getReference("Temp");
+        DatabaseReference myRefStatus = database.getReference("Status");
 
-        myRefTemp.addValueEventListener(new ValueEventListener() {
+        online = (ImageView) findViewById(R.id.online);
+        offline = (ImageView) findViewById(R.id.offline);
+
+        myRefStatus.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
-                String babyName  = dataSnapshot.getValue(String.class);
+                Integer statusValue = dataSnapshot.getValue(Integer.class);
+                String statusString = Integer.toString(statusValue);
+                if(statusValue ==0){
+                    online.setVisibility(View.GONE);
+                    offline.setVisibility(View.VISIBLE);
+                    Log.w("TAG", "status" + statusValue);
+                }else{
+                    online.setVisibility(View.VISIBLE);
+                    offline.setVisibility(View.GONE);
+                    Log.w("TAG", "status" + statusValue);
+
+                }
             }
 
             @Override
@@ -56,6 +69,24 @@ public class MainActivity extends AppCompatActivity {
 
             }
         });
+//        mFirebaseAnalytics = FirebaseAnalytics.getInstance(this);
+        //FirebaseDatabase database = FirebaseDatabase.getInstance();
+//        mAuth = FirebaseAuth.getInstance();
+
+
+
+
+//        myRefTemp.addValueEventListener(new ValueEventListener() {
+//            @Override
+//            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+//                String babyName  = dataSnapshot.getValue(String.class);
+//            }
+//
+//            @Override
+//            public void onCancelled(@NonNull DatabaseError databaseError) {
+//
+//            }
+//        });
 
 
 }

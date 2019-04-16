@@ -100,7 +100,7 @@ public class Message extends AppCompatActivity  {
                 Integer movementValue  = dataSnapshot.getValue(Integer.class);
 
                 ((CustomAdapter) myAdapter).notifyDataSetChanged();
-                if((movementValue) > 20){
+                if((movementValue) > 50){
 
                     mMessage.add( "Movement Detected in " + babyName+"room " + mydate);
 
@@ -156,7 +156,7 @@ public class Message extends AppCompatActivity  {
               String mydate = java.text.DateFormat.getDateTimeInstance().format(Calendar.getInstance().getTime());
               Integer lightValue = dataSnapshot.getValue(Integer.class);
 
-            if((lightValue) > 900){
+            if((lightValue) > 100){
                  mMessage.add("The Room is to Bright for " + babyName + " To sleep");
                  mMessage.add("The Room Light Levels are to High: " + lightValue  + " \n" +mydate);
                  ((CustomAdapter) myAdapter).notifyDataSetChanged();
