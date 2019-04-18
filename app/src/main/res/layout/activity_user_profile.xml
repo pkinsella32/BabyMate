@@ -32,22 +32,22 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center_horizontal"
+        android:layout_marginBottom="15dp"
         android:text="@string/please_select_name_and_optimal_temperature_below"
         android:textAlignment="center"
+        android:textColor="@color/cardview_light_background"
         android:textSize="25sp"
-        android:layout_marginBottom="15dp"
-        android:textStyle="bold"
 
-        />
+        android:textStyle="bold" />
 
     <LinearLayout
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="horizontal"
-    android:weightSum="100">
+    >
 
 <EditText
-        android:layout_weight="50"
+        android:layout_weight="1"
         android:id="@+id/nameTxt"
         android:layout_marginStart="15dp"
         android:layout_width="wrap_content"
@@ -63,13 +63,16 @@
 
         <Button
             android:id="@+id/nameButton"
-            android:layout_width="165dp"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center_horizontal"
-            android:layout_marginStart="2dp"
-            android:layout_marginEnd="15dp"
-            android:layout_weight="50"
+            android:layout_marginTop="35dp"
+            android:layout_marginEnd="2dp"
+            android:layout_weight="1"
+            android:background="@drawable/my_button"
             android:text="@string/set_name"
+            android:textColor="@color/cardview_light_background"
+            android:textStyle="bold"
             app:layout_constraintBaseline_toBaselineOf="@+id/nameTxt"
             app:layout_constraintStart_toEndOf="@+id/nameTxt"></Button>
 
@@ -80,10 +83,10 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="horizontal"
-        android:weightSum="100">
+        >
 
         <EditText
-            android:layout_weight="50"
+            android:layout_weight="1"
             android:id="@+id/tempTxt"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -96,16 +99,18 @@
             android:autofillHints="" />
 
         <Button
-            android:layout_weight="50"
             android:id="@+id/setTempButton"
-            android:layout_marginStart="2dp"
-            android:layout_marginEnd="15dp"
-            android:layout_width="wrap_content"
+            android:layout_width="116dp"
             android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginEnd="2dp"
+            android:layout_weight="1"
+            android:background="@drawable/my_button"
             android:text="@string/set_temperature"
+            android:textColor="@color/cardview_light_background"
+            android:textStyle="bold"
             app:layout_constraintBaseline_toBaselineOf="@+id/tempTxt"
-            app:layout_constraintStart_toEndOf="@+id/tempTxt"
-            android:layout_gravity="center_horizontal"/>
+            app:layout_constraintStart_toEndOf="@+id/tempTxt" />
 
     </LinearLayout>
 
