@@ -29,7 +29,7 @@ public class Message extends AppCompatActivity  {
     private ListView messageListView;
     private String babyName;
     private Button button;
-    private int itemCount = 0;
+    private int itemCount;
 
 
 
@@ -59,6 +59,13 @@ public class Message extends AppCompatActivity  {
               Intent intent = new Intent(getApplicationContext(),VideoScreen.class);
               intent.putExtra("name",mMessage);
               startActivity(intent);
+              FirebaseDatabase database = FirebaseDatabase.getInstance();
+              DatabaseReference myRef = database.getReference("Warning");
+              itemCount = mMessage.size();
+              Log.w("TAG", "listTest" + itemCount);
+              myRef.setValue(itemCount);
+              ((CustomAdapter) myAdapter).notifyDataSetChanged();
+              Log.w("TAG", "listTest" + itemCount);
 
 
           }
@@ -181,10 +188,10 @@ public class Message extends AppCompatActivity  {
                   ((CustomAdapter) myAdapter).notifyDataSetChanged();
               }
 
-               itemCount = mMessage.size();
+
               ((CustomAdapter) myAdapter).notifyDataSetChanged();
               Log.w("TAG", "test2 " + itemCount);
-              Toast.makeText(getBaseContext(), "Number of warnings is " +itemCount, Toast.LENGTH_SHORT ).show();
+             // Toast.makeText(getBaseContext(), "Number of warnings is " +itemCount, Toast.LENGTH_SHORT ).show();
 
           }
 
@@ -198,17 +205,19 @@ public class Message extends AppCompatActivity  {
 
       });
 
+
+
       button.setOnClickListener(new View.OnClickListener() {
           @Override
           public void onClick(View view) {
+              ((CustomAdapter) myAdapter).notifyDataSetChanged();
               FirebaseDatabase database = FirebaseDatabase.getInstance();
               DatabaseReference myRef = database.getReference("Warning");
-
+              itemCount = mMessage.size();
               myRef.setValue(itemCount);
-              mMessage.clear();
               ((CustomAdapter) myAdapter).notifyDataSetChanged();
+              mMessage.clear();
 
-              Log.w("TAG", "newTest" +itemCount);
           }
       });
 

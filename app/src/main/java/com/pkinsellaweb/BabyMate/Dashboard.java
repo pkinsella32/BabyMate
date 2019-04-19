@@ -71,7 +71,7 @@ public class Dashboard extends AppCompatActivity {
                     fos = openFileOutput(FILE_NAME, MODE_PRIVATE);
                     fos.write(tempSave.intValue());
                     fos.write(humidSave.intValue());
-                    Toast.makeText(getBaseContext(), "Temp Number is " +tempSave+ " Humid number is " +humidSave, Toast.LENGTH_SHORT ).show();
+                   // Toast.makeText(getBaseContext(), "Temp Number is " +tempSave+ " Humid number is " +humidSave, Toast.LENGTH_SHORT ).show();
                 } catch (FileNotFoundException e) {
                     e.printStackTrace();
                 } catch (IOException e) {
