@@ -12,6 +12,9 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+
 import gr.net.maroulis.library.EasySplashScreen;
 
 public class SplashScreen extends AppCompatActivity {
@@ -21,6 +24,10 @@ public class SplashScreen extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_splash_screen);
+
+        FirebaseDatabase database = FirebaseDatabase.getInstance();
+        DatabaseReference myRefStatus = database.getReference("Status");
+        myRefStatus.setValue(0);
 
         Animation animation = AnimationUtils.loadAnimation(this,R.anim.splash);
         splashImage = findViewById(R.id.splashimage);

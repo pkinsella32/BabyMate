@@ -210,7 +210,7 @@ public class Message extends AppCompatActivity  {
       button.setOnClickListener(new View.OnClickListener() {
           @Override
           public void onClick(View view) {
-              ((CustomAdapter) myAdapter).notifyDataSetChanged();
+               ((CustomAdapter) myAdapter).notifyDataSetChanged();
               FirebaseDatabase database = FirebaseDatabase.getInstance();
               DatabaseReference myRef = database.getReference("Warning");
               itemCount = mMessage.size();
