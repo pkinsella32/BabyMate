@@ -26,6 +26,7 @@ public class TempScreen extends AppCompatActivity {
     private TextView airTextView;
     private TextView lightView;
     private TextView motionView;
+    private TextView motionView2;
     private TextView soundView;
 
     @Override
@@ -38,6 +39,7 @@ public class TempScreen extends AppCompatActivity {
          airTextView = (TextView) findViewById(R.id.airQualityView);
          lightView = (TextView) findViewById(R.id.lightInfoView);
          motionView = (TextView) findViewById(R.id.motionInfoView);
+         motionView2 = (TextView) findViewById(R.id.motionInfoView2);
          soundView = (TextView) findViewById(R.id.soundInfoView);
 
         FirebaseDatabase database = FirebaseDatabase.getInstance();
@@ -72,9 +74,13 @@ public class TempScreen extends AppCompatActivity {
                 Integer motionValue = dataSnapshot.getValue(Integer.class);
                 String lightString = Integer.toString(motionValue);
                 if(motionValue < 20){
+                    motionView2.setVisibility(View.GONE);
+                    motionView.setVisibility(View.VISIBLE);
                     motionView.setText("No Movement Detected");
                 }else if((motionValue > 20)){
-                    motionView.setText("Movement Detected");
+                    motionView.setVisibility(View.GONE);
+                    motionView2.setVisibility(View.VISIBLE);
+                    motionView2.setText("Movement Detected");
                 }
             }
 
