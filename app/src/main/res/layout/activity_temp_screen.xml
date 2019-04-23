@@ -31,16 +31,7 @@
         android:src="@drawable/logo" />
 
 
-        <!--<ListView-->
-            <!--android:id="@+id/tempList"-->
-            <!--android:layout_width="match_parent"-->
-            <!--android:layout_height="224dp"-->
-            <!--android:layout_weight="1"-->
-            <!--app:layout_constraintBottom_toBottomOf="parent"-->
-            <!--app:layout_constraintEnd_toEndOf="parent"-->
-            <!--app:layout_constraintHorizontal_bias="0.0"-->
-            <!--app:layout_constraintStart_toStartOf="parent"-->
-            <!--app:layout_constraintTop_toBottomOf="@+id/imageView" />-->
+
 
 
     <GridLayout
@@ -281,6 +272,16 @@
                     android:textSize="15sp"
                     android:textStyle="bold" />
 
+                <TextView
+                    android:id="@+id/soundInfoView2"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="sans-serif-medium"
+                    android:textAlignment="center"
+                    android:textColor="#FF0000"
+                    android:textSize="17sp"
+                    android:textStyle="bold" />
+
 
             </LinearLayout>
 
@@ -326,7 +327,7 @@
                     android:textAlignment="center"
                     android:textColor="#fdf8f8"
                     android:textSize="15sp"
-                    android:textStyle="bold" />
+                     />
 
                 <TextView
                     android:id="@+id/motionInfoView2"
@@ -335,7 +336,7 @@
                     android:fontFamily="sans-serif-medium"
                     android:textAlignment="center"
                     android:textColor="#FF0000"
-                    android:textSize="15sp"
+                    android:textSize="17sp"
                     android:textStyle="bold" />
 
 

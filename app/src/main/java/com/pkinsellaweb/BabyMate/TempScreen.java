@@ -28,6 +28,7 @@ public class TempScreen extends AppCompatActivity {
     private TextView motionView;
     private TextView motionView2;
     private TextView soundView;
+    private TextView soundView2;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -41,6 +42,7 @@ public class TempScreen extends AppCompatActivity {
          motionView = (TextView) findViewById(R.id.motionInfoView);
          motionView2 = (TextView) findViewById(R.id.motionInfoView2);
          soundView = (TextView) findViewById(R.id.soundInfoView);
+         soundView2 = (TextView) findViewById(R.id.soundInfoView2);
 
         FirebaseDatabase database = FirebaseDatabase.getInstance();
         DatabaseReference myRefTemp = database.getReference("Temp");
@@ -55,10 +57,14 @@ public class TempScreen extends AppCompatActivity {
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
                 Integer soundValue = dataSnapshot.getValue(Integer.class);
                 String lightString = Integer.toString(soundValue);
-                if(soundValue > 300){
-                    soundView.setText("Sound Levels High");
-                }else if((soundValue < 300)){
-                    soundView.setText("Sound Levels Normal");
+                if(soundValue >150){
+                    soundView.setVisibility(View.GONE);
+                    soundView2.setVisibility(View.VISIBLE);
+                    soundView2.setText("Sound Levels High");
+                }else if((soundValue < 150)){
+                    soundView2.setVisibility(View.GONE);
+                    soundView.setVisibility(View.VISIBLE);
+                    soundView.setText("Sound Levels Optimal");
                 }
             }
 
