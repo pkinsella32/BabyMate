@@ -1,4 +1,4 @@
-package com.pkinsellaweb.BabyMate;
+package com.pkinsellaweb.babyMate;
 
 import android.content.Context;
 import android.support.test.InstrumentationRegistry;

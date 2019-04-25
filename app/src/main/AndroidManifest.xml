@@ -1,10 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
-    package="com.pkinsellaweb.BabyMate"
+    package="com.pkinsellaweb.babyMate"
     android:installLocation="auto">
-
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+    <uses-permission android:name="android.permission. ACCESS_COARSE_LOCATION" />
     <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
 
     <application
         android:allowBackup="true"
@@ -16,49 +18,49 @@
         android:theme="@style/AppTheme"
         android:usesCleartextTraffic="true"
         tools:replace="android:label">
-        <activity android:name=".Weather" />
-        <activity android:name=".SplashScreen">
+        <activity android:name="com.pkinsellaweb.babyMate.Weather" />
+        <activity android:name="com.pkinsellaweb.babyMate.SplashScreen">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".AI" />
-        <activity android:name=".Strat" />
-        <activity android:name=".MMD" />
+        <activity android:name="com.pkinsellaweb.babyMate.AI" />
+        <activity android:name="com.pkinsellaweb.babyMate.Strat" />
+        <activity android:name="com.pkinsellaweb.babyMate.MMD" />
         <activity
-            android:name=".MainActivity"
+            android:name="com.pkinsellaweb.babyMate.MainActivity"
             android:label="Home" />
         <activity
-            android:name=".VideoScreen"
+            android:name="com.pkinsellaweb.babyMate.VideoScreen"
             android:screenOrientation="portrait"
             android:theme="@style/Theme.AppCompat.Light.NoActionBar" />
-        <activity android:name=".ViewTemp" />
-        <activity android:name=".MessageScreen" />
+        <activity android:name="com.pkinsellaweb.babyMate.ViewTemp" />
+        <activity android:name="com.pkinsellaweb.babyMate.MessageScreen" />
         <activity
-            android:name=".Temp"
+            android:name="com.pkinsellaweb.babyMate.Temp"
             android:label="Temperature"
-            android:parentActivityName=".MainActivity" />
+            android:parentActivityName="com.pkinsellaweb.babyMate.MainActivity" />
         <activity
-            android:name=".Message"
+            android:name="com.pkinsellaweb.babyMate.Message"
             android:label="System Messages"
-            android:parentActivityName=".MainActivity" />
+            android:parentActivityName="com.pkinsellaweb.babyMate.MainActivity" />
         <activity
-            android:name=".UserProfile"
+            android:name="com.pkinsellaweb.babyMate.UserProfile"
             android:label="Profile" />
         <activity
-            android:name=".Dashboard"
+            android:name="com.pkinsellaweb.babyMate.Dashboard"
             android:label="Dashboard" />
-        <activity android:name=".Music" />
+        <activity android:name="com.pkinsellaweb.babyMate.Music" />
         <activity
-            android:name=".TempScreen"
+            android:name="com.pkinsellaweb.babyMate.TempScreen"
             android:label="Temperature" />
-        <activity android:name=".MessageOptions" />
-        <activity android:name=".Notifications" />
-        <activity android:name=".weekSum" />
-        <activity android:name=".NewDash" />
-        <activity android:name=".TempControl"></activity>
+        <activity android:name="com.pkinsellaweb.babyMate.MessageOptions" />
+        <activity android:name="com.pkinsellaweb.babyMate.Notifications" />
+        <activity android:name="com.pkinsellaweb.babyMate.weekSum" />
+        <activity android:name="com.pkinsellaweb.babyMate.NewDash" />
+        <activity android:name="com.pkinsellaweb.babyMate.TempControl" />
     </application>
 
 </manifest>

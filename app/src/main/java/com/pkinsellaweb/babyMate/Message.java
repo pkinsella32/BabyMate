@@ -1,4 +1,4 @@
-package com.pkinsellaweb.BabyMate;
+package com.pkinsellaweb.babyMate;
 
 import android.content.Intent;
 import android.view.View;
@@ -12,7 +12,6 @@ import android.os.Bundle;
 import android.util.Log;
 
 import android.widget.ListView;
-import android.widget.Toast;
 
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
@@ -22,29 +21,25 @@ import com.google.firebase.database.ValueEventListener;
 
 import java.util.ArrayList;
 import java.util.Calendar;
-
+import android.content.Intent;
 
 public class Message extends AppCompatActivity  {
     private ArrayList<String> mMessage = new ArrayList<>();
     private ListView messageListView;
     private String babyName;
     private Button button;
-    private int itemCount;
+   // private int itemCount;
 
 
 
-    public Message(){
-//        // final int itemCount = 0;
-//        int itemCount = mMessage.size();
-//        Log.w("TAG", "final array value is" + itemCount);
-    }
+
+
 
 
   @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_message);
-
         button = findViewById(R.id.clearButton);
 
 
@@ -61,11 +56,9 @@ public class Message extends AppCompatActivity  {
               startActivity(intent);
               FirebaseDatabase database = FirebaseDatabase.getInstance();
               DatabaseReference myRef = database.getReference("Warning");
-              itemCount = mMessage.size();
-              Log.w("TAG", "listTest" + itemCount);
-              myRef.setValue(itemCount);
+
               ((CustomAdapter) myAdapter).notifyDataSetChanged();
-              Log.w("TAG", "listTest" + itemCount);
+
 
 
           }
@@ -182,15 +175,19 @@ public class Message extends AppCompatActivity  {
           public void onDataChange(DataSnapshot dataSnapshot) {
               String mydate = java.text.DateFormat.getDateTimeInstance().format(Calendar.getInstance().getTime());
               Integer soundValue = dataSnapshot.getValue(Integer.class);
+
+             // Log.d("TAG", "itemTest" +  (itemCount));
               if((soundValue) >300){
                   mMessage.add("Sound Levels are High in " + babyName +" room");
                   mMessage.add("The Room Sound Levels are: " + soundValue + " \n" +mydate);
-                  ((CustomAdapter) myAdapter).notifyDataSetChanged();
+
+                    ((CustomAdapter) myAdapter).notifyDataSetChanged();
+
               }
 
 
               ((CustomAdapter) myAdapter).notifyDataSetChanged();
-              Log.w("TAG", "test2 " + itemCount);
+             // Log.w("TAG", "test2 " + itemCount);
              // Toast.makeText(getBaseContext(), "Number of warnings is " +itemCount, Toast.LENGTH_SHORT ).show();
 
           }
@@ -207,14 +204,17 @@ public class Message extends AppCompatActivity  {
 
 
 
+
+
+
       button.setOnClickListener(new View.OnClickListener() {
           @Override
           public void onClick(View view) {
                ((CustomAdapter) myAdapter).notifyDataSetChanged();
               FirebaseDatabase database = FirebaseDatabase.getInstance();
               DatabaseReference myRef = database.getReference("Warning");
-              itemCount = mMessage.size();
-              myRef.setValue(itemCount);
+            //  itemCount = mMessage.size();
+              //myRef.setValue(itemCount);
               ((CustomAdapter) myAdapter).notifyDataSetChanged();
               mMessage.clear();
 

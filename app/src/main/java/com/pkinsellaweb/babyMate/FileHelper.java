@@ -1,4 +1,4 @@
-package com.pkinsellaweb.BabyMate;
+package com.pkinsellaweb.babyMate;
 
 import android.content.Context;
 
@@ -10,9 +10,9 @@ import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
 import java.util.ArrayList;
 
-public class StratFileHelper {
+public class FileHelper {
 
-    public static final String FILENAME = "stratInfo.dat";
+    public static final String FILENAME = "aiInfo.dat";
     public static void writeData(ArrayList<String> items, Context context){
 
         try {
@@ -29,14 +29,14 @@ public class StratFileHelper {
     }
 
     public static ArrayList<String> readData(Context context){
-        ArrayList<String> StratItemsList = null;
+        ArrayList<String> itemsList = null;
         try {
             FileInputStream fis = context.openFileInput(FILENAME);
             ObjectInputStream ois = new  ObjectInputStream(fis);
-            StratItemsList = (ArrayList<String>) ois.readObject();
+            itemsList = (ArrayList<String>) ois.readObject();
         } catch (FileNotFoundException e) {
 
-            StratItemsList = new ArrayList<String>();
+            itemsList = new ArrayList<String>();
 
             e.printStackTrace();
         } catch (IOException e) {
@@ -45,6 +45,6 @@ public class StratFileHelper {
             e.printStackTrace();
         }
 
-        return StratItemsList;
+        return itemsList;
     }
 }

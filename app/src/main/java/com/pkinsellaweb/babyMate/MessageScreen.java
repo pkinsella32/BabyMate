@@ -1,13 +1,13 @@
-package com.pkinsellaweb.BabyMate;
+package com.pkinsellaweb.babyMate;
 
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 
-public class ViewTemp extends AppCompatActivity {
+public class MessageScreen extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_view_temp);
+        setContentView(R.layout.activity_message_screen);
     }
 }

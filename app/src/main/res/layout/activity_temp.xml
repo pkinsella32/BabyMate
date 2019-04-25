@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@drawable/orangebackground"
-    tools:context="com.pkinsellaweb.BabyMate.Temp">
+    tools:context="com.pkinsellaweb.babyMate.Temp">
 
     <ImageView
         android:id="@+id/imageView"

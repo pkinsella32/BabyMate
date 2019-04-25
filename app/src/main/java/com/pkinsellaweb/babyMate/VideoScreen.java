@@ -1,14 +1,9 @@
-package com.pkinsellaweb.BabyMate;
+package com.pkinsellaweb.babyMate;
 
-import android.net.Uri;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.webkit.WebSettings;
 import android.webkit.WebView;
-import android.widget.ListView;
-import android.widget.MediaController;
-import android.widget.TextView;
-import android.widget.VideoView;
 
 public class VideoScreen extends AppCompatActivity {
     //private TextView text;

@@ -1,4 +1,4 @@
-package com.pkinsellaweb.BabyMate;
+package com.pkinsellaweb.babyMate;
 
 import android.app.AlertDialog;
 import android.content.DialogInterface;
@@ -7,12 +7,16 @@ import android.os.AsyncTask;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.text.Html;
+import android.util.Log;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.LinearLayout;
 import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
+
+import com.google.android.gms.location.FusedLocationProviderClient;
+
 import org.json.JSONException;
 import org.json.JSONObject;
 import java.text.DateFormat;
@@ -31,12 +35,14 @@ public class Weather extends AppCompatActivity {
     String OPEN_WEATHER_MAP_API = "6f74dc0af327da3b2ac73c18da598b05";
     /* Please Put your API KEY here */
 
+    private FusedLocationProviderClient mFussedLocationProviderClient;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         getSupportActionBar().hide();
         setContentView(R.layout.activity_weather);
+
 
         loader = (ProgressBar) findViewById(R.id.loader);
         selectCity = (TextView) findViewById(R.id.selectCity);
@@ -82,6 +88,10 @@ public class Weather extends AppCompatActivity {
             }
         });
 
+    }
+
+    private void getDeviceLocation(){
+        Log.d("", "getDeviceLocation: getting the devices current location");
     }
 
 
