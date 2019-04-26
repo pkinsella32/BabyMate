@@ -53,11 +53,11 @@ public class TempScreen extends AppCompatActivity {
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
                 Integer soundValue = dataSnapshot.getValue(Integer.class);
                 String lightString = Integer.toString(soundValue);
-                if(soundValue >150){
+                if(soundValue >250){
                     soundView.setVisibility(View.GONE);
                     soundView2.setVisibility(View.VISIBLE);
                     soundView2.setText("Sound Levels High");
-                }else if((soundValue < 150)){
+                }else if((soundValue < 250)){
                     soundView2.setVisibility(View.GONE);
                     soundView.setVisibility(View.VISIBLE);
                     soundView.setText("Sound Levels Optimal");

@@ -1,6 +1,10 @@
 package com.pkinsellaweb.babyMate;
 
 import android.content.Intent;
+import android.content.IntentFilter;
+import android.content.SharedPreferences;
+import android.preference.PreferenceManager;
+import android.support.v4.content.LocalBroadcastManager;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
@@ -32,30 +36,24 @@ public class MessageOptions extends AppCompatActivity {
 
 
 
-
-        Intent incomingIntent = getIntent();
-        int incomingKey = incomingIntent.getIntExtra("key",0);
-        Log.d("Tag", "IncomingKey " + incomingKey );
-        warningView.setText("Warnings: " + incomingKey);
-
         FirebaseDatabase database = FirebaseDatabase.getInstance();
         DatabaseReference myRef = database.getReference("Warning");
 
-//        myRef.addValueEventListener(new ValueEventListener() {
-//            @Override
-//            public void onDataChange(DataSnapshot dataSnapshot) {
-//                Integer warningValue = dataSnapshot.getValue(Integer.class);
-//                String tempString = Integer.toString(warningValue);
-//                warningView.setText("Warnings: " +tempString);
-//                Log.d("TAG", "Value is: " + tempString);
-//            }
-//
-//            @Override
-//            public void onCancelled(DatabaseError error) {
-//                // Failed to read value
-//                Log.w("Tag", "Failed to read value.", error.toException());
-//            }
-//        });
+        myRef.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(DataSnapshot dataSnapshot) {
+                Integer warningValue = dataSnapshot.getValue(Integer.class);
+                String tempString = Integer.toString(warningValue);
+                warningView.setText("Warnings: " +tempString);
+                Log.d("TAG", "Value is: " + tempString);
+            }
+
+            @Override
+            public void onCancelled(DatabaseError error) {
+                // Failed to read value
+                Log.w("Tag", "Failed to read value.", error.toException());
+            }
+        });
     }
 
     public void onClickWarning(View v){

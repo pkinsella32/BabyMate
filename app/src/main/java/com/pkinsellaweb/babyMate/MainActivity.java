@@ -29,6 +29,7 @@ public class MainActivity extends AppCompatActivity {
     private FirebaseAuth mAuth;
     private ImageView online;
     private ImageView offline;
+    private int itemCount =0;
 
 //    public MainActivity(){}
 
@@ -40,16 +41,16 @@ public class MainActivity extends AppCompatActivity {
         FirebaseDatabase database = FirebaseDatabase.getInstance();
         DatabaseReference myRefTemp = database.getReference("Temp");
         DatabaseReference myRefStatus = database.getReference("Status");
-
+        mMessage.clear();
         final ListAdapter myAdapter = new CustomAdapter(this,mMessage);
 
-        DatabaseReference myRefHumid = database.getReference("Humid");
+
         DatabaseReference myRefSound = database.getReference("Sound");
         DatabaseReference myRefLight = database.getReference("Light");
         DatabaseReference myRefMovement = database.getReference("Movement");
-        DatabaseReference myRefName = database.getReference("Name");
-        DatabaseReference myRefBestTemp = database.getReference("BestTemp");
-        DatabaseReference myRefWarning = database.getReference("Warning");
+//        DatabaseReference myRefName = database.getReference("Name");
+//        DatabaseReference myRefBestTemp = database.getReference("BestTemp");
+      DatabaseReference myRefWarning = database.getReference("Warning");
 
 
 
@@ -58,119 +59,128 @@ public class MainActivity extends AppCompatActivity {
 
 
 
-        myRefMovement.addValueEventListener(new ValueEventListener() {
-            @Override
-            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
-
-                String mydate = java.text.DateFormat.getDateTimeInstance().format(Calendar.getInstance().getTime());
-                Integer movementValue  = dataSnapshot.getValue(Integer.class);
-
-                ((CustomAdapter) myAdapter).notifyDataSetChanged();
-                if((movementValue) > 50){
-
-                    mMessage.add( "Movement Detected in ");
-
-                }
-            }
-
-            @Override
-            public void onCancelled(@NonNull DatabaseError databaseError) {
-                Log.w("TAG", "Failed to read value");
-            }
-        });
-
-        myRefHumid.addValueEventListener(new ValueEventListener() {
-            @Override
-            public void onDataChange(DataSnapshot dataSnapshot) {
-                String mydate = java.text.DateFormat.getDateTimeInstance().format(Calendar.getInstance().getTime());
-                Integer humidValue = dataSnapshot.getValue(Integer.class);
-                mMessage.add( " Room Humidity is: " + humidValue  + " \n" +mydate);
-                ((CustomAdapter) myAdapter).notifyDataSetChanged();
-            }
-
-            @Override
-            public void onCancelled(DatabaseError databaseError) {
-                Log.w("TAG", "Failed to read value");
-            }
-        });
-
-
-
-        myRefTemp.addValueEventListener(new ValueEventListener() {
-
-            @Override
-            public void onDataChange(DataSnapshot dataSnapshot) {
-                String mydate = java.text.DateFormat.getDateTimeInstance().format(Calendar.getInstance().getTime());
-                Integer tempValue = dataSnapshot.getValue(Integer.class);
-                Integer bestTemp = 18;
-
-                if((tempValue) != bestTemp) {
-                    mMessage.add(" room Temp is: " + tempValue+"c" +  " \n" +mydate);
-                    ((CustomAdapter) myAdapter).notifyDataSetChanged();
-                }
-            }
-
-            @Override
-            public void onCancelled(DatabaseError databaseError) {
-                Log.w("TAG", "Failed to read value");
-            }
-        });
-
-        myRefLight.addValueEventListener(new ValueEventListener() {
-            @Override
-            public void onDataChange(DataSnapshot dataSnapshot) {
-                String mydate = java.text.DateFormat.getDateTimeInstance().format(Calendar.getInstance().getTime());
-                Integer lightValue = dataSnapshot.getValue(Integer.class);
-
-                if((lightValue) > 100){
-                    mMessage.add("The Room is to Bright for " );
-                    mMessage.add("The Room Light Levels are to High: " + lightValue  + " \n" +mydate);
-                    ((CustomAdapter) myAdapter).notifyDataSetChanged();
-                }
-
-            }
-
-            @Override
-            public void onCancelled(DatabaseError databaseError) {
-                Log.w("TAG", "Failed to read value");
-            }
-        });
-
-        myRefSound.addValueEventListener(new ValueEventListener() {
-            @Override
-            public void onDataChange(DataSnapshot dataSnapshot) {
-                String mydate = java.text.DateFormat.getDateTimeInstance().format(Calendar.getInstance().getTime());
-                Integer soundValue = dataSnapshot.getValue(Integer.class);
-
-                Log.d("TAG", "itemTest");
-                if((soundValue) >300){
-                    mMessage.add("Sound Levels are High in " );
-                    mMessage.add("The Room Sound Levels are: " + soundValue + " \n" +mydate);
-
-                    ((CustomAdapter) myAdapter).notifyDataSetChanged();
-
-                }
-
-
-                ((CustomAdapter) myAdapter).notifyDataSetChanged();
-                Log.w("TAG", "test2 ");
-                // Toast.makeText(getBaseContext(), "Number of warnings is " +itemCount, Toast.LENGTH_SHORT ).show();
-
-            }
-
-
-
-            @Override
-            public void onCancelled(DatabaseError databaseError) {
-                Log.w("TAG", "Failed to read value");
-            }
-
-
-        });
+//        myRefMovement.addValueEventListener(new ValueEventListener() {
+//            @Override
+//            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+//
+//                String mydate = java.text.DateFormat.getDateTimeInstance().format(Calendar.getInstance().getTime());
+//                Integer movementValue  = dataSnapshot.getValue(Integer.class);
+//
+//                ((CustomAdapter) myAdapter).notifyDataSetChanged();
+//                if((movementValue) > 50){
+//
+//                    mMessage.add( "Movement Detected in ");
+//                    itemCount++;
+//
+//                }
+//            }
+//
+//            @Override
+//            public void onCancelled(@NonNull DatabaseError databaseError) {
+//                Log.w("TAG", "Failed to read value");
+//            }
+//        });
+//
+//
+//
+//
+//
+//        myRefTemp.addValueEventListener(new ValueEventListener() {
+//
+//            @Override
+//            public void onDataChange(DataSnapshot dataSnapshot) {
+//                String mydate = java.text.DateFormat.getDateTimeInstance().format(Calendar.getInstance().getTime());
+//                Integer tempValue = dataSnapshot.getValue(Integer.class);
+//                Integer bestTemp = 18;
+//
+//                if((tempValue) != bestTemp) {
+//                    mMessage.add(" room Temp is: " + tempValue+"c" +  " \n" +mydate);
+//                    itemCount++;
+//                    ((CustomAdapter) myAdapter).notifyDataSetChanged();
+//                }
+//            }
+//
+//            @Override
+//            public void onCancelled(DatabaseError databaseError) {
+//                Log.w("TAG", "Failed to read value");
+//            }
+//        });
+//
+//        myRefLight.addValueEventListener(new ValueEventListener() {
+//            @Override
+//            public void onDataChange(DataSnapshot dataSnapshot) {
+//                String mydate = java.text.DateFormat.getDateTimeInstance().format(Calendar.getInstance().getTime());
+//                Integer lightValue = dataSnapshot.getValue(Integer.class);
+//
+//                if((lightValue) > 100){
+//                    if(mMessage.contains(lightValue)){
+//                        Log.d("TAG", "No Need" + lightValue);
+//                    }else{
+//                        mMessage.add("The Room is to Bright for " );
+//                        itemCount++;
+//                        mMessage.add("The Room Light Levels are to High: " + lightValue  + " \n" +mydate);
+//                        itemCount++;
+//                        ((CustomAdapter) myAdapter).notifyDataSetChanged();
+//                    }
+//
+//                }
+//
+//            }
+//
+//            @Override
+//            public void onCancelled(DatabaseError databaseError) {
+//                Log.w("TAG", "Failed to read value");
+//            }
+//        });
+//
+//        myRefSound.addValueEventListener(new ValueEventListener() {
+//            @Override
+//            public void onDataChange(DataSnapshot dataSnapshot) {
+//                String mydate = java.text.DateFormat.getDateTimeInstance().format(Calendar.getInstance().getTime());
+//                Integer soundValue = dataSnapshot.getValue(Integer.class);
+//
+//                Log.d("TAG", "itemTest");
+//                if((soundValue) >200){
+//                    if(mMessage.contains(soundValue)){
+//                        Log.d("TAG", "No Need" + soundValue);
+//                    }else{
+//                        mMessage.add("Sound Levels are High" );
+//                        itemCount++;
+//                        mMessage.add("The Room Sound Levels are: " + soundValue + " \n" +mydate);
+//                        itemCount++;
+//                    }
+//                        Log.w("TAG", "test");
+//                    mMessage.add("Sound Levels are High" );
+//                    itemCount++;
+//                    mMessage.add("The Room Sound Levels are: " + soundValue + " \n" +mydate);
+//                    itemCount++;
+//
+//                    ((CustomAdapter) myAdapter).notifyDataSetChanged();
+//
+//                }
+//
+//
+//                ((CustomAdapter) myAdapter).notifyDataSetChanged();
+//                Log.w("TAG", "test2 ");
+//                // Toast.makeText(getBaseContext(), "Number of warnings is " +itemCount, Toast.LENGTH_SHORT ).show();
+//
+//            }
+//
+//
+//
+//            @Override
+//            public void onCancelled(DatabaseError databaseError) {
+//                Log.w("TAG", "Failed to read value");
+//            }
+//
+//
+//        });
 
 
         online = (ImageView) findViewById(R.id.online);
         offline = (ImageView) findViewById(R.id.offline);
+
+
 
         myRefStatus.addValueEventListener(new ValueEventListener() {
             @Override
@@ -194,13 +204,9 @@ public class MainActivity extends AppCompatActivity {
 
             }
         });
-
-
-
-
-
-
-
+//        Integer itemCount = mMessage.size();
+//        Log.d("TAG", "ListSize" + itemCount);
+//        myRefWarning.setValue(itemCount);
 
 }
 
@@ -219,11 +225,12 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void messOnClick(View v){
-        Integer itemCount = mMessage.size();
+
+        Log.d("TAG", "ListSize2" + itemCount);
         Intent intent = new Intent(MainActivity.this, MessageOptions.class);
-        intent.putExtra("key", itemCount);
+//        intent.putExtra("key", itemCount);
         startActivity(intent);
-        mMessage.clear();
+
 
     }
 

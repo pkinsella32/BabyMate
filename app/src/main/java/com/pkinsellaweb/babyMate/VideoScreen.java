@@ -19,7 +19,7 @@ public class VideoScreen extends AppCompatActivity {
         WebSettings webSettings = webView.getSettings();
         webSettings.setJavaScriptEnabled(true);
        // webView.loadUrl("https://www.youtube.com/embed/live_stream?channel=UCZmIe9H69yVFLXeU8hNty1Q");
-       webView.loadUrl("https://youtu.be/F4HT6Cfrt_Y");
+       webView.loadUrl("https://youtu.be/BEbSrZ5YAvc");
         //chanel id UCZmIe9H69yVFLXeU8hNty1Q
        // webView.loadUrl("https://youtu.be/WSaumwdFWuk");
 
