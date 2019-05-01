@@ -39,6 +39,7 @@ public class Dashboard extends AppCompatActivity {
     PieChart pieChart;
     private Button lightButton;
     private Button tempButton;
+    private Button soundButton;
     private TextView myView;
 
 
@@ -49,6 +50,7 @@ public class Dashboard extends AppCompatActivity {
 
         myView = (TextView) findViewById(R.id.newText);
         tempButton = (Button) findViewById(R.id.tempButton);
+        soundButton = (Button) findViewById(R.id.soundButton);
 
         FirebaseDatabase database = FirebaseDatabase.getInstance();
         DatabaseReference myRef = database.getReference();
@@ -131,6 +133,15 @@ public class Dashboard extends AppCompatActivity {
                     @Override
                     public void onClick(View view) {
                         Intent intent = new Intent(getApplicationContext(), TempData.class);
+                        startActivity(intent);
+
+                    }
+                });
+
+                soundButton.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View view) {
+                        Intent intent = new Intent(getApplicationContext(), SoundData.class);
                         startActivity(intent);
 
                     }

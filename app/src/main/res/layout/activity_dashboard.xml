@@ -79,6 +79,22 @@
             android:textSize="30sp"
             android:textStyle="bold"/>
 
+        <Button
+            android:layout_marginLeft="15dp"
+            android:layout_marginTop="15dp"
+            android:layout_marginRight="15dp"
+            android:layout_marginBottom="15dp"
+            android:layout_weight="1"
+            android:id="@+id/soundButton"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Sound Data"
+            android:background="@drawable/my_button"
+            android:elevation="16dp"
+            android:textColor="@color/cardview_light_background"
+            android:textSize="30sp"
+            android:textStyle="bold"/>
+
         <TextView
             android:id="@+id/newText"
             android:layout_width="match_parent"

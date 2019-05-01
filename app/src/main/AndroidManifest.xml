@@ -19,7 +19,8 @@
         android:theme="@style/AppTheme"
         android:usesCleartextTraffic="true"
         tools:replace="android:label">
-        <activity android:name=".TempData"></activity>
+        <activity android:name=".SoundData"></activity>
+        <activity android:name=".TempData" />
         <activity
             android:name=".Weather"
             android:theme="@style/AppTheme.NoActionBar" />

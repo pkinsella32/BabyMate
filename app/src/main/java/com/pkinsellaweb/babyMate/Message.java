@@ -38,7 +38,7 @@ public class Message extends AppCompatActivity  {
     private ListView messageListView;
     private String babyName;
     private Button button;
-    //private int itemCount;
+
 
 
 
@@ -53,8 +53,21 @@ public class Message extends AppCompatActivity  {
         button = findViewById(R.id.clearButton);
         Calendar calendar = Calendar.getInstance();
         Date date = calendar.getTime();
-        String dayOfWeek = (new SimpleDateFormat("EEEE", Locale.ENGLISH).format(date.getTime()));
+        final String dayOfWeek = (new SimpleDateFormat("EEEE", Locale.ENGLISH).format(date.getTime()));
         Log.d("TAG", "Day " +dayOfWeek);
+
+      FirebaseDatabase database = FirebaseDatabase.getInstance();
+      DatabaseReference myRefTemp = database.getReference("Temp");
+      DatabaseReference myRefHumid = database.getReference("Humid");
+      DatabaseReference myRefSound = database.getReference("Sound");
+      DatabaseReference myRefLight = database.getReference("Light");
+      DatabaseReference myRefMovement = database.getReference("Movement");
+      DatabaseReference myRefName = database.getReference("Name");
+//        DatabaseReference myRefBestTemp = database.getReference("BestTemp");
+      DatabaseReference myRefWarning = database.getReference("Warning");
+
+
+
 
         final ListAdapter myAdapter = new CustomAdapter(this,mMessage);
         ListView myListView = (ListView) findViewById(R.id.messageList);
@@ -77,15 +90,7 @@ public class Message extends AppCompatActivity  {
       });
 
 
-                FirebaseDatabase database = FirebaseDatabase.getInstance();
-                DatabaseReference myRefTemp = database.getReference("Temp");
-                DatabaseReference myRefHumid = database.getReference("Humid");
-                DatabaseReference myRefSound = database.getReference("Sound");
-                DatabaseReference myRefLight = database.getReference("Light");
-                DatabaseReference myRefMovement = database.getReference("Movement");
-                DatabaseReference myRefName = database.getReference("Name");
-//        DatabaseReference myRefBestTemp = database.getReference("BestTemp");
-                DatabaseReference myRefWarning = database.getReference("Warning");
+
 
                 myRefName.addValueEventListener(new ValueEventListener() {
                     @Override
@@ -179,8 +184,8 @@ public class Message extends AppCompatActivity  {
                         String mydate = java.text.DateFormat.getDateTimeInstance().format(Calendar.getInstance().getTime());
                         Integer soundValue = dataSnapshot.getValue(Integer.class);
 
-                        Log.d("TAG", "itemTest");
-                        if ((soundValue) > 250) {
+                        Log.d("TAG", "sound value1 " +soundValue);
+                         if ((soundValue) > 250) {
                             if (mMessage.contains(soundValue)) {
                                 Log.d("TAG", "No Need" + soundValue);
                             } else {
