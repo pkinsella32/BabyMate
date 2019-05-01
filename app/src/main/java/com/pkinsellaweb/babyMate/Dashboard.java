@@ -37,7 +37,8 @@ public class Dashboard extends AppCompatActivity {
     private ArrayList<String> mMessage = new ArrayList<>();
     private ListView messageListView;
     PieChart pieChart;
-    Button button;
+    private Button lightButton;
+    private Button tempButton;
     private TextView myView;
 
 
@@ -47,6 +48,7 @@ public class Dashboard extends AppCompatActivity {
         setContentView(R.layout.activity_dashboard);
 
         myView = (TextView) findViewById(R.id.newText);
+        tempButton = (Button) findViewById(R.id.tempButton);
 
         FirebaseDatabase database = FirebaseDatabase.getInstance();
         DatabaseReference myRef = database.getReference();
@@ -114,13 +116,21 @@ public class Dashboard extends AppCompatActivity {
 
 
                 barChart = findViewById(R.id.barChart1);
-                button = findViewById(R.id.sumButton);
+                lightButton = findViewById(R.id.lightButton);
 
-                button.setOnClickListener(new View.OnClickListener() {
+                lightButton.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View view) {
-                        Intent intent = new Intent(getApplicationContext(),weekSum.class);
-                        //intent.putExtra("name",mMessage);
+                        Intent intent = new Intent(getApplicationContext(), LightData.class);
+                        startActivity(intent);
+
+                    }
+                });
+
+                tempButton.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View view) {
+                        Intent intent = new Intent(getApplicationContext(), TempData.class);
                         startActivity(intent);
 
                     }

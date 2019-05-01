@@ -77,6 +77,8 @@ public class Notifications extends AppCompatActivity  {
         DatabaseReference myRefName = database.getReference("Name");
         DatabaseReference myRefBestTemp = database.getReference("BestTemp");
 
+
+
         myRefName.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {

@@ -94,3 +94,7 @@ dependencies {
     //implementation 'com.android.support.constraint:constraint-layout:+'
     //implementation 'com.android.support:support-v4:28.1.0'
 }
+
+dependencies {
+    implementation 'com.android.support.constraint:constraint-layout:+'
+}

@@ -41,8 +41,8 @@ public class MainActivity extends AppCompatActivity {
         FirebaseDatabase database = FirebaseDatabase.getInstance();
         DatabaseReference myRefTemp = database.getReference("Temp");
         DatabaseReference myRefStatus = database.getReference("Status");
-        mMessage.clear();
-        final ListAdapter myAdapter = new CustomAdapter(this,mMessage);
+       // mMessage.clear();
+       // final ListAdapter myAdapter = new CustomAdapter(this,mMessage);
 
 
         DatabaseReference myRefSound = database.getReference("Sound");

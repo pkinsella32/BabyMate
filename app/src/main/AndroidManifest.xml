@@ -3,64 +3,87 @@
     xmlns:tools="http://schemas.android.com/tools"
     package="com.pkinsellaweb.babyMate"
     android:installLocation="auto">
+
     <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
     <uses-permission android:name="android.permission. ACCESS_COARSE_LOCATION" />
     <uses-permission android:name="android.permission.INTERNET" />
-    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
 
     <application
         android:allowBackup="true"
         android:hardwareAccelerated="true"
-        android:icon="@drawable/launchlogo"
+        android:icon="@drawable/blogo"
         android:label="BabyMate"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         android:usesCleartextTraffic="true"
         tools:replace="android:label">
-        <activity android:name="com.pkinsellaweb.babyMate.Weather" />
-        <activity android:name="com.pkinsellaweb.babyMate.SplashScreen">
+        <activity android:name=".TempData"></activity>
+        <activity
+            android:name=".Weather"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity android:name=".SplashScreen">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name="com.pkinsellaweb.babyMate.AI" />
-        <activity android:name="com.pkinsellaweb.babyMate.Strat" />
-        <activity android:name="com.pkinsellaweb.babyMate.MMD" />
         <activity
-            android:name="com.pkinsellaweb.babyMate.MainActivity"
-            android:label="Home" />
+            android:name=".AI"
+            android:theme="@style/AppTheme.NoActionBar" />
         <activity
-            android:name="com.pkinsellaweb.babyMate.VideoScreen"
-            android:screenOrientation="portrait"
-            android:theme="@style/Theme.AppCompat.Light.NoActionBar" />
-        <activity android:name="com.pkinsellaweb.babyMate.ViewTemp" />
-        <activity android:name="com.pkinsellaweb.babyMate.MessageScreen" />
+            android:name=".Strat"
+            android:theme="@style/AppTheme.NoActionBar" />
         <activity
-            android:name="com.pkinsellaweb.babyMate.Temp"
-            android:label="Temperature"
-            android:parentActivityName="com.pkinsellaweb.babyMate.MainActivity" />
+            android:name=".MMD"
+            android:theme="@style/AppTheme.NoActionBar" />
         <activity
-            android:name="com.pkinsellaweb.babyMate.Message"
-            android:label="System Messages"
-            android:parentActivityName="com.pkinsellaweb.babyMate.MainActivity" />
+            android:name=".MainActivity"
+            android:theme="@style/AppTheme.NoActionBar" />
         <activity
-            android:name="com.pkinsellaweb.babyMate.UserProfile"
-            android:label="Profile" />
+            android:name=".VideoScreen"
+            android:theme="@style/AppTheme.NoActionBar" />
         <activity
-            android:name="com.pkinsellaweb.babyMate.Dashboard"
-            android:label="Dashboard" />
-        <activity android:name="com.pkinsellaweb.babyMate.Music" />
+            android:name=".ViewTemp"
+            android:theme="@style/AppTheme.NoActionBar" />
         <activity
-            android:name="com.pkinsellaweb.babyMate.TempScreen"
-            android:label="Temperature" />
-        <activity android:name="com.pkinsellaweb.babyMate.MessageOptions" />
-        <activity android:name="com.pkinsellaweb.babyMate.Notifications" />
-        <activity android:name="com.pkinsellaweb.babyMate.weekSum" />
-        <activity android:name="com.pkinsellaweb.babyMate.NewDash" />
-        <activity android:name="com.pkinsellaweb.babyMate.TempControl" />
+            android:name=".MessageScreen"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".Temp"
+            android:parentActivityName=".MainActivity"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".Message"
+            android:parentActivityName=".MainActivity"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".UserProfile"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".Dashboard"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity android:name=".Music" />
+        <activity
+            android:name=".TempScreen"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".MessageOptions"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".Notifications"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".LightData"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".NewDash"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".TempControl"
+            android:theme="@style/AppTheme.NoActionBar" />
     </application>
 
 </manifest>

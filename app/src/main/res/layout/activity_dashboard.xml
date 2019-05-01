@@ -17,15 +17,15 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
             android:layout_marginLeft="0dp"
             android:layout_marginRight="0dp"
             android:layout_marginBottom="15dp"
             android:fontFamily="sans-serif-medium"
-            android:text="@string/data_from_all_sensors"
-            android:layout_gravity="center_horizontal"
-            android:textColor="#323232"
+            android:text="Live Data From Sensors"
+            android:textColor="@color/cardview_light_background"
             android:textSize="20sp"
-             />
+            android:textStyle="bold" />
 
 
         <com.github.mikephil.charting.charts.BarChart
@@ -42,9 +42,10 @@
             android:layout_marginTop="15dp"
             android:layout_marginEnd="15dp"
             android:fontFamily="sans-serif-medium"
-            android:text="@string/this_is_the_section_where_there_will_be_multiple_graphs_displaying_all_the_data_gathered_from_the_various_sensors"
-            android:textColor="#323232"
-            android:textSize="20sp" />
+            android:text="All Sensors"
+            android:textColor="@color/cardview_light_background"
+            android:textSize="20sp"
+            android:textStyle="bold" />
 
         <Button
             android:layout_marginLeft="15dp"
@@ -52,10 +53,10 @@
             android:layout_marginRight="15dp"
             android:layout_marginBottom="15dp"
             android:layout_weight="1"
-            android:id="@+id/sumButton"
+            android:id="@+id/lightButton"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Weekly"
+            android:text="Light Data"
             android:background="@drawable/my_button"
             android:elevation="16dp"
             android:textColor="@color/cardview_light_background"
@@ -68,11 +69,10 @@
             android:layout_marginRight="15dp"
             android:layout_marginBottom="15dp"
             android:layout_weight="1"
-            android:onClick="loadOnClick"
-            android:id="@+id/button2"
+            android:id="@+id/tempButton"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Load"
+            android:text="Temp Data"
             android:background="@drawable/my_button"
             android:elevation="16dp"
             android:textColor="@color/cardview_light_background"

@@ -3,6 +3,8 @@ package com.pkinsellaweb.babyMate;
 import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.Log;
+import android.widget.TextView;
 
 import com.github.mikephil.charting.charts.BarChart;
 import com.github.mikephil.charting.data.BarData;
@@ -14,16 +16,34 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
+import org.w3c.dom.Text;
+
 import java.util.ArrayList;
 
-public class weekSum extends AppCompatActivity {
-        BarChart barchart;
+public class LightData extends AppCompatActivity {
+    private int mon = 200;
+    private int tue = 198;
+    private int wed = 556;
+    private int thu = 482;
+    private int fri = 200;
+    private int sat = 150;
+    private int sund = 600;
+
+    TextView lightView;
+    BarChart barchart;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_week_sum);
+        setContentView(R.layout.activity_light_data);
+
+        int average = mon+tue+wed+thu+fri+sat+sund;
+        int newAve = average/5;
+        Log.d("TAG", "Average is" + average);
+
 
         barchart = (BarChart) findViewById(R.id.barChart2);
+        lightView = (TextView) findViewById(R.id.lightView2);
+        lightView.setText("Avg:"+newAve);
 
         FirebaseDatabase database = FirebaseDatabase.getInstance();
         DatabaseReference myRef = database.getReference();
@@ -34,22 +54,26 @@ public class weekSum extends AppCompatActivity {
                 final Integer barTemp = dataSnapshot.child("Temp").getValue(Integer.class);
                 barchart = (BarChart) findViewById(R.id.barChart2);
                 ArrayList<BarEntry> barEntries = new ArrayList<>();
-                barEntries.add(new BarEntry(18,0));
-                barEntries.add(new BarEntry(22,1));
-                barEntries.add(new BarEntry(17,2));
-                barEntries.add(new BarEntry(24,3));
-                barEntries.add(new BarEntry(17,4));
-                BarDataSet barDataSet = new BarDataSet(barEntries,"BabyMate Temperature Data");
+                barEntries.add(new BarEntry(mon,0));
+                barEntries.add(new BarEntry(tue,1));
+                barEntries.add(new BarEntry(wed,2));
+                barEntries.add(new BarEntry(thu,3));
+                barEntries.add(new BarEntry(fri,4));
+                barEntries.add(new BarEntry(sat,5));
+                barEntries.add(new BarEntry(sund,6));
+                BarDataSet barDataSet = new BarDataSet(barEntries,"BabyMate Light Data");
 
-                ArrayList<String> theDates = new ArrayList<>();
-                theDates.add("Monday");
-                theDates.add("Tuesday");
-                theDates.add("Wednesday");
-                theDates.add("Thursday");
-                theDates.add("Friday");
+                ArrayList<String> theDays = new ArrayList<>();
+                theDays.add("Mon");
+                theDays.add("Tue");
+                theDays.add("Wed");
+                theDays.add("Thu");
+                theDays.add("Fri");
+                theDays.add("Sat");
+                theDays.add("Sun");
 
 
-                BarData theData = new BarData(theDates,barDataSet);
+                BarData theData = new BarData(theDays,barDataSet);
                 barchart.setData(theData);
 
                 barchart.setTouchEnabled(true);

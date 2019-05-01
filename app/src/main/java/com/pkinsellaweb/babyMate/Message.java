@@ -23,8 +23,12 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Calendar;
+import java.util.Date;
+import java.util.Locale;
+
 import android.content.Intent;
 
 public class Message extends AppCompatActivity  {
@@ -47,8 +51,10 @@ public class Message extends AppCompatActivity  {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_message);
         button = findViewById(R.id.clearButton);
-
-
+        Calendar calendar = Calendar.getInstance();
+        Date date = calendar.getTime();
+        String dayOfWeek = (new SimpleDateFormat("EEEE", Locale.ENGLISH).format(date.getTime()));
+        Log.d("TAG", "Day " +dayOfWeek);
 
         final ListAdapter myAdapter = new CustomAdapter(this,mMessage);
         ListView myListView = (ListView) findViewById(R.id.messageList);
@@ -169,6 +175,7 @@ public class Message extends AppCompatActivity  {
                 myRefSound.addValueEventListener(new ValueEventListener() {
                     @Override
                     public void onDataChange(DataSnapshot dataSnapshot) {
+                        Log.d("TAG", "Day ");
                         String mydate = java.text.DateFormat.getDateTimeInstance().format(Calendar.getInstance().getTime());
                         Integer soundValue = dataSnapshot.getValue(Integer.class);
 
@@ -204,143 +211,7 @@ public class Message extends AppCompatActivity  {
 
                 });
 
-//          FirebaseDatabase database = FirebaseDatabase.getInstance();
-//          DatabaseReference myRefTemp = database.getReference("Temp");
-//          DatabaseReference myRefHumid = database.getReference("Humid");
-//          DatabaseReference myRefSound = database.getReference("Sound");
-//          DatabaseReference myRefLight = database.getReference("Light");
-//          DatabaseReference myRefMovement = database.getReference("Movement");
-//          DatabaseReference myRefName = database.getReference("Name");
-////        DatabaseReference myRefBestTemp = database.getReference("BestTemp");
-//          DatabaseReference myRefWarning = database.getReference("Warning");
-//
-//          myRefName.addValueEventListener(new ValueEventListener() {
-//              @Override
-//              public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
-//                  babyName = dataSnapshot.getValue(String.class);
-//                  Log.w("TAG", babyName);
-//              }
-//
-//              @Override
-//              public void onCancelled(@NonNull DatabaseError databaseError) {
-//                  Log.w("TAG", "Failed to read value");
-//              }
-//          });
-//
-//
-//          myRefMovement.addValueEventListener(new ValueEventListener() {
-//              @Override
-//              public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
-//
-//                  String mydate = java.text.DateFormat.getDateTimeInstance().format(Calendar.getInstance().getTime());
-//                  Integer movementValue = dataSnapshot.getValue(Integer.class);
-//
-//                  ((CustomAdapter) myAdapter).notifyDataSetChanged();
-//                  if ((movementValue) > 50) {
-//
-//                      mMessage.add("Movement Detected in " + babyName + "room " + mydate);
-//                      // itemCount++;
-//
-//                  }
-//              }
-//
-//              @Override
-//              public void onCancelled(@NonNull DatabaseError databaseError) {
-//                  Log.w("TAG", "Failed to read value");
-//              }
-//          });
-//
-//
-//          myRefTemp.addValueEventListener(new ValueEventListener() {
-//
-//              @Override
-//              public void onDataChange(DataSnapshot dataSnapshot) {
-//                  String mydate = java.text.DateFormat.getDateTimeInstance().format(Calendar.getInstance().getTime());
-//                  Integer tempValue = dataSnapshot.getValue(Integer.class);
-//                  Integer bestTemp = 18;
-//
-//                  if ((tempValue) != bestTemp) {
-//                      mMessage.add(babyName + "s" + " room Temp is: " + tempValue + "c" + " \n" + mydate);
-//                      //itemCount++;
-//                      ((CustomAdapter) myAdapter).notifyDataSetChanged();
-//                  }
-//              }
-//
-//              @Override
-//              public void onCancelled(DatabaseError databaseError) {
-//                  Log.w("TAG", "Failed to read value");
-//              }
-//          });
-//
-//          myRefLight.addValueEventListener(new ValueEventListener() {
-//              @Override
-//              public void onDataChange(DataSnapshot dataSnapshot) {
-//                  String mydate = java.text.DateFormat.getDateTimeInstance().format(Calendar.getInstance().getTime());
-//                  Integer lightValue = dataSnapshot.getValue(Integer.class);
-//
-//                  if ((lightValue) > 200) {
-//                      if (mMessage.contains(lightValue)) {
-//                          Log.d("TAG", "No Need" + lightValue);
-//                      } else {
-//                          mMessage.add("The Room is to Bright for ");
-//                          //  itemCount++;
-//                          mMessage.add("The Room Light Levels are to High: " + lightValue + " \n" + mydate);
-//                          // itemCount++;
-//                          ((CustomAdapter) myAdapter).notifyDataSetChanged();
-//                      }
-//
-//                  }
-//
-//              }
-//
-//              @Override
-//              public void onCancelled(DatabaseError databaseError) {
-//                  Log.w("TAG", "Failed to read value");
-//              }
-//          });
-//
-//          myRefSound.addValueEventListener(new ValueEventListener() {
-//              @Override
-//              public void onDataChange(DataSnapshot dataSnapshot) {
-//                  String mydate = java.text.DateFormat.getDateTimeInstance().format(Calendar.getInstance().getTime());
-//                  Integer soundValue = dataSnapshot.getValue(Integer.class);
-//
-//                  Log.d("TAG", "itemTest");
-//                  if ((soundValue) > 250) {
-//                      if (mMessage.contains(soundValue)) {
-//                          Log.d("TAG", "No Need" + soundValue);
-//                      } else {
-//                          mMessage.add("Sound Levels are High");
-//                          // itemCount++;
-//                          mMessage.add("The Room Sound Levels are: " + soundValue + " \n" + mydate);
-//                          // itemCount++;
-//                      }
-//                      Log.w("TAG", "test");
-//                      mMessage.add("Sound Levels are High");
-//                      // itemCount++;
-//                      mMessage.add("The Room Sound Levels are: " + soundValue + " \n" + mydate);
-//                      //itemCount++;
-//
-//
-//                  }
-//
-//                  ((CustomAdapter) myAdapter).notifyDataSetChanged();
-//
-//
-//              }
-//
-//
-//              @Override
-//              public void onCancelled(DatabaseError databaseError) {
-//                  Log.w("TAG", "Failed to read value");
-//              }
-//
-//
-//          });
 
-//      if(mMessage.size()==0){
-//          mMessage.add("No Warnings");
-//      }
 
 
       button.setOnClickListener(new View.OnClickListener() {
