@@ -48,10 +48,11 @@
 
         <TextView
             android:id="@+id/soundView2"
-            android:layout_width="wrap_content"
+            android:layout_width="250dp"
             android:layout_height="wrap_content"
-            android:layout_gravity="center_horizontal"
+            android:background="@drawable/back_ground"
             android:fontFamily="sans-serif-medium"
+            android:layout_gravity="center_horizontal"
             android:textAlignment="center"
             android:textColor="@color/cardview_light_background"
             android:textSize="56sp"

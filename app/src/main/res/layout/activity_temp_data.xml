@@ -48,8 +48,9 @@
 
         <TextView
             android:id="@+id/tempView2"
-            android:layout_width="wrap_content"
+            android:layout_width="250dp"
             android:layout_height="wrap_content"
+            android:background="@drawable/back_ground"
             android:layout_gravity="center_horizontal"
             android:fontFamily="sans-serif-medium"
             android:textAlignment="center"
