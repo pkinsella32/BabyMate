@@ -126,7 +126,7 @@
                         android:fontFamily="sans-serif-medium"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="Twinkle Twinkle Little Star"
+                        android:text="Twinkle Little Star"
                         android:textAlignment="center"
                         android:textColor="@android:color/white"
                         android:textSize="14sp"

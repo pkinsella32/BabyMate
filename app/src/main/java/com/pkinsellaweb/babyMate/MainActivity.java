@@ -36,6 +36,7 @@ public class MainActivity extends AppCompatActivity {
     private ImageView online;
     private ImageView offline;
     private TextView dayOfWeek;
+    private TextView tStatus;
 
 
 
@@ -51,18 +52,49 @@ public class MainActivity extends AppCompatActivity {
         dayOfWeek = (TextView) findViewById(R.id.day);
         online = (ImageView) findViewById(R.id.online);
         offline = (ImageView) findViewById(R.id.offline);
+        tStatus = (TextView) findViewById(R.id.testStatus);
 
         MonthDay m = MonthDay.now();
         String n = m.format(DateTimeFormatter.ofPattern("d"));
+        String n2 = m.format(DateTimeFormatter.ofPattern("M"));
+        Integer result2 = Integer.valueOf(n2);
+        String newN2 ="";
+        if(result2 ==1){
+            newN2 ="Jan";
+        }else if(result2 ==2){
+            newN2 = "Feb";
+        }else if(result2 ==3){
+            newN2 = "Mar";
+        }else if(result2 ==4){
+            newN2 = "Apr";
+        }else if(result2 ==5){
+            newN2 = "May";
+        }else if(result2 ==6){
+            newN2 = "Jun";
+        }else if(result2 ==7){
+            newN2 = "Jul";
+        }else if(result2 ==8){
+            newN2 = "Aug";
+        }else if(result2 ==9){
+            newN2 = "Sep";
+        }else if(result2 ==10){
+            newN2 = "Oct";
+        }else if(result2 ==11){
+            newN2 = "Nov";
+        }else{
+            newN2 = "Dec";
+        }
+
+        
         Integer result = Integer.valueOf(n);
         String newN = n+"th";
-         if(result ==2){
+         if(result ==2 || result ==22){
             newN = n+"nd";
         }else if(result == 3){
             newN = n+"rd";
         }else if(result >= 4){
              newN = n+"th";
-        }else if(result ==1||result ==31){
+        }else if(result ==1||result ==31 || result ==21){
               newN = n+"st";
          }
 
@@ -71,7 +103,7 @@ public class MainActivity extends AppCompatActivity {
         Calendar calendar = Calendar.getInstance();
         Date date = calendar.getTime();
         final String dow = (new SimpleDateFormat("EEEE", Locale.ENGLISH).format(date.getTime()));
-        dayOfWeek.setText(dow + " " +newN);
+        dayOfWeek.setText(dow + "-" +newN+"-"+newN2);
 
 
 
@@ -82,10 +114,12 @@ public class MainActivity extends AppCompatActivity {
                 Integer statusValue = dataSnapshot.getValue(Integer.class);
                 String statusString = Integer.toString(statusValue);
                 if(statusValue ==0){
+                    tStatus.setText("BabyMate: Offline!");
                     online.setVisibility(View.GONE);
                     offline.setVisibility(View.VISIBLE);
                     Log.w("TAG", "status" + statusValue);
                 }else{
+                    tStatus.setText("BabyMate: Online!");
                     online.setVisibility(View.VISIBLE);
                     offline.setVisibility(View.GONE);
                     Log.w("TAG", "status" + statusValue);
