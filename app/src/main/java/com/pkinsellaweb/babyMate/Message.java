@@ -160,7 +160,7 @@ public class Message extends AppCompatActivity  {
                             if (mMessage.contains(lightValue)) {
                                 Log.d("TAG", "No Need" + lightValue);
                             } else {
-                                mMessage.add("The Room is to Bright for ");
+                                mMessage.add("The Room is not dark enough for "+ babyName + " to sleep ");
                                 //  itemCount++;
                                 mMessage.add("The Room Light Levels are to High: " + lightValue + " \n" + mydate);
                                 // itemCount++;

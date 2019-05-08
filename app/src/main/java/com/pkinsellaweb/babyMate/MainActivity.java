@@ -85,7 +85,7 @@ public class MainActivity extends AppCompatActivity {
             newN2 = "Dec";
         }
 
-        
+
         Integer result = Integer.valueOf(n);
         String newN = n+"th";
          if(result ==2 || result ==22){

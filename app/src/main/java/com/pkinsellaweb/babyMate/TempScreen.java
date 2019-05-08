@@ -97,12 +97,12 @@ public class TempScreen extends AppCompatActivity {
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
                 Integer lightValue = dataSnapshot.getValue(Integer.class);
                 String lightString = Integer.toString(lightValue);
-                if(lightValue > 900) {
-                    lightView.setText("Light levels are High:");
+                if(lightValue > 500) {
+                    lightView.setText("Room is Bright:");
                 }else if((lightValue < 400)){
-                    lightView.setText("Light levels are Low:");
+                    lightView.setText("Room is Dark:");
                 }else{
-                    lightView.setText("Light levels are Normal:");
+                    lightView.setText("Room getting Darker:");
                 }
             }
 
