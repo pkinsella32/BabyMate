@@ -18,13 +18,10 @@ public class Music extends AppCompatActivity {
         FirebaseDatabase database = FirebaseDatabase.getInstance();
         DatabaseReference myRefSongChoice = database.getReference("SongChoice");
         myRefSongChoice .setValue(0);
-//        DatabaseReference myRefBabyShark = database.getReference("SongTwo");
-//        myRefBabyShark.setValue(0);
-//        DatabaseReference myRefSpider = database.getReference("SongThree");
-//        myRefSpider.setValue(0);
+
     }
 
-    public void song2OnClick(View v){
+    public void twinkleOnClick(View v){
         FirebaseDatabase database = FirebaseDatabase.getInstance();
         DatabaseReference myRefSongChoice  = database.getReference("SongChoice");
         myRefSongChoice .setValue(2);
@@ -32,7 +29,7 @@ public class Music extends AppCompatActivity {
 
     }
 
-    public void onClick(View v){
+    public void sharkOnClick(View v){
         FirebaseDatabase database = FirebaseDatabase.getInstance();
         DatabaseReference myRefSongChoice  = database.getReference("SongChoice");
         myRefSongChoice .setValue(1);
@@ -44,5 +41,26 @@ public class Music extends AppCompatActivity {
         DatabaseReference myRefSpider = database.getReference("SongChoice");
         myRefSpider.setValue(3);
         Toast.makeText(getBaseContext(), "Incy Winy Spider Selected" , Toast.LENGTH_SHORT ).show();
+    }
+
+    public void hushOnClick(View v){
+        FirebaseDatabase database = FirebaseDatabase.getInstance();
+        DatabaseReference myRefSpider = database.getReference("SongChoice");
+        myRefSpider.setValue(4);
+        Toast.makeText(getBaseContext(), "Hush Little Baby Selected" , Toast.LENGTH_SHORT ).show();
+    }
+
+    public void mumOnClick(View v){
+        FirebaseDatabase database = FirebaseDatabase.getInstance();
+        DatabaseReference myRefSpider = database.getReference("SongChoice");
+        myRefSpider.setValue(5);
+        Toast.makeText(getBaseContext(), "Mum's Voice Selected" , Toast.LENGTH_SHORT ).show();
+    }
+
+    public void dadOnClick(View v){
+        FirebaseDatabase database = FirebaseDatabase.getInstance();
+        DatabaseReference myRefSpider = database.getReference("SongChoice");
+        myRefSpider.setValue(6);
+        Toast.makeText(getBaseContext(), "Dad's Voice Selected" , Toast.LENGTH_SHORT ).show();
     }
 }

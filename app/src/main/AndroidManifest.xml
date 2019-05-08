@@ -23,7 +23,7 @@
         <activity android:name=".TempData" />
         <activity
             android:name=".Weather"
-            android:theme="@style/AppTheme.NoActionBar" />
+             />
         <activity android:name=".SplashScreen">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

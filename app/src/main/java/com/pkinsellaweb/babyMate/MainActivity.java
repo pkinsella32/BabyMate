@@ -9,6 +9,7 @@ import android.view.View;
 import android.widget.ImageView;
 import android.widget.ListAdapter;
 import android.widget.ListView;
+import android.widget.TextView;
 
 import com.google.firebase.analytics.FirebaseAnalytics;
 import com.google.firebase.auth.FirebaseAuth;
@@ -18,8 +19,13 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
+import java.text.SimpleDateFormat;
+import java.time.MonthDay;
+import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.Calendar;
+import java.util.Date;
+import java.util.Locale;
 
 
 public class MainActivity extends AppCompatActivity {
@@ -29,9 +35,10 @@ public class MainActivity extends AppCompatActivity {
     private FirebaseAuth mAuth;
     private ImageView online;
     private ImageView offline;
-    private int itemCount =0;
+    private TextView dayOfWeek;
 
-//    public MainActivity(){}
+
+
 
 
     @Override
@@ -39,146 +46,33 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         FirebaseDatabase database = FirebaseDatabase.getInstance();
-        DatabaseReference myRefTemp = database.getReference("Temp");
         DatabaseReference myRefStatus = database.getReference("Status");
-       // mMessage.clear();
-       // final ListAdapter myAdapter = new CustomAdapter(this,mMessage);
 
-
-        DatabaseReference myRefSound = database.getReference("Sound");
-        DatabaseReference myRefLight = database.getReference("Light");
-        DatabaseReference myRefMovement = database.getReference("Movement");
-//        DatabaseReference myRefName = database.getReference("Name");
-//        DatabaseReference myRefBestTemp = database.getReference("BestTemp");
-      DatabaseReference myRefWarning = database.getReference("Warning");
-
-
-
-
-
-
-
-
-//        myRefMovement.addValueEventListener(new ValueEventListener() {
-//            @Override
-//            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
-//
-//                String mydate = java.text.DateFormat.getDateTimeInstance().format(Calendar.getInstance().getTime());
-//                Integer movementValue  = dataSnapshot.getValue(Integer.class);
-//
-//                ((CustomAdapter) myAdapter).notifyDataSetChanged();
-//                if((movementValue) > 50){
-//
-//                    mMessage.add( "Movement Detected in ");
-//                    itemCount++;
-//
-//                }
-//            }
-//
-//            @Override
-//            public void onCancelled(@NonNull DatabaseError databaseError) {
-//                Log.w("TAG", "Failed to read value");
-//            }
-//        });
-//
-//
-//
-//
-//
-//        myRefTemp.addValueEventListener(new ValueEventListener() {
-//
-//            @Override
-//            public void onDataChange(DataSnapshot dataSnapshot) {
-//                String mydate = java.text.DateFormat.getDateTimeInstance().format(Calendar.getInstance().getTime());
-//                Integer tempValue = dataSnapshot.getValue(Integer.class);
-//                Integer bestTemp = 18;
-//
-//                if((tempValue) != bestTemp) {
-//                    mMessage.add(" room Temp is: " + tempValue+"c" +  " \n" +mydate);
-//                    itemCount++;
-//                    ((CustomAdapter) myAdapter).notifyDataSetChanged();
-//                }
-//            }
-//
-//            @Override
-//            public void onCancelled(DatabaseError databaseError) {
-//                Log.w("TAG", "Failed to read value");
-//            }
-//        });
-//
-//        myRefLight.addValueEventListener(new ValueEventListener() {
-//            @Override
-//            public void onDataChange(DataSnapshot dataSnapshot) {
-//                String mydate = java.text.DateFormat.getDateTimeInstance().format(Calendar.getInstance().getTime());
-//                Integer lightValue = dataSnapshot.getValue(Integer.class);
-//
-//                if((lightValue) > 100){
-//                    if(mMessage.contains(lightValue)){
-//                        Log.d("TAG", "No Need" + lightValue);
-//                    }else{
-//                        mMessage.add("The Room is to Bright for " );
-//                        itemCount++;
-//                        mMessage.add("The Room Light Levels are to High: " + lightValue  + " \n" +mydate);
-//                        itemCount++;
-//                        ((CustomAdapter) myAdapter).notifyDataSetChanged();
-//                    }
-//
-//                }
-//
-//            }
-//
-//            @Override
-//            public void onCancelled(DatabaseError databaseError) {
-//                Log.w("TAG", "Failed to read value");
-//            }
-//        });
-//
-//        myRefSound.addValueEventListener(new ValueEventListener() {
-//            @Override
-//            public void onDataChange(DataSnapshot dataSnapshot) {
-//                String mydate = java.text.DateFormat.getDateTimeInstance().format(Calendar.getInstance().getTime());
-//                Integer soundValue = dataSnapshot.getValue(Integer.class);
-//
-//                Log.d("TAG", "itemTest");
-//                if((soundValue) >200){
-//                    if(mMessage.contains(soundValue)){
-//                        Log.d("TAG", "No Need" + soundValue);
-//                    }else{
-//                        mMessage.add("Sound Levels are High" );
-//                        itemCount++;
-//                        mMessage.add("The Room Sound Levels are: " + soundValue + " \n" +mydate);
-//                        itemCount++;
-//                    }
-//                        Log.w("TAG", "test");
-//                    mMessage.add("Sound Levels are High" );
-//                    itemCount++;
-//                    mMessage.add("The Room Sound Levels are: " + soundValue + " \n" +mydate);
-//                    itemCount++;
-//
-//                    ((CustomAdapter) myAdapter).notifyDataSetChanged();
-//
-//                }
-//
-//
-//                ((CustomAdapter) myAdapter).notifyDataSetChanged();
-//                Log.w("TAG", "test2 ");
-//                // Toast.makeText(getBaseContext(), "Number of warnings is " +itemCount, Toast.LENGTH_SHORT ).show();
-//
-//            }
-//
-//
-//
-//            @Override
-//            public void onCancelled(DatabaseError databaseError) {
-//                Log.w("TAG", "Failed to read value");
-//            }
-//
-//
-//        });
-
-
+        dayOfWeek = (TextView) findViewById(R.id.day);
         online = (ImageView) findViewById(R.id.online);
         offline = (ImageView) findViewById(R.id.offline);
+
+        MonthDay m = MonthDay.now();
+        String n = m.format(DateTimeFormatter.ofPattern("d"));
+        Integer result = Integer.valueOf(n);
+        String newN = n+"th";
+         if(result ==2){
+            newN = n+"nd";
+        }else if(result == 3){
+            newN = n+"rd";
+        }else if(result >= 4){
+             newN = n+"th";
+        }else if(result ==1||result ==31){
+              newN = n+"st";
+         }
+
+
+
+        Calendar calendar = Calendar.getInstance();
+        Date date = calendar.getTime();
+        final String dow = (new SimpleDateFormat("EEEE", Locale.ENGLISH).format(date.getTime()));
+        dayOfWeek.setText(dow + " " +newN);
+
 
 
 
@@ -204,31 +98,22 @@ public class MainActivity extends AppCompatActivity {
 
             }
         });
-//        Integer itemCount = mMessage.size();
-//        Log.d("TAG", "ListSize" + itemCount);
-//        myRefWarning.setValue(itemCount);
+
 
 }
 
-
-
-
-
-    public void onClick(View v){
+     public void onClick(View v){
         Intent myIntent = new Intent(getBaseContext(),   VideoScreen.class);
         startActivity(myIntent);
     }
 
-    public void cribOnClick(View v){
+     public void cribOnClick(View v){
         Intent myIntent = new Intent(getBaseContext(),   TempScreen.class);
         startActivity(myIntent);
     }
 
     public void messOnClick(View v){
-
-        Log.d("TAG", "ListSize2" + itemCount);
         Intent intent = new Intent(MainActivity.this, MessageOptions.class);
-//        intent.putExtra("key", itemCount);
         startActivity(intent);
 
 
