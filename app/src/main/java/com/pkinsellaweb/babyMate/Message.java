@@ -30,6 +30,7 @@ import java.util.Date;
 import java.util.Locale;
 
 import android.content.Intent;
+import android.widget.Toast;
 
 public class Message extends AppCompatActivity  {
     private SharedPreferences mPreferences;
@@ -57,6 +58,8 @@ public class Message extends AppCompatActivity  {
         Log.d("TAG", "Day " +dayOfWeek);
 
       FirebaseDatabase database = FirebaseDatabase.getInstance();
+
+
       DatabaseReference myRefTemp = database.getReference("Temp");
       DatabaseReference myRefHumid = database.getReference("Humid");
       DatabaseReference myRefSound = database.getReference("Sound");

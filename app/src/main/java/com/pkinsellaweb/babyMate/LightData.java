@@ -18,7 +18,13 @@ import com.google.firebase.database.ValueEventListener;
 
 import org.w3c.dom.Text;
 
+import java.text.SimpleDateFormat;
+import java.time.MonthDay;
+import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
+import java.util.Calendar;
+import java.util.Date;
+import java.util.Locale;
 
 public class LightData extends AppCompatActivity {
     private int mon = 200;
@@ -36,14 +42,14 @@ public class LightData extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_light_data);
 
-        int average = mon+tue+wed+thu+fri+sat+sund;
-        int newAve = average/5;
-        Log.d("TAG", "Average is" + average);
+        Calendar calendar = Calendar.getInstance();
+        Date date = calendar.getTime();
+        final String dow = (new SimpleDateFormat("EEEE", Locale.ENGLISH).format(date.getTime()));
 
 
         barchart = (BarChart) findViewById(R.id.barChart2);
         lightView = (TextView) findViewById(R.id.lightView2);
-        lightView.setText("Avg:"+newAve);
+
 
         FirebaseDatabase database = FirebaseDatabase.getInstance();
         DatabaseReference myRef = database.getReference();
@@ -51,16 +57,75 @@ public class LightData extends AppCompatActivity {
 
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
-                final Integer barTemp = dataSnapshot.child("Temp").getValue(Integer.class);
+                final Integer barLight = dataSnapshot.child("Light").getValue(Integer.class);
                 barchart = (BarChart) findViewById(R.id.barChart2);
                 ArrayList<BarEntry> barEntries = new ArrayList<>();
-                barEntries.add(new BarEntry(mon,0));
-                barEntries.add(new BarEntry(tue,1));
-                barEntries.add(new BarEntry(wed,2));
-                barEntries.add(new BarEntry(thu,3));
-                barEntries.add(new BarEntry(fri,4));
-                barEntries.add(new BarEntry(sat,5));
-                barEntries.add(new BarEntry(sund,6));
+               // int average = mon+tue+wed+fri+sat+sund;
+
+                if(dow.equals("Monday")){
+                    barEntries.add(new BarEntry(barLight,0));
+                    int average = barLight+tue+wed+thu+fri+sat+sund;
+                    int newAve = average/5;
+                    lightView.setText("Avg:"+newAve);
+                }else{
+                    barEntries.add(new BarEntry(mon,0));
+                }
+
+
+                if(dow.equals("Tuesday")){
+                    barEntries.add(new BarEntry(barLight,1));
+                    int average = mon+barLight+wed+thu+fri+sat+sund;
+                    int newAve = average/5;
+                    lightView.setText("Avg:"+newAve);
+                }else{
+                    barEntries.add(new BarEntry(tue,1));
+                }
+
+                if(dow.equals("Wednesday")){
+                    barEntries.add(new BarEntry(barLight,2));
+                    int average = mon+tue+barLight+thu+fri+sat+sund;
+                    int newAve = average/5;
+                    lightView.setText("Avg:"+newAve);
+                }else{
+                    barEntries.add(new BarEntry(wed,2));
+                }
+
+                if(dow.equals("Thursday")){
+                    barEntries.add(new BarEntry(barLight,3));
+                    int average = mon+tue+wed+barLight+fri+sat+sund;
+                    int newAve = average/5;
+                    lightView.setText("Avg:"+newAve);
+                }else{
+                    barEntries.add(new BarEntry(thu,3));
+                }
+
+                if(dow.equals("Friday")){
+                    barEntries.add(new BarEntry(barLight,4));
+                    int average = mon+tue+wed+thu+barLight+sat+sund;
+                    int newAve = average/5;
+                    lightView.setText("Avg:"+newAve);
+                }else{
+                    barEntries.add(new BarEntry(fri,4));
+                }
+
+                if(dow.equals("Saturday")){
+                    barEntries.add(new BarEntry(barLight,5));
+                    int average = mon+tue+wed+thu+fri+barLight+sund;
+                    int newAve = average/5;
+                    lightView.setText("Avg:"+newAve);
+                }else{
+                    barEntries.add(new BarEntry(sat,5));
+                }
+
+                if(dow.equals("Sunday")){
+                    barEntries.add(new BarEntry(barLight,6));
+                    int average = mon+tue+wed+thu+fri+sat+barLight;
+                    int newAve = average/5;
+                    lightView.setText("Avg:"+newAve);
+                }else{
+                    barEntries.add(new BarEntry(sund,6));
+                }
+
                 BarDataSet barDataSet = new BarDataSet(barEntries,"BabyMate Light Data");
 
                 ArrayList<String> theDays = new ArrayList<>();
@@ -80,13 +145,7 @@ public class LightData extends AppCompatActivity {
                 barchart.setDragEnabled(true);
                 barchart.setScaleEnabled(true);
 
-
-
-
-
-
-
-            }
+                }
 
 
 
