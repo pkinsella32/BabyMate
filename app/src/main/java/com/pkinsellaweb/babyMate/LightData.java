@@ -46,10 +46,8 @@ public class LightData extends AppCompatActivity {
         Date date = calendar.getTime();
         final String dow = (new SimpleDateFormat("EEEE", Locale.ENGLISH).format(date.getTime()));
 
-
         barchart = (BarChart) findViewById(R.id.barChart2);
         lightView = (TextView) findViewById(R.id.lightView2);
-
 
         FirebaseDatabase database = FirebaseDatabase.getInstance();
         DatabaseReference myRef = database.getReference();
@@ -60,7 +58,6 @@ public class LightData extends AppCompatActivity {
                 final Integer barLight = dataSnapshot.child("Light").getValue(Integer.class);
                 barchart = (BarChart) findViewById(R.id.barChart2);
                 ArrayList<BarEntry> barEntries = new ArrayList<>();
-               // int average = mon+tue+wed+fri+sat+sund;
 
                 if(dow.equals("Monday")){
                     barEntries.add(new BarEntry(barLight,0));
@@ -70,7 +67,6 @@ public class LightData extends AppCompatActivity {
                 }else{
                     barEntries.add(new BarEntry(mon,0));
                 }
-
 
                 if(dow.equals("Tuesday")){
                     barEntries.add(new BarEntry(barLight,1));
@@ -137,10 +133,8 @@ public class LightData extends AppCompatActivity {
                 theDays.add("Sat");
                 theDays.add("Sun");
 
-
                 BarData theData = new BarData(theDays,barDataSet);
                 barchart.setData(theData);
-
                 barchart.setTouchEnabled(true);
                 barchart.setDragEnabled(true);
                 barchart.setScaleEnabled(true);

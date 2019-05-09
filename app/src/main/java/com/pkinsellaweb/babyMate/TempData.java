@@ -15,7 +15,11 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Calendar;
+import java.util.Date;
+import java.util.Locale;
 
 public class TempData extends AppCompatActivity {
     private int mon = 18;
@@ -34,14 +38,12 @@ public class TempData extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_temp_data);
 
-        int average = mon+tue+wed+thu+fri+sat+sund;
-        int newAve = average/5;
+        Calendar calendar = Calendar.getInstance();
+        Date date = calendar.getTime();
+        final String dow = (new SimpleDateFormat("EEEE", Locale.ENGLISH).format(date.getTime()));
 
         barchart = (BarChart) findViewById(R.id.barChart3);
         tempView = (TextView) findViewById(R.id.tempView2);
-        tempView.setText("Avg:"+newAve);
-
-
 
         FirebaseDatabase database = FirebaseDatabase.getInstance();
         DatabaseReference myRef = database.getReference();
@@ -52,13 +54,75 @@ public class TempData extends AppCompatActivity {
                 final Integer barTemp = dataSnapshot.child("Temp").getValue(Integer.class);
                 barchart = (BarChart) findViewById(R.id.barChart3);
                 ArrayList<BarEntry> barEntries = new ArrayList<>();
-                barEntries.add(new BarEntry(mon,0));
-                barEntries.add(new BarEntry(tue,1));
-                barEntries.add(new BarEntry(wed,2));
-                barEntries.add(new BarEntry(thu,3));
-                barEntries.add(new BarEntry(fri,4));
-                barEntries.add(new BarEntry(sat,5));
-                barEntries.add(new BarEntry(sund,6));
+                if(dow.equals("Monday")){
+                    barEntries.add(new BarEntry(barTemp,0));
+                    int average = barTemp+tue+wed+thu+fri+sat+sund;
+                    int newAve = average/5;
+                    tempView.setText("Avg:"+newAve);
+                }else{
+                    barEntries.add(new BarEntry(mon,0));
+                }
+
+                if(dow.equals("Tuesday")){
+                    barEntries.add(new BarEntry(barTemp,1));
+                    int average = mon+barTemp+wed+thu+fri+sat+sund;
+                    int newAve = average/5;
+                    tempView.setText("Avg:"+newAve);
+                }else{
+                    barEntries.add(new BarEntry(tue,1));
+                }
+
+                if(dow.equals("Wednesday")){
+                    barEntries.add(new BarEntry(barTemp,2));
+                    int average = mon+tue+barTemp+thu+fri+sat+sund;
+                    int newAve = average/5;
+                    tempView.setText("Avg:"+newAve);
+                }else{
+                    barEntries.add(new BarEntry(wed,2));
+                }
+
+                if(dow.equals("Thursday")){
+                    barEntries.add(new BarEntry(barTemp,3));
+                    int average = mon+tue+wed+barTemp+fri+sat+sund;
+                    int newAve = average/5;
+                    tempView.setText("Avg:"+newAve);
+                }else{
+                    barEntries.add(new BarEntry(thu,3));
+                }
+
+                if(dow.equals("Friday")){
+                    barEntries.add(new BarEntry(barTemp,4));
+                    int average = mon+tue+wed+thu+barTemp+sat+sund;
+                    int newAve = average/5;
+                    tempView.setText("Avg:"+newAve);
+                }else{
+                    barEntries.add(new BarEntry(fri,4));
+                }
+
+                if(dow.equals("Saturday")){
+                    barEntries.add(new BarEntry(barTemp,5));
+                    int average = mon+tue+wed+thu+fri+barTemp+sund;
+                    int newAve = average/5;
+                    tempView.setText("Avg:"+newAve);
+                }else{
+                    barEntries.add(new BarEntry(sat,5));
+                }
+
+                if(dow.equals("Sunday")){
+                    barEntries.add(new BarEntry(barTemp,6));
+                    int average = mon+tue+wed+thu+fri+sat+barTemp;
+                    int newAve = average/5;
+                    tempView.setText("Avg:"+newAve);
+                }else{
+                    barEntries.add(new BarEntry(sund,6));
+                }
+//                barEntries.add(new BarEntry(mon,0));
+//                barEntries.add(new BarEntry(tue,1));
+//                barEntries.add(new BarEntry(wed,2));
+//                barEntries.add(new BarEntry(thu,3));
+//                barEntries.add(new BarEntry(fri,4));
+//                barEntries.add(new BarEntry(sat,5));
+//                barEntries.add(new BarEntry(sund,6));
                 BarDataSet barDataSet = new BarDataSet(barEntries,"BabyMate Temp Data");
 
                 ArrayList<String> theDays = new ArrayList<>();
@@ -69,7 +133,6 @@ public class TempData extends AppCompatActivity {
                 theDays.add("Fri");
                 theDays.add("Sat");
                 theDays.add("Sun");
-
 
                 BarData theData = new BarData(theDays,barDataSet);
                 barchart.setData(theData);
