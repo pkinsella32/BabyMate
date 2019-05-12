@@ -95,11 +95,11 @@
             android:textSize="30sp"
             android:textStyle="bold"/>
 
-        <TextView
-            android:id="@+id/newText"
-            android:layout_width="match_parent"
-            android:layout_height="79dp"
-            android:text="testTextView" />
+        <!--<TextView-->
+            <!--android:id="@+id/newText"-->
+            <!--android:layout_width="match_parent"-->
+            <!--android:layout_height="79dp"-->
+            <!--android:text="testTextView" />-->
 
 
 </LinearLayout >

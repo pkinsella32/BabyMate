@@ -144,24 +144,24 @@ public class MainActivity extends AppCompatActivity {
         startActivity(myIntent);
     }
 
-    public void messOnClick(View v){
+     public void messOnClick(View v){
         Intent intent = new Intent(MainActivity.this, MessageOptions.class);
         startActivity(intent);
 
 
     }
 
-    public void userOnClick(View v){
+     public void userOnClick(View v){
         Intent myIntent = new Intent(getBaseContext(),   UserProfile.class);
         startActivity(myIntent);
     }
 
-    public void musicOnClick(View v){
+     public void musicOnClick(View v){
         Intent myIntent = new Intent(getBaseContext(),   Music.class);
         startActivity(myIntent);
     }
 
-    public void dashOnClick(View v){
+     public void dashOnClick(View v){
         Intent myIntent = new Intent(getBaseContext(),   Dashboard.class);
         startActivity(myIntent);
     }

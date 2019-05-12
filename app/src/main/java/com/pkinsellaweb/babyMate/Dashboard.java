@@ -36,11 +36,9 @@ public class Dashboard extends AppCompatActivity {
     BarChart barChart;
     private ArrayList<String> mMessage = new ArrayList<>();
     private ListView messageListView;
-    PieChart pieChart;
     private Button lightButton;
     private Button tempButton;
     private Button soundButton;
-    private TextView myView;
 
 
     @Override
@@ -48,7 +46,7 @@ public class Dashboard extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_dashboard);
 
-        myView = (TextView) findViewById(R.id.newText);
+
         tempButton = (Button) findViewById(R.id.tempButton);
         soundButton = (Button) findViewById(R.id.soundButton);
 
@@ -63,59 +61,6 @@ public class Dashboard extends AppCompatActivity {
                 final Integer barLight = dataSnapshot.child("Light").getValue(Integer.class);
                 final Integer barSound = dataSnapshot.child("Sound").getValue(Integer.class);
                 final Integer barMovement = dataSnapshot.child("Temp").getValue(Integer.class);
-
-                Integer tempSave = dataSnapshot.child("Temp").getValue(Integer.class);
-                Integer humidSave = dataSnapshot.child("Humid").getValue(Integer.class);
-                Log.d("DebugTag","TempSave Value is " + Integer.toString(tempSave) + "saved in " +getFilesDir());
-                FileOutputStream fos = null;
-                try {
-                    fos = openFileOutput(FILE_NAME, MODE_PRIVATE);
-                    fos.write(tempSave.intValue());
-                    fos.write(humidSave.intValue());
-                   // Toast.makeText(getBaseContext(), "Temp Number is " +tempSave+ " Humid number is " +humidSave, Toast.LENGTH_SHORT ).show();
-                } catch (FileNotFoundException e) {
-                    e.printStackTrace();
-                } catch (IOException e) {
-                    e.printStackTrace();
-                }finally {
-                    {
-                       if(fos != null){
-                           try {
-                               fos.close();
-                           } catch (IOException e) {
-                               e.printStackTrace();
-                           }
-                       }
-                    }
-                }
-
-                FileInputStream fis = null;
-
-                try{
-                    fis = openFileInput(FILE_NAME);
-                    InputStreamReader isr = new InputStreamReader(fis);
-                    BufferedReader br = new BufferedReader(isr);
-                    StringBuilder sb = new StringBuilder();
-                    String readTempSave;
-                    while ((readTempSave = br.readLine()) != null){
-                        sb.append(tempSave).append("\n");
-                    }
-
-                    myView.setText(sb);
-                } catch (FileNotFoundException e) {
-                    e.printStackTrace();
-                } catch (IOException e) {
-                    e.printStackTrace();
-                }finally{
-                    if(fis != null){
-                        try {
-                            fis.close();
-                        } catch (IOException e) {
-                            e.printStackTrace();
-                        }
-                    }
-                }
-
 
                 barChart = findViewById(R.id.barChart1);
                 lightButton = findViewById(R.id.lightButton);
@@ -170,6 +115,8 @@ public class Dashboard extends AppCompatActivity {
                 barChart.setDragEnabled(true);
                 barChart.setScaleEnabled(true);
 
+
+
  }
 
 
@@ -183,39 +130,6 @@ public class Dashboard extends AppCompatActivity {
         });
 
 }
-
-//public void load(View v){
-//    FileInputStream fis = null;
-//
-//    try{
-//        fis = openFileInput(FILE_NAME);
-//        InputStreamReader isr = new InputStreamReader(fis);
-//        BufferedReader br = new BufferedReader(isr);
-//        StringBuilder sb = new StringBuilder();
-//        String tempSave;
-//        while ((tempSave = br.readLine()) != null){
-//            sb.append(tempSave).append("\n");
-//        }
-//
-//        myView.setText(sb.toString());
-//    } catch (FileNotFoundException e) {
-//        e.printStackTrace();
-//    } catch (IOException e) {
-//        e.printStackTrace();
-//    }finally{
-//        if(fis != null){
-//            try {
-//                fis.close();
-//            } catch (IOException e) {
-//                e.printStackTrace();
-//            }
-//        }
-//    }
-//}
-
-
-
-
 
 
 }

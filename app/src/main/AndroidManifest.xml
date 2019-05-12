@@ -31,15 +31,6 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".AI"
-            android:theme="@style/AppTheme.NoActionBar" />
-        <activity
-            android:name=".Strat"
-            android:theme="@style/AppTheme.NoActionBar" />
-        <activity
-            android:name=".MMD"
-            android:theme="@style/AppTheme.NoActionBar" />
-        <activity
             android:name=".MainActivity"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity

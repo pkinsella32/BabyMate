@@ -1,11 +1,14 @@
 package com.pkinsellaweb.babyMate;
 
 import android.content.Intent;
+import android.graphics.Color;
 import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
+import android.view.animation.AlphaAnimation;
+import android.view.animation.Animation;
 import android.widget.ListView;
 import android.widget.TextView;
 
@@ -57,10 +60,17 @@ public class TempScreen extends AppCompatActivity {
                     soundView.setVisibility(View.GONE);
                     soundView2.setVisibility(View.VISIBLE);
                     soundView2.setText("Sound Levels High");
+                    Animation anim = new AlphaAnimation(0.0f, 1.0f);
+                    anim.setDuration(750); //You can manage the blinking time with this parameter
+                    anim.setStartOffset(20);
+                    anim.setRepeatMode(Animation.REVERSE);
+                    anim.setRepeatCount(Animation.INFINITE);
+                    soundView2.startAnimation(anim);
                 }else if((soundValue < 250)){
                     soundView2.setVisibility(View.GONE);
                     soundView.setVisibility(View.VISIBLE);
                     soundView.setText("Sound Levels Optimal");
+                    soundView2.clearAnimation();
                 }
             }
 
@@ -79,10 +89,17 @@ public class TempScreen extends AppCompatActivity {
                     motionView2.setVisibility(View.GONE);
                     motionView.setVisibility(View.VISIBLE);
                     motionView.setText("No Movement Detected");
+                    motionView2.clearAnimation();
                 }else if((motionValue > 20)){
                     motionView.setVisibility(View.GONE);
                     motionView2.setVisibility(View.VISIBLE);
                     motionView2.setText("Movement Detected");
+                    Animation anim = new AlphaAnimation(0.0f, 1.0f);
+                    anim.setDuration(750); //You can manage the blinking time with this parameter
+                    anim.setStartOffset(20);
+                    anim.setRepeatMode(Animation.REVERSE);
+                    anim.setRepeatCount(Animation.INFINITE);
+                    motionView2.startAnimation(anim);
                 }
             }
 
@@ -117,11 +134,20 @@ public class TempScreen extends AppCompatActivity {
             public void onDataChange(DataSnapshot dataSnapshot) {
                 Integer airValue = dataSnapshot.getValue(Integer.class);
                 String airString = Integer.toString(airValue);
-                if(airValue < 300){
+                if(airValue <= 400){
+                    airTextView.setTextColor(Color.WHITE);
                     airTextView.setText("Air Quality is: Good");
+                    airTextView.clearAnimation();;
                 }
-                if(airValue > 700){
+                else if(airValue > 400){
                     airTextView.setText("Air Quality is: Bad");
+                    airTextView.setTextColor(Color.RED);
+                    Animation anim = new AlphaAnimation(0.0f, 1.0f);
+                    anim.setDuration(750); //You can manage the blinking time with this parameter
+                    anim.setStartOffset(20);
+                    anim.setRepeatMode(Animation.REVERSE);
+                    anim.setRepeatCount(Animation.INFINITE);
+                    airTextView.startAnimation(anim);
                 }
 
             }
@@ -175,6 +201,11 @@ public class TempScreen extends AppCompatActivity {
 
     public void tempOnClick(View v){
         Intent myIntent = new Intent(getBaseContext(),   TempControl.class);
+        startActivity(myIntent);
+    }
+
+    public void moveOnClick(View v){
+        Intent myIntent = new Intent(getBaseContext(),   VideoScreen.class);
         startActivity(myIntent);
     }
 
